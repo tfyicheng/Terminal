@@ -1,0 +1,118 @@
+﻿<Window x:Class="Terminal.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+          xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+          xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+          mc:Ignorable="d" d:DesignHeight="870" d:DesignWidth="1130"
+        Title="终端"  x:Name="AppMain" MinHeight="770" MinWidth="1030" Height="870" Width="1130" WindowStartupLocation="CenterScreen" Icon="pack://application:,,,/Resources/icon.ico" 
+         Loaded="AppMain_Loaded" StateChanged="AppMain_StateChanged">
+    <WindowChrome.WindowChrome>
+        <WindowChrome UseAeroCaptionButtons="False" NonClientFrameEdges="None" CaptionHeight="40" />
+    </WindowChrome.WindowChrome>
+    <Grid x:Name="Main">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!--第一列侧边菜单栏-->
+        <Grid Grid.Column="0" Background="#21345c">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="110"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="80"></RowDefinition>
+            </Grid.RowDefinitions>
+            <!--头像-->
+            <Grid Grid.Row="0">
+                <Image Source="pack://application:,,,/Resources/tx.png" Width="60" Height="60" Margin="0,25,0,0" ></Image>
+                <!--<controls:DynamicImage x:Name="conHeadImage">
+                            <controls:DynamicImage.Clip>
+                                <EllipseGeometry Center="15,15" RadiusX="15" RadiusY="15"/>
+                            </controls:DynamicImage.Clip>
+                        </controls:DynamicImage>-->
+            </Grid>
+            <!--导航菜单-->
+            <Grid Grid.Row="1" Margin="4,15,4,0" ClipToBounds="True">
+                <StackPanel Orientation="Vertical">
+                    <Border x:Name="AutoTest" Style="{StaticResource BorderSelectPage}" MouseLeftButtonUp="BrdSelectPage_MouseLeftButtonUp" >
+                        <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Tag="13">
+                            <TextBlock  FontFamily="{StaticResource ElementIcon}" Text="&#xe648;" HorizontalAlignment="Center" />
+                            <TextBlock  FontSize="12" Text="自动测试" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,-20"/>
+                        </Grid>
+                         
+                    </Border>
+                    <Border x:Name="ManualTest" Style="{StaticResource BorderSelectPage}" MouseLeftButtonUp="BrdSelectPage_MouseLeftButtonUp">
+                        <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Tag="66">
+                            <TextBlock FontFamily="{StaticResource ElementIcon}" Text="&#xe6ce;" HorizontalAlignment="Center"/>
+                            <TextBlock FontSize="12" Text="手动测试" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,-20"/>
+                        </Grid>
+                    </Border>
+                    <Border  x:Name="AddressBook" Style="{StaticResource BorderSelectPage}" MouseLeftButtonUp="BrdSelectPage_MouseLeftButtonUp">
+                        <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Tag="67">
+                            <TextBlock FontFamily="{StaticResource ElementIcon}" Text="&#xe6dd;" HorizontalAlignment="Center"/>
+                            <TextBlock FontSize="12" Text="通讯录" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,-20"/>
+                        </Grid>
+                    </Border>
+                    <Border x:Name="DataCollect"  Style="{StaticResource BorderSelectPage}" MouseLeftButtonUp="BrdSelectPage_MouseLeftButtonUp">
+                        <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Tag="67">
+                            <TextBlock FontFamily="{StaticResource ElementIcon}" Text="&#xe65f;" HorizontalAlignment="Center"/>
+                            <TextBlock FontSize="12" Text="数据采集" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,-20"/>
+                        </Grid>
+                    </Border>
+                    <Border x:Name="EnergyAssess"  Style="{StaticResource BorderSelectPage}" MouseLeftButtonUp="BrdSelectPage_MouseLeftButtonUp" Cursor="Hand">
+                        <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Tag="67">
+                            <TextBlock FontFamily="{StaticResource ElementIcon}" Text="&#xe617;" HorizontalAlignment="Center"/>
+                            <TextBlock FontSize="12" Text="效能评估" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,-20"/>
+                        </Grid>
+                    </Border>
+                 
+                </StackPanel>          
+                <!--<Border x:Name="brdSlider" Height="24" Width="4" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,-24,0,0" Background="White" CornerRadius="2" IsHitTestVisible="False"/>-->
+            </Grid>
+           <!--设置菜单-->
+            <Grid Grid.Row="2">
+              <ToggleButton x:Name="tolHeadImage" Style="{StaticResource ToggleButtonTemplate}">
+                    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Tag="67" x:Name="menu" Cursor="Hand">
+                        <TextBlock FontFamily="{StaticResource ElementIcon}" FontSize="25" Foreground="White" Text="&#xe600;"/>
+                    </Grid>
+                </ToggleButton>
+                   <!--菜单弹窗-->
+                    <Popup x:Name="popInformation" PlacementTarget="{Binding ElementName=tolHeadImage}" Placement="Right" PopupAnimation="Fade" AllowsTransparency="True" HorizontalOffset="0" VerticalOffset="-40" StaysOpen="False" IsOpen="{Binding ElementName=tolHeadImage,Path=IsChecked}">
+                    <Border >
+                        <StackPanel>
+                            <Button Style="{StaticResource ButtonMenu}" >统一授时</Button>
+                            <Button  Style="{StaticResource ButtonMenu}" Click="ConfigShow">接入配置</Button>
+                            <Button Style="{StaticResource ButtonMenu}" Click="LoginOut">注销</Button>
+                        </StackPanel>
+                    </Border>
+                    </Popup>
+              
+            </Grid>
+        </Grid>
+
+
+
+        <!--第二列主体-->
+        <Grid Grid.Column="1">
+            <Grid>
+
+                <!-- 主窗体-->
+                <StackPanel Panel.ZIndex="99" Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" WindowChrome.IsHitTestVisibleInChrome="True" SnapsToDevicePixels="True">
+                    <Button x:Name="btnMin" Style="{StaticResource ButtonMin}" Height="48" Width="50" Click="BtnMin_Click"/>
+                    <Button x:Name="btnState" Style="{StaticResource ButtonState}" Height="48" Width="50" Click="BtnState_Click"/>
+                    <Button x:Name="btnClose" Style="{StaticResource ButtonClose}" Height="48" Width="50" Click="BtnClose_Click"/>
+                </StackPanel>
+
+                <Grid Grid.Row="0" Panel.ZIndex="90" >
+                    <Frame x:Name="femRouteMain"   NavigationUIVisibility="Hidden" Navigated="FemRouteMain_Navigated" BorderThickness="0"/>
+                </Grid>
+
+            </Grid>
+            <!--<Border x:Name="brdMask" Background="#E6FFFFFF" Visibility="Collapsed" Navigated="FemRouteMain_Navigated">
+                <threading:AsyncBox x:Name="thrLoading" Height="50" Width="50"/>
+            </Border>Margin="14,20,14,14"-->
+        </Grid>
+
+    </Grid>
+</Window>
+

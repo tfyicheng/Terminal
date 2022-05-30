@@ -1,0 +1,70 @@
+﻿<UserControl x:Class="Terminal.Component.Controls.QosCfgView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Terminal.Component.Controls"
+             mc:Ignorable="d" >
+    <Grid Margin="0,0,0,-114">
+      
+     
+        <Label  Content="QoS/QoE" BorderThickness="0" HorizontalAlignment="Left"  FontSize="16" Height="33"  Name="labelNetworkTitle" VerticalAlignment="Top" FontWeight="Bold"/>
+        <StackPanel Orientation="Vertical">
+            <GroupBox  Margin="10,40,10,0" VerticalAlignment="Top" >
+            <GroupBox.Header>
+                <TextBlock FontSize="14" FontWeight="Bold" Foreground="black" Text="视频参数" />
+            </GroupBox.Header>
+            <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Orientation="Vertical" Grid.Column="0" >
+                        <Label Content="视频分辨率" Foreground="black" Margin="8" Width="100" Name="label3" VerticalAlignment="Top"  />
+                        <Label Content="视频帧率" Foreground="black" Margin="8" Width="100"  Name="label4" VerticalAlignment="Top" />
+                        <Label Content="上行带宽(kbps)" Foreground="black" Margin="8" Width="100" VerticalAlignment="Top" />
+                        <Label Content="下行带宽(kbps)" Foreground="black" Margin="8" Width="100"  VerticalAlignment="Top" />
+
+                    </StackPanel>
+
+
+                    <StackPanel Orientation="Vertical" Grid.Column="1" >
+                        <ComboBox  Margin="7" Name="comboBoxPrefVideoSize" SelectedIndex="{Binding Path=SelectIndex}" Grid.Column="3" Height="22" VerticalAlignment="Top" ItemsSource="{Binding Path=PrefVideoSizeValues, Mode=TwoWay,UpdateSourceTrigger=Explicit}">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text = "{Binding Path=Text}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+
+                        <TextBox  Name="TextBoxVideoFPS" Height="24" Margin="8"  VerticalAlignment="Top" Text="{Binding Path=VideoFPS}"/>
+
+                        <TextBox  Name="TextBoxVideoBr" Height="24" Margin="8"   VerticalAlignment="Top"  Text="{Binding Path=VideoBitrate}"/>
+
+                        <TextBox  Name="TextBoxDownBandwidth" Height="24" Margin="8" VerticalAlignment="Top" Text="{Binding Path=VideoMaxDownBandwidth}"/>
+                    </StackPanel>
+
+         
+            </Grid>
+        </GroupBox>
+
+
+            <GroupBox  Margin="10" VerticalAlignment="Top">
+                <GroupBox.Header>
+                    <TextBlock FontSize="14" FontWeight="Bold" Foreground="black" Text="网络自适应" />
+                </GroupBox.Header>
+
+                <Grid>
+                    <CheckBox Content="RTCP反馈" Foreground="black" Height="24" Margin="6,5,0,0" Name="checkBoxRtcpFeedback" VerticalAlignment="Top" IsChecked="{Binding Path=IsEnableRtcpFd, UpdateSourceTrigger=Explicit, Mode=TwoWay}"/>
+                    <CheckBox Content="拥塞控制" Foreground="black" Height="24" Margin="6,34,0,0" Name="checkBoxCongCtrl" VerticalAlignment="Top" IsChecked="{Binding Path=IsEnableCongCtrl, UpdateSourceTrigger=Explicit, Mode=TwoWay}"/>
+                </Grid>
+            </GroupBox>
+
+        </StackPanel>
+    
+
+     
+    </Grid>
+</UserControl>

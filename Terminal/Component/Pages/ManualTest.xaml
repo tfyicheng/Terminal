@@ -1,0 +1,69 @@
+﻿<Page x:Class="Terminal.Component.Pages.ManualTest"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      xmlns:hc ="https://handyorg.github.io/handycontrol"
+      xmlns:viewmodels="clr-namespace:Terminal.Library.ViewModel" 
+      xmlns:controls="clr-namespace:Terminal.Component.Controls"
+      d:DesignHeight="548" d:DesignWidth="962"
+      
+      x:Name="ManualTestMain"  Loaded="ManualTestMain_Loaded" Unloaded="ManualTestMain_Unloaded"
+	Title="ManualTest">
+
+    <Page.DataContext>
+        <viewmodels:ManualTestView/>
+    </Page.DataContext>
+    <!--//页面进入动画-->
+    <Page.Triggers>
+        <EventTrigger RoutedEvent="Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.3"/>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Page.Triggers>
+
+    <Grid x:Name="grdMain" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="340"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!--聊天框-->
+        <controls:ChatMain Grid.Column="1" Margin="0,0,0,0" Visibility="Collapsed"/>
+
+        <!--联系人列表-->
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5.875"/>
+                <RowDefinition Height="84.125"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Border Grid.RowSpan="3" Background="#FFFFFF" CornerRadius="4" >
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="0" BlurRadius="8" Color="#C0C4CC" Opacity="0.2"/>
+                </Border.Effect>
+            </Border>
+            <!--列表顶部-->
+            <Grid Grid.Row="0" Margin="0,0,0,0" Grid.RowSpan="2">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="15,20,15,0">
+                    <hc:SearchBar Width="200" Height="38" hc:InfoElement.Placeholder="搜索" FontSize="18" ShowClearButton="True" BorderThickness="0" Background="#eee"  Style="{StaticResource SearchBarPlus}"/>
+                    <Button  BorderThickness="0" Background="#eee" Margin="15" Height="38" Width="38" Cursor="Hand" FontSize="18" FontFamily="{StaticResource ElementIcon}">&#xe626;</Button>
+                    <Button  BorderThickness="0" Background="#eee" Height="38" Width="38" Cursor="Hand" FontSize="18" FontFamily="{StaticResource ElementIcon}">&#xe864;</Button>
+                </StackPanel>
+                <Line VerticalAlignment="Bottom" X1="0" Y1="0" X2="2400" Y2="0" Stroke="#C0C4CC"/>
+            </Grid>
+            <!--列表内容-->
+            <ItemsControl x:Name="itcChat" Grid.Row="2"  Margin="0,0,0,0"   ItemsSource="{Binding ChatColumnInfos}" Style="{StaticResource ItemsControlVirtualization}"  Grid.ColumnSpan="2">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <controls:ChatItem DataContext="{Binding}"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Grid>
+    </Grid>
+</Page>

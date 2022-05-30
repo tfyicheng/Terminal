@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="Terminal.Component.Controls.CodecsCfgView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Terminal.Component.Controls"
+             mc:Ignorable="d" 
+             >
+    <Grid Name="gridCodecs">
+
+        <Label Content="媒体编码" HorizontalAlignment="Left" BorderThickness="0" Foreground="black" FontSize="16" Height="33" Margin="0,0,0,0" Name="labelCodecsTitle" VerticalAlignment="Top" FontWeight="Bold" />
+        <ListBox Margin="8,39,6,6" Name="listBoxCodecs" HorizontalContentAlignment="Stretch" ItemsSource="{Binding Path=SupportedCodecs, Mode=TwoWay,UpdateSourceTrigger=Explicit}" Background="Black" Foreground="White">
+            <!--<ListBox Margin="8,39,6,6" Name="listBoxCodecs" HorizontalContentAlignment="Stretch" ItemsSource="{Binding Source={StaticResource ResourceKey=cvs}}">
+            <ListBox.GroupStyle>
+                <GroupStyle>
+                    <GroupStyle.HeaderTemplate>
+                        <DataTemplate>
+                            <Border BorderThickness="1" BorderBrush="SkyBlue" CornerRadius="2,2,2,2" Margin="0,0,3,0">
+                                <TextBlock Text="{Binding Path=Name}" FontSize="14" FontWeight="Bold" Margin="5" />
+                            </Border>
+                        </DataTemplate>
+                    </GroupStyle.HeaderTemplate>
+                </GroupStyle>
+            </ListBox.GroupStyle>-->
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <DockPanel Margin="2">
+                        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+                            <CheckBox IsChecked="{Binding Path=IsEnabled, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="3"/>
+                            <TextBlock Text="{Binding Path=Name}" HorizontalAlignment="Right" FontWeight="Bold" />
+                            <TextBlock Text="{Binding Path=Description}" FontStyle="Italic" Margin="8,0,0,0"/>
+                        </StackPanel>
+
+                    </DockPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</UserControl>

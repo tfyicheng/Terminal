@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="Terminal.Component.Controls.ChatItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+           Loaded="UserControlMain_Loaded" DataContextChanged="UserControlMain_DataContextChanged">
+    <Border x:Name="brdChat" Style="{StaticResource BorderGradualBackground}" MouseLeftButtonUp="BrdChat_MouseLeftButtonUp">
+        <Grid Height="50" Margin="15,10,15,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="30"/>
+            </Grid.ColumnDefinitions>
+            <!--头像 Source="{Binding Converter={StaticResource ImageSourceOnlineConvert}, ConverterParameter=80}"-->
+            <Image  x:Name="imgHead" Grid.Column="0" Height="50" Width="50" Source="pack://application:,,,/Resources/tx.png" >
+                <!--<Image.Clip>
+                    <EllipseGeometry Center="20,20" RadiusX="20" RadiusY="20"/>
+                </Image.Clip>-->
+            </Image>
+            <!--文本内容-->
+            <Grid Grid.Column="1" Margin="10,2,0,3">
+                <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <Run  x:Name="txbNickName" FontSize="18" Foreground="#303133"/>
+                    <Run x:Name="txbRemarkName" FontSize="10" Foreground="#C0C4CC"/>
+                </TextBlock>
+                <!--最后一条消息-->
+                <TextBlock Text="测试测试测试测试测试测测试测试测测试测试测测试测试测试" x:Name="txbLastMessage" HorizontalAlignment="Left" VerticalAlignment="Bottom" Foreground="#909399" TextTrimming="CharacterEllipsis"/>
+                <TextBlock Margin="0,0,-40,0" Text="2022年2月2日22:22" Width="120" x:Name="txbLastTime" HorizontalAlignment="Right" VerticalAlignment="Top" Foreground="#909399"/>
+            </Grid>
+            <!--时间-->
+            <Grid Grid.Column="2">
+               
+                <!--未读消息-->
+                <Border x:Name="brdBadge" Height="16" MaxWidth="34" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,0,4" Background="red" CornerRadius="8" Visibility="Visible">
+                    <TextBlock Text="999" x:Name="txbBadgeNumber" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,5,0" Foreground="#FFFFFF" FontSize="11"/>
+                </Border>
+            </Grid>
+        </Grid>
+    </Border>
+</UserControl>

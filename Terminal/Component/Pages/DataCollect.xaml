@@ -1,0 +1,60 @@
+﻿<Page x:Class="Terminal.Component.Pages.DataCollect"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Terminal.Component.Pages"
+        xmlns:controls="clr-namespace:Terminal.Component.Controls"
+      mc:Ignorable="d" 
+       xmlns:hc="https://handyorg.github.io/handycontrol"
+   
+     d:DesignHeight="548" d:DesignWidth="962" Background="White"
+      Title="DataCollect">
+
+    <!--<Page.Triggers>
+        <EventTrigger RoutedEvent="Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.3"/>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Page.Triggers>-->
+
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="90"/>
+          
+            <RowDefinition Height="*"/>
+     
+        </Grid.RowDefinitions>
+
+        <!--页头-->
+        <TextBlock FontSize="28" VerticalAlignment="Center" Margin="25"   >数据采集</TextBlock>
+        <Line  VerticalAlignment="Bottom" Height="1" X1="0" Y1="0" X2="14400" Y2="0" Stroke="#ddd"></Line>
+
+        <TabControl Grid.Row="1"  >
+            <TabItem Header="终端设备"  Width="100" Cursor="Hand">
+
+                <Frame Source="/ComPonent/Pages/TerminalDevice.xaml" BorderThickness="0"></Frame>
+
+
+            </TabItem>
+            
+            <TabItem Header="电台设备" Width="100" Cursor="Hand">
+
+                <Frame Source="/ComPonent/Pages/RadioDevice.xaml" BorderThickness="0"></Frame>
+
+            </TabItem>
+
+            <TabItem Header="电台射频" Width="100" Cursor="Hand">
+
+                <Frame Source="/ComPonent/Pages/RadioFrequency.xaml" BorderThickness="0"></Frame>
+
+            </TabItem>
+        </TabControl>
+      
+   
+
+    </Grid>
+</Page>
