@@ -4,11 +4,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Terminal.Component.Controls"
-              
+              xmlns:customcontrols="clr-namespace:Terminal.Library.ViewModel"
              xmlns:controls="clr-namespace:Terminal.Component.Controls"
              mc:Ignorable="d" 
              x:Name="UserControlMain" Background="Transparent" Loaded="UserControlMain_Loaded" DataContextChanged="UserControlMain_DataContextChanged">
-    <!--xmlns:customcontrols="clr-namespace:DimensionClient.Library.CustomControls"-->
+    <!---->
     <UserControl.RenderTransform>
         <TransformGroup>
             <ScaleTransform x:Name="stfLoaded"/>
@@ -36,14 +36,17 @@
     </UserControl.Triggers>
     <Border Margin="0,6,15,6">
         <DockPanel Margin="100,0,0,0">
-            <Image x:Name="imgHead" Height="40" Width="40" VerticalAlignment="Top" DockPanel.Dock="Right">
+            <Image Source="pack://application:,,,/Resources/tx.png" x:Name="imgHead" Height="40" Width="40" VerticalAlignment="Top" DockPanel.Dock="Right">
                 <!--<Image.Clip> Source="{Binding Converter={StaticResource HeadPortraitConvert}, ConverterParameter=80}"
                     <EllipseGeometry Center="20,20" RadiusX="20" RadiusY="20"/>
                 </Image.Clip>-->
             </Image>
+          
             <StackPanel Orientation="Vertical" Margin="0,0,8,0">
                 <TextBlock x:Name="txbTime" HorizontalAlignment="Right" Foreground="#9FA1A2" Opacity="0"/>
+                <!--富文本框内容-->
                 <Grid HorizontalAlignment="Right" Margin="0,4,0,0">
+                  <!--文本消息-->
                     <Grid x:Name="grdText" Visibility="Collapsed">
                         <Border Background="#FFFFFF" CornerRadius="8,2,8,8">
                             <Border.Effect>
@@ -51,11 +54,11 @@
                             </Border.Effect>
                         </Border>
                         <Grid Margin="8,5,8,5">
-                            <!--富文本框内容-->
                             <controls:ReadOnlyRichBox x:Name="conRichBox"/>
                         </Grid>
                     </Grid>
-                    <!--<customcontrols:ChatImage x:Name="cusChatImage" ActiveControl="True" Visibility="Collapsed"/>-->
+                    <!--图片消息-->
+                    <customcontrols:ChatImage x:Name="cusChatImage" ActiveControl="True" Visibility="Collapsed"/>
                 </Grid>
             </StackPanel>
         </DockPanel>

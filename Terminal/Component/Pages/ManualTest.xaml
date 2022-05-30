@@ -7,8 +7,7 @@
       xmlns:hc ="https://handyorg.github.io/handycontrol"
       xmlns:viewmodels="clr-namespace:Terminal.Library.ViewModel" 
       xmlns:controls="clr-namespace:Terminal.Component.Controls"
-      d:DesignHeight="548" d:DesignWidth="962"
-      
+      d:DesignHeight="548" d:DesignWidth="962"    
       x:Name="ManualTestMain"  Loaded="ManualTestMain_Loaded" Unloaded="ManualTestMain_Unloaded"
 	Title="ManualTest">
 
@@ -52,7 +51,7 @@
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="15,20,15,0">
                     <hc:SearchBar Width="200" Height="38" hc:InfoElement.Placeholder="搜索" FontSize="18" ShowClearButton="True" BorderThickness="0" Background="#eee"  Style="{StaticResource SearchBarPlus}"/>
                     <Button  BorderThickness="0" Background="#eee" Margin="15" Height="38" Width="38" Cursor="Hand" FontSize="18" FontFamily="{StaticResource ElementIcon}">&#xe626;</Button>
-                    <Button  BorderThickness="0" Background="#eee" Height="38" Width="38" Cursor="Hand" FontSize="18" FontFamily="{StaticResource ElementIcon}">&#xe864;</Button>
+                    <Button  BorderThickness="0" ToolTip="{DynamicResource IpTalk}" Background="#eee" Height="38" Width="38" Cursor="Hand" FontSize="18" FontFamily="{StaticResource ElementIcon}">&#xe864;</Button>
                 </StackPanel>
                 <Line VerticalAlignment="Bottom" X1="0" Y1="0" X2="2400" Y2="0" Stroke="#C0C4CC"/>
             </Grid>

@@ -7,6 +7,7 @@ using Terminal.Common;
 using System.Collections.ObjectModel;
 using System.Windows.Documents;
 using Terminal.Library.ViewModel;
+using Terminal.Library.ResultModel;
 
 namespace Terminal.Library.ViewModel
 {
@@ -15,7 +16,7 @@ namespace Terminal.Library.ViewModel
          private string nickName;
         private string remarkName;
         private string headPortrait;
-        private ObservableCollection<ChatMessageModel> chatContent;
+        private ObservableCollection<ChatMessagesModel> chatContent;
         private int unread;
         private bool isUsable;
 
@@ -58,7 +59,7 @@ namespace Terminal.Library.ViewModel
         // 聊天ID
         public string ChatID { get; set; }
         // 聊天内容
-        public ObservableCollection<ChatMessageModel> ChatContent
+        public ObservableCollection<ChatMessagesModel> ChatContent
         {
             get => chatContent;
             set

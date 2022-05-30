@@ -8,6 +8,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
@@ -48,35 +49,35 @@ namespace Terminal.Component.Controls
             _ = new Run(e.NewValue.ToString(), onlyRichText.rtbRichBox.Document.ContentEnd);
         }
 
-        //public string SerializedContent
-        //{
-        //    get => (string)GetValue(SerializedContentProperty);
-        //    set => SetValue(SerializedContentProperty, value);
-        //}
+        public string SerializedContent
+        {
+            get => (string)GetValue(SerializedContentProperty);
+            set => SetValue(SerializedContentProperty, value);
+        }
 
         // Using a DependencyProperty as the backing store for SerializedContent.  This enables animation, styling, binding, etc...
-        //public static readonly DependencyProperty SerializedContentProperty =
-        //    DependencyProperty.Register("SerializedContent", typeof(string), typeof(ReadOnlyRichBox), new PropertyMetadata(string.Empty, OnSerializedContentChanged));
+        public static readonly DependencyProperty SerializedContentProperty =
+            DependencyProperty.Register("SerializedContent", typeof(string), typeof(ReadOnlyRichBox), new PropertyMetadata(string.Empty, OnSerializedContentChanged));
 
-        //public static void OnSerializedContentChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        //{
-        //    ReadOnlyRichBox onlyRichText = d as ReadOnlyRichBox;
-        //    onlyRichText.rtbRichBox.Document = XamlReader.Parse(e.NewValue.ToString()) as FlowDocument;
-        //    Block[] blocks = new Block[onlyRichText.rtbRichBox.Document.Blocks.Count];
-        //    (XamlReader.Parse(e.NewValue.ToString()) as FlowDocument).Blocks.CopyTo(blocks, 0);
-        //    foreach (Block item in blocks)
-        //    {
-        //        if (item is Paragraph paragraph)
-        //        {
-        //            if (item != blocks[0])
-        //            {
-        //                onlyRichText.txbRichBox.Inlines.Add(Environment.NewLine);
-        //            }
-        //            Inline[] inlines = new Inline[paragraph.Inlines.Count];
-        //            paragraph.Inlines.CopyTo(inlines, 0);
-        //            onlyRichText.txbRichBox.Inlines.AddRange(inlines);
-        //        }
-        //    }
-        //}
+        public static void OnSerializedContentChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            ReadOnlyRichBox onlyRichText = d as ReadOnlyRichBox;
+            onlyRichText.rtbRichBox.Document = XamlReader.Parse(e.NewValue.ToString()) as FlowDocument;
+            Block[] blocks = new Block[onlyRichText.rtbRichBox.Document.Blocks.Count];
+            (XamlReader.Parse(e.NewValue.ToString()) as FlowDocument).Blocks.CopyTo(blocks, 0);
+            foreach (Block item in blocks)
+            {
+                if (item is Paragraph paragraph)
+                {
+                    if (item != blocks[0])
+                    {
+                        onlyRichText.txbRichBox.Inlines.Add(Environment.NewLine);
+                    }
+                    Inline[] inlines = new Inline[paragraph.Inlines.Count];
+                    paragraph.Inlines.CopyTo(inlines, 0);
+                    onlyRichText.txbRichBox.Inlines.AddRange(inlines);
+                }
+            }
+        }
     }
 }

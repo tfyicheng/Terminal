@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Terminal.Component.Controls"
              mc:Ignorable="d" 
+               xmlns:customcontrols="clr-namespace:Terminal.Library.ViewModel"
              xmlns:controls="clr-namespace:Terminal.Component.Controls" 
              x:Name="UserControlMain" Background="Transparent" Loaded="UserControlMain_Loaded" DataContextChanged="UserControlMain_DataContextChanged">
     <!--xmlns:customcontrols="clr-namespace:DimensionClient.Library.CustomControls"-->
@@ -35,13 +36,14 @@
     </UserControl.Triggers>
     <Border Margin="15,6,0,6">
         <DockPanel Margin="0,0,100,0">
-            <Image x:Name="imgHead" Height="40" Width="40" VerticalAlignment="Top"  DockPanel.Dock="Left">
+            <Image Source="pack://application:,,,/Resources/tx.png" x:Name="imgHead" Height="40" Width="40" VerticalAlignment="Top"  DockPanel.Dock="Left">
                 <!--<Image.Clip>Source="{Binding Converter={StaticResource HeadPortraitConvert}, ConverterParameter=80}"
                     <EllipseGeometry Center="20,20" RadiusX="20" RadiusY="20"/>
                 </Image.Clip>-->
             </Image>
             <StackPanel Orientation="Vertical" Margin="8,0,0,0">
                 <TextBlock x:Name="txbTime" HorizontalAlignment="Left" Foreground="#9FA1A2" Opacity="0"/>
+                <!--文本消息-->
                 <Grid HorizontalAlignment="Left" Margin="0,4,0,0">
                     <Grid x:Name="grdText" Visibility="Collapsed">
                         <Border Background="#FFFFFF" CornerRadius="2,8,8,8">
@@ -53,7 +55,8 @@
                             <controls:ReadOnlyRichBox x:Name="conRichBox"/>
                         </Grid>
                     </Grid>
-                    <!--<customcontrols:ChatImage x:Name="cusChatImage" ActiveControl="True" Visibility="Collapsed"/>-->
+                    <!--图片消息-->
+                    <customcontrols:ChatImage x:Name="cusChatImage" ActiveControl="True" Visibility="Collapsed"/>
                 </Grid>
             </StackPanel>
         </DockPanel>

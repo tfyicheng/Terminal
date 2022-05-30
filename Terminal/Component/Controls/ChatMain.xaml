@@ -68,27 +68,27 @@
                             </Popup>
                         </Grid>-->
                             <Border Width="32">
-                                <TextBlock x:Name="txbScreenCapture" ToolTip="{DynamicResource ScreenCapture}" FontFamily="{StaticResource ElementIcon }" HorizontalAlignment="Center" FontSize="20" Text="&#xe63d;" MouseLeftButtonUp="TxbScreenCapture_MouseLeftButtonUp" />
+                                <TextBlock x:Name="txbScreenCapture" ToolTip="{DynamicResource PicUp}" Cursor="Hand" FontFamily="{StaticResource ElementIcon }" HorizontalAlignment="Center" FontSize="20" Text="&#xe63d;" MouseLeftButtonUp="TxbScreenCapture_MouseLeftButtonUp" />
                             </Border>
                             <Border Width="32">
-                                <TextBlock ToolTip="{DynamicResource SendingPictures}" FontFamily="{StaticResource ElementIcon }" HorizontalAlignment="Center"  FontSize="20" Text="&#xe61d;"/>
+                                <TextBlock ToolTip="{DynamicResource FileUp}" Cursor="Hand" FontFamily="{StaticResource ElementIcon }" HorizontalAlignment="Center"  FontSize="20" Text="&#xe61d;"/>
                             </Border>
                             <Border Width="32">
-                                <TextBlock ToolTip="{DynamicResource UploadFiles}" FontFamily="{StaticResource ElementIcon }" HorizontalAlignment="Center"  FontSize="20" Text="&#xe6d4;"/>
+                                <TextBlock ToolTip="{DynamicResource VoiceTalk}" Cursor="Hand" FontFamily="{StaticResource ElementIcon }" HorizontalAlignment="Center"  FontSize="20" Text="&#xe6d4;"/>
                             </Border>
                             <Border Width="32">
-                                <TextBlock ToolTip="{DynamicResource MessageLogging}" FontFamily="{StaticResource ElementIcon }" HorizontalAlignment="Center"  FontSize="20" Text="&#xe85f;"/>
+                                <TextBlock ToolTip="{DynamicResource VideoTalk}" Cursor="Hand" FontFamily="{StaticResource ElementIcon }" HorizontalAlignment="Center"  FontSize="20" Text="&#xe85f;"/>
                             </Border>
                             <Border Width="32">
-                                <TextBlock ToolTip="{DynamicResource MessageLogging}" FontFamily="{StaticResource ElementIcon }" HorizontalAlignment="Center"  FontSize="20" Text="&#xe641;"/>
+                                <TextBlock ToolTip="{DynamicResource VoiceSend}" Cursor="Hand" FontFamily="{StaticResource ElementIcon }" HorizontalAlignment="Center"  FontSize="20" Text="&#xe641;"/>
                             </Border>
                             <Border Width="32">
-                                <TextBlock ToolTip="{DynamicResource MessageLogging}" FontFamily="{StaticResource ElementIcon }" HorizontalAlignment="Center"  FontSize="20" Text="&#xe637;"/>
+                                <TextBlock ToolTip="{DynamicResource VideoSend}" Cursor="Hand" FontFamily="{StaticResource ElementIcon }" HorizontalAlignment="Center"  FontSize="20" Text="&#xe637;"/>
                             </Border>
                           
                         </StackPanel>
                         <Border Width="32" Grid.Column="1" >
-                            <TextBlock ToolTip="{DynamicResource MessageLogging}" FontFamily="{StaticResource ElementIcon }" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="20" Text="&#xe82f;"/>
+                            <TextBlock ToolTip="{DynamicResource MeetingTalk}" Cursor="Hand" FontFamily="{StaticResource ElementIcon }" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="20" Text="&#xe82f;"/>
                         </Border>
                     </Grid>
      
@@ -97,7 +97,7 @@
                 <!--发送按钮-->
                 <Button x:Name="btnSend" Background="#21345C" Style="{StaticResource ButtonPrimaryWait}" Height="30" Width="60" HorizontalAlignment="Right" Margin="0,6,20,20" Padding="0" FontSize="14" Content="发送" Click="BtnSend_Click" DockPanel.Dock="Bottom"/>
                 <!--内容编辑区-->
-                <RichTextBox  x:Name="rtbMessage" MinHeight="200"  MaxHeight="350" Style="{x:Null}" BorderThickness="0" Margin="2,0,2,0" IsDocumentEnabled="True" FontSize="16" DockPanel.Dock="Top" DataObject.Pasting="RtbMessage_Pasting" KeyDown="RtbMessage_KeyDown">
+                <RichTextBox  x:Name="rtbMessage" MinHeight="180"  MaxHeight="350" Style="{x:Null}" BorderThickness="0" Margin="2,0,2,0" IsDocumentEnabled="True" FontSize="16" DockPanel.Dock="Top" DataObject.Pasting="RtbMessage_Pasting" KeyDown="RtbMessage_KeyDown">
                     <RichTextBox.Resources>
                         <Style TargetType="{x:Type Paragraph}">
                             <Setter Property="Margin" Value="0,0,0,5"/>
@@ -112,6 +112,6 @@
         </Grid>
 
         <!--对话框-->
-        <Border x:Name="brdChat" Margin="0,5,0,5" />
+        <Border x:Name="brdChat" Margin="0,0,0,0" />
     </DockPanel>
 </UserControl>

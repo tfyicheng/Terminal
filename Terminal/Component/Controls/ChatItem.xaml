@@ -25,15 +25,14 @@
                     <Run x:Name="txbRemarkName" FontSize="10" Foreground="#C0C4CC"/>
                 </TextBlock>
                 <!--最后一条消息-->
-                <TextBlock Text="测试测试测试测试测试测测试测试测测试测试测测试测试测试" x:Name="txbLastMessage" HorizontalAlignment="Left" VerticalAlignment="Bottom" Foreground="#909399" TextTrimming="CharacterEllipsis"/>
-                <TextBlock Margin="0,0,-40,0" Text="2022年2月2日22:22" Width="120" x:Name="txbLastTime" HorizontalAlignment="Right" VerticalAlignment="Top" Foreground="#909399"/>
+                <TextBlock  x:Name="txbLastMessage" HorizontalAlignment="Left" VerticalAlignment="Bottom" Foreground="#909399" TextTrimming="CharacterEllipsis"/>
+                <!--时间-->
+                <TextBlock  Margin="0,0,-30,0"  x:Name="txbLastTime" HorizontalAlignment="Right" VerticalAlignment="Top" Foreground="#909399"/>
             </Grid>
-            <!--时间-->
             <Grid Grid.Column="2">
-               
-                <!--未读消息-->
-                <Border x:Name="brdBadge" Height="16" MaxWidth="34" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,0,4" Background="red" CornerRadius="8" Visibility="Visible">
-                    <TextBlock Text="999" x:Name="txbBadgeNumber" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,5,0" Foreground="#FFFFFF" FontSize="11"/>
+                <!--未读消息标记-->
+                <Border x:Name="brdBadge" Height="16" MaxWidth="34" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,0,4" Background="red" CornerRadius="8" Visibility="Collapsed">
+                    <TextBlock  x:Name="txbBadgeNumber" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,5,0" Foreground="#FFFFFF" FontSize="11"/>
                 </Border>
             </Grid>
         </Grid>

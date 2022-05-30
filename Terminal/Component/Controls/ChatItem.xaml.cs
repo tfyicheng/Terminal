@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -12,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Terminal.Library;
 using Terminal.Library.ResultModel;
 using Terminal.Library.Service;
 using Terminal.Library.ViewModel;
@@ -33,7 +37,18 @@ namespace Terminal.Component.Controls
             InitializeComponent();
             //scroll.ScrollChanged += Scroll_ScrollChanged;
             MasterChat.Loaded += MasterChat_Loaded; 
-            txbNickName.SetBinding(Run.TextProperty, "NickName");
+            txbNickName.SetBinding(Run.TextProperty, "NickName");//绑定用户名
+            txbRemarkName.SetBinding(Run.TextProperty, "RemarkName");
+            //brdBadge.SetBinding(VisibilityProperty, new Binding { Path = new PropertyPath("Unread"), Converter = FindResource<BoolVisibilityConvert>("BoolVisibilityConvert") });
+            txbBadgeNumber.SetBinding(TextBlock.TextProperty, "Unread");
+
+            MasterChat.itcMasterChat.SetBinding(ItemsControl.ItemsSourceProperty, "ChatContent");//把聊天内容绑定到聊天框子控件中
+            MasterChat.brdUnread.IsVisibleChanged += BrdUnread_IsVisibleChanged;
+            MasterChat.Loaded += MasterChat_Loaded;
+
+            MasterChat.itcMasterChat.ApplyTemplate();
+            scroll = MasterChat.itcMasterChat.Template.FindName("sclItems", MasterChat.itcMasterChat) as ScrollViewer;
+            scroll.ScrollChanged += Scroll_ScrollChanged;
         }
 
         //列表控件加载事件
@@ -82,25 +97,7 @@ namespace Terminal.Component.Controls
             }
         }
 
-        //读取消息
-        private void ReadMessage(object data)
-        {
-            lock (chatColumn.ChatContent)
-            {
-                //if (chatColumn.ChatContent.LastOrDefault(item => item.SenderID != UserID && !item.IsRead) is ChatMessagesModel chatMessages)
-                //{
-                //    if (ChatService.ReadMessage(chatColumn.ChatID, chatMessages.ID))
-                //    {
-                //        foreach (ChatMessagesModel item in chatColumn.ChatContent.Where(item => item.ReceiverID == UserID && !item.IsRead && !item.IsWithdraw))
-                //        {
-                //            item.IsRead = true;
-                //        }
 
-                //        chatColumn.Unread = 0;
-                //    }
-                //}
-            }
-        }
 
         //当此元素的数据上下文更改时发生
         private void UserControlMain_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
@@ -108,13 +105,105 @@ namespace Terminal.Component.Controls
             if (DataContext is ChatColumnInfoModel chatColumnInfo)
             {
                 chatColumn = chatColumnInfo;
+                chatColumn.ChatContent = new ObservableCollection<ChatMessagesModel>();
+                chatColumn.ChatContent.CollectionChanged += ChatContent_CollectionChanged;
+
+                MasterChat.DataContext = chatColumn;
+                //根据传入不同的id去加载聊天记录
+                ThreadPool.QueueUserWorkItem(Load, chatColumnInfo.ChatID);
             }
         }
+        //加载事件  获取聊天记录
+        private void Load(object data)
+        {
+            lock (chatColumn.ChatContent)
+            {
+                if (chatColumn.ChatContent.Count == 0)
+                {
+                    if (ChatService.GetChattingRecords(data.ToString(), out List<ChatMessagesModel> chatMessages))//拿到消息记录的集合
+                    {
+                        Dispatcher.Invoke(delegate
+                        {
+                            foreach (ChatMessagesModel item in chatMessages) //遍历集合添加给chatcontent，这里chatcolu仍归属同一个对象
+                            {
+                                chatColumn.ChatContent.Add(item);
+                            }
+                        });
+                        chatColumn.Unread = chatMessages.Where(item => item.ReceiverID == UserID && !item.IsRead && !item.IsWithdraw).Count();
+                        Dispatcher.Invoke(delegate
+                        {
+                            if (MasterChat.IsLoaded)
+                            {
+                                scroll.ScrollToEnd();
+                                if (chatColumn.Unread > 0)
+                                {
+                                    ThreadPool.QueueUserWorkItem(ReadMessage);
+                                }
+                            }
+                        });
+                    }
+                }
+            }
+        }
+
+        //更新消息列表最后一条消息和时间
+        private void ChatContent_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            if (chatColumn.ChatContent.LastOrDefault() is ChatMessagesModel chatMessages)
+            {
+                switch (chatMessages.MessageType)
+                {
+                    case MessageType.Text:
+                        txbLastMessage.Text = chatMessages.MessageContent.Replace("\r\n", string.Empty);
+                        break;
+                    case MessageType.RichText:
+                        txbLastMessage.Text = $"[{FindResource<string>("RichMessage")}]";
+                        break;
+                    case MessageType.Voice:
+                        txbLastMessage.Text = $"[{FindResource<string>("VoiceMessage")}]";
+                        break;
+                    case MessageType.File:
+                        {
+                            FileModel fileModel = JsonConvert.DeserializeObject<FileModel>(chatMessages.MessageContent);
+                            txbLastMessage.Text = fileModel.FileType == FileType.Image
+                                ? $"[{FindResource<string>("ImageMessage")}]"
+                                : $"[{FindResource<string>("AccessoryMessage")}]";
+                        }
+                        break;
+                    case MessageType.VoiceTalk:
+                        txbLastMessage.Text = $"[{FindResource<string>("VoiceTalk")}]";
+                        break;
+                    case MessageType.VideoTalk:
+                        txbLastMessage.Text = $"[{FindResource<string>("VideoTalk")}]";
+                        break;
+                    default:
+                        break;
+                }
+                txbLastTime.Text = chatMessages.CreateTime.ToString("t");
+            }
+        }
+
 
         //鼠标点击切换聊天框
         private void BrdChat_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-
+            brdChat.IsEnabled = false;//列表框禁用
+            if (borderSelect != null)
+            {
+                borderSelect.IsEnabled = true;
+            }
+            borderSelect = brdChat;
+            //把选择的聊天列表id传给选中朋友的id
+            ChatFriendID = chatColumn.FriendID;
+            TransferringData(typeof(ChatMain), DataPassingType.SelectMessage, this);
+        }
+        //未读消息
+        private void BrdUnread_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (chatColumn.Unread > 0 && MasterChat.brdUnread.Visibility == Visibility.Collapsed)
+            {
+                ThreadPool.QueueUserWorkItem(ReadMessage);
+            }
         }
 
         //发送事件
@@ -127,8 +216,27 @@ namespace Terminal.Component.Controls
         //异步进程，发送消息
         private  void SendMessage(object data)
         {
-         
 
+        }
+
+        //读取未读消息
+        private void ReadMessage(object data)
+        {
+            lock (chatColumn.ChatContent)
+            {
+                if (chatColumn.ChatContent.LastOrDefault(item => item.SenderID != UserID && !item.IsRead) is ChatMessagesModel chatMessages)
+                {
+                    if (ChatService.ReadMessage(chatColumn.ChatID, chatMessages.ID))
+                    {
+                        foreach (ChatMessagesModel item in chatColumn.ChatContent.Where(item => item.ReceiverID == UserID && !item.IsRead && !item.IsWithdraw))
+                        {
+                            item.IsRead = true;
+                        }
+
+                        chatColumn.Unread = 0;
+                    }
+                }
+            }
         }
     }
 }

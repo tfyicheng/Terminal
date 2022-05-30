@@ -52,37 +52,28 @@ namespace Terminal.Component.Pages
   //页面加载时获取聊天列表数据
         private void Load(object data)
         {
-            ChatColumnInfoModel chat = new ChatColumnInfoModel() { NickName="666"};
 
-            Dispatcher.Invoke(delegate
+           // 如果没有数据
+            if (mainData.ChatColumnInfos.Count == 0)
             {
-                mainData.ChatColumnInfos.Add(chat);
-            });
+                //成功拿到聊天列表数据
+                if (ChatService.GetChatColumnInfo(out List<ChatColumnInfoModel> chatColumnInfos))
+                {
+                    //同步派发一个委托类型的事件
+                    Dispatcher.Invoke(delegate
+                    {
+                            //
+                            foreach (ChatColumnInfoModel item in chatColumnInfos)
+                        {
+                            Dispatcher.Invoke(delegate
+                            {
+                                mainData.ChatColumnInfos.Add(item);
+                            });
+                        }
+                    });
+                }
+            }
 
-
-            //如果没有数据
-            //if (mainData.ChatColumnInfos.Count == 0)
-            //    {
-            //        //成功拿到聊天列表数据
-            //        if (ChatService.GetChatColumnInfo(out List<ChatColumnInfoModel> chatColumnInfos))
-            //        {
-            //            //同步派发一个委托类型的事件
-            //            Dispatcher.Invoke(delegate
-            //            {
-            //                //
-            //                foreach (ChatColumnInfoModel item in chatColumnInfos)
-            //                {
-            //                    Dispatcher.Invoke(delegate
-            //                    {
-            //                        mainData.ChatColumnInfos.Add(item);
-            //                    });
-            //                }
-            //            });
-            //        }
-            //    }
-
-            
-           
         }
 
         #endregion

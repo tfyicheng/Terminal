@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -63,60 +64,56 @@ namespace Terminal.Component.Controls
             }
         }
 
+
         private void UserControlMain_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-
+            if (DataContext is ChatMessagesModel chatMessages)
+            {
+                imgHead.DataContext = chatMessages.SenderID;
+                txbTime.Text = chatMessages.CreateTime.ToString("t");
+                switch (chatMessages.MessageType)
+                {
+                    case MessageType.Text:
+                        grdText.Visibility = Visibility.Visible;
+                        conRichBox.TextContent = chatMessages.MessageContent;
+                        break;
+                    case MessageType.RichText:
+                        RichMessageModel richMessage = JsonConvert.DeserializeObject<RichMessageModel>(chatMessages.MessageContent);
+                        grdText.Visibility = Visibility.Visible;
+                        conRichBox.SerializedContent = richMessage.SerializedMessage;
+                        break;
+                    case MessageType.Voice:
+                        break;
+                    case MessageType.File:
+                        {
+                            FileModel fileModel = JsonConvert.DeserializeObject<FileModel>(chatMessages.MessageContent);
+                            switch (fileModel.FileType)
+                            {
+                                case ClassHelper.FileType.Image:
+                                    cusChatImage.Visibility = Visibility.Visible;
+                                    cusChatImage.FileWidth = fileModel.FileWidth;
+                                    cusChatImage.FileHeight = fileModel.FileHeight;
+                                    cusChatImage.PathUri = new Uri(fileModel.FileName, UriKind.Relative);
+                                    break;
+                                case ClassHelper.FileType.Word:
+                                    break;
+                                case ClassHelper.FileType.Excel:
+                                    break;
+                                case ClassHelper.FileType.PPT:
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+                        break;
+                    case MessageType.VoiceTalk:
+                        break;
+                    case MessageType.VideoTalk:
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
-
-        //private void UserControlMain_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
-        //{
-        //    if (DataContext is ChatMessagesModel chatMessages)
-        //    {
-        //        imgHead.DataContext = chatMessages.SenderID;
-        //        txbTime.Text = chatMessages.CreateTime.ToString("t");
-        //        switch (chatMessages.MessageType)
-        //        {
-        //            case MessageType.Text:
-        //                grdText.Visibility = Visibility.Visible;
-        //                conRichBox.TextContent = chatMessages.MessageContent;
-        //                break;
-        //            case MessageType.RichText:
-        //                RichMessageModel richMessage = JsonConvert.DeserializeObject<RichMessageModel>(chatMessages.MessageContent);
-        //                grdText.Visibility = Visibility.Visible;
-        //                conRichBox.SerializedContent = richMessage.SerializedMessage;
-        //                break;
-        //            case MessageType.Voice:
-        //                break;
-        //            case MessageType.File:
-        //                {
-        //                    FileModel fileModel = JsonConvert.DeserializeObject<FileModel>(chatMessages.MessageContent);
-        //                    switch (fileModel.FileType)
-        //                    {
-        //                        case ClassHelper.FileType.Image:
-        //                            cusChatImage.Visibility = Visibility.Visible;
-        //                            cusChatImage.FileWidth = fileModel.FileWidth;
-        //                            cusChatImage.FileHeight = fileModel.FileHeight;
-        //                            cusChatImage.PathUri = new Uri(fileModel.FileName, UriKind.Relative);
-        //                            break;
-        //                        case ClassHelper.FileType.Word:
-        //                            break;
-        //                        case ClassHelper.FileType.Excel:
-        //                            break;
-        //                        case ClassHelper.FileType.PPT:
-        //                            break;
-        //                        default:
-        //                            break;
-        //                    }
-        //                }
-        //                break;
-        //            case MessageType.VoiceTalk:
-        //                break;
-        //            case MessageType.VideoTalk:
-        //                break;
-        //            default:
-        //                break;
-        //        }
-        //    }
-        //}
     }
 }

@@ -17,7 +17,8 @@ namespace Terminal.Common
 
         #region （属性）变量
         // 用户ID
-        public static string UserID { get; set; }
+        //public static string UserID { get; set; }
+        public static string UserID = "0";
 
         // 选中的聊天好友ID
         public static string ChatFriendID { get; set; }
@@ -44,6 +45,22 @@ namespace Terminal.Common
             Paste,
             MessageFocus,
             SelectCall
+        }
+
+        // 文件类型
+        public enum FileType
+        {
+            Image,
+            Word,
+            Excel,
+            PPT,
+        }
+
+        // 富文本内容类别
+        public enum RichMessageType
+        {
+            Text,
+            Image
         }
         #endregion
 
@@ -126,11 +143,14 @@ namespace Terminal.Common
         /// <param name="type">类</param>
         /// <param name="dataType">数据类型</param>
         /// <param name="data">数据</param>
+        /// GetInvocationList(),在多播情况，假如某些函数有返回值，用来获取返回值
+        ///list.where(a => a.arg == xx)  集合过滤数据
+
         public static void TransferringData(Type type, DataPassingType dataType, object data)
         {
             foreach (Delegate item in (DataPassingChanged?.GetInvocationList()).Where(item => item.Target.GetType() == type))
             {
-                item.DynamicInvoke(dataType, data);
+                item.DynamicInvoke(dataType, data);//ClassHelper_DataPassingChanged(DataPassingType, System.Object)
             }
         }
     }

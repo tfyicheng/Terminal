@@ -64,6 +64,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Common\ChineseLibrary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Common\StyleLibrary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -243,12 +247,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Library\DataTemplateSelectors\ChatTemplateSelectors.cs" />
+    <Compile Include="Library\FileModel.cs" />
     <Compile Include="Library\MessageType.cs" />
     <Compile Include="Library\ResultModel\ChatMessagesModel.cs" />
+    <Compile Include="Library\ResultModel\RichMessageContentModel.cs" />
+    <Compile Include="Library\ResultModel\RichMessageModel.cs" />
     <Compile Include="Library\Service\ChatService.cs" />
     <Compile Include="Library\ViewModel\ChatColumnInfoModel.cs" />
+    <Compile Include="Library\ViewModel\ChatImage.cs" />
     <Compile Include="Library\ViewModel\ChatMainViewModel.cs" />
-    <Compile Include="Library\ViewModel\ChatMessageModel.cs" />
     <Compile Include="Library\ViewModel\ManualTestView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

@@ -13,11 +13,6 @@ namespace Terminal.Library.Service
 {
     public static class ChatService
     {
-    
-
-        private static String res = "";
-
-        private static String resp = "";
 
 
         //获取聊天列表数据
@@ -28,8 +23,13 @@ namespace Terminal.Library.Service
         chatColumnInfos = null;
         if (true)
         {
-            chatColumnInfos = JsonConvert.DeserializeObject<List<ChatColumnInfoModel>>(res);
-            return true;
+            //chatColumnInfos = JsonConvert.DeserializeObject<List<ChatColumnInfoModel>>(res);
+            chatColumnInfos = new List<ChatColumnInfoModel>();
+                ChatColumnInfoModel a = new ChatColumnInfoModel() { NickName = "123",ChatID="1",FriendID="3" };
+                ChatColumnInfoModel b = new ChatColumnInfoModel() { NickName = "456",ChatID="2", FriendID = "4" };
+                chatColumnInfos.Add(a); 
+                chatColumnInfos.Add(b);
+                return true;
         }
   
     }
@@ -40,8 +40,13 @@ namespace Terminal.Library.Service
         chatMessages = null;
         if (true)
         {
-            chatMessages = JsonConvert.DeserializeObject<List<ChatMessagesModel>>(resp);
-            return true;
+            //chatMessages = JsonConvert.DeserializeObject<List<ChatMessageModel>>(resp);\
+             chatMessages = new List<ChatMessagesModel>();
+                ChatMessagesModel a = new ChatMessagesModel() { ChatID = "1" ,MessageContent="666",SenderID="3",ReceiverID="0",IsRead=true,MessageType=0,IsVisible=0 };
+                //ChatMessagesModel b = new ChatMessagesModel() { ChatID = "1", MessageContent = "888", SenderID = "0", ReceiverID = "3" };
+              chatMessages.Add(a); 
+                //chatMessages.Add(b);
+                return true;
         }
     
     }
