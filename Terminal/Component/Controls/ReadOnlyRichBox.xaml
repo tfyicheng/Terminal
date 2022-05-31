@@ -11,9 +11,11 @@
             <Setter Property="Margin" Value="0"/>
         </Style>
     </UserControl.Resources>
-    <Grid HorizontalAlignment="Center">
-        <TextBlock x:Name="txbRichBox" TextWrapping="Wrap" Opacity="0"/>
-        <!--Width="{Binding ElementName=txbRichBox,Path=ActualWidth,Converter={StaticResource RichTextBoxWidthConvert}}"-->
-        <RichTextBox x:Name="rtbRichBox"  BorderThickness="0" IsReadOnly="True" Loaded="RtbRichBox_Loaded"/>
+    <Grid HorizontalAlignment="Center" >
+        <TextBlock x:Name="txbRichBox"  FontSize="20"  TextWrapping="Wrap" Opacity="0"/>
+        
+       
+        <!--聊天框富文本内容-->
+        <RichTextBox x:Name="rtbRichBox"  Width="{Binding ElementName=txbRichBox,Path=ActualWidth,Converter={StaticResource RichTextBoxWidthConvert}}" Background="Transparent" FontSize="17" BorderThickness="0" IsReadOnly="True" Loaded="RtbRichBox_Loaded"/>
     </Grid>
 </UserControl>

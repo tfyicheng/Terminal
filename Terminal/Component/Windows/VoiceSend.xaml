@@ -1,0 +1,41 @@
+﻿<Window x:Class="Terminal.Component.Windows.VoiceSend"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Terminal.Component.Windows"
+          xmlns:hc="https://handyorg.github.io/handycontrol"
+        mc:Ignorable="d" WindowStyle="None"
+         Title="语音发送" Height="340" Width="280"  WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon="pack://application:,,,/Resources/drcs.ico" MouseLeftButtonDown="Window_MouseLeftButtonDown_1">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="120"/>
+        </Grid.RowDefinitions>
+        <!-- 顶部-->
+        <StackPanel Panel.ZIndex="99" Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" WindowChrome.IsHitTestVisibleInChrome="True" SnapsToDevicePixels="True">
+            <Button x:Name="btnMin" Style="{StaticResource ButtonMin}" Height="48" Width="50" Click="BtnMin_Click"/>
+            <Button x:Name="btnClose" Style="{StaticResource ButtonClose}" Height="48" Width="50" Click="BtnClose_Click"/>
+        </StackPanel>
+        <!--图标-->
+        <Grid Grid.Row="1" Width="150" Height="150" Background="#EEEEEE">
+            <TextBlock FontFamily="{StaticResource ElementIcon}" Text="&#xe641;" FontSize="150" Foreground="#07C15F" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+            <TextBlock DockPanel.Dock="Top" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="15" Margin="0,0,0,-30">3:33</TextBlock>
+        </Grid>
+        <!--菜单-->
+        <DockPanel Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Width="200" Margin="40,0,0,0">
+           
+            <Grid>
+                <Button FontFamily="{StaticResource ElementIcon}" Content="&#xe64e;" FontSize="18" Foreground="#fff" Cursor="Hand" Background="red" Width="40" Height="40" Margin="10" DockPanel.Dock="Left" hc:BorderElement.CornerRadius="50" BorderThickness="0"></Button>
+
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="-10">取消</TextBlock>
+            </Grid>
+            <Grid>
+                <Button FontFamily="{StaticResource ElementIcon}" Content="&#xe687;"  FontSize="18" Foreground="#fff" Cursor="Hand" Background="#07C15F" Width="40" Height="40" DockPanel.Dock="Right" hc:BorderElement.CornerRadius="50"  BorderThickness="0"></Button>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="-10">发送</TextBlock>
+            </Grid>
+        </DockPanel>
+       
+    </Grid>
+</Window>

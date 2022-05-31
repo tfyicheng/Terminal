@@ -19,13 +19,13 @@
                 </Image.Clip>-->
             </Image>
             <!--文本内容-->
-            <Grid Grid.Column="1" Margin="10,2,0,3">
+            <Grid Grid.Column="1" Margin="10,2,0,0">
                 <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top">
-                    <Run  x:Name="txbNickName" FontSize="18" Foreground="#303133"/>
+                    <Run  x:Name="txbNickName" FontSize="18"  Foreground="#303133"/>
                     <Run x:Name="txbRemarkName" FontSize="10" Foreground="#C0C4CC"/>
                 </TextBlock>
                 <!--最后一条消息-->
-                <TextBlock  x:Name="txbLastMessage" HorizontalAlignment="Left" VerticalAlignment="Bottom" Foreground="#909399" TextTrimming="CharacterEllipsis"/>
+                <TextBlock  x:Name="txbLastMessage" HorizontalAlignment="Left" Height="18"  VerticalAlignment="Bottom" Foreground="#909399" TextTrimming="CharacterEllipsis"/>
                 <!--时间-->
                 <TextBlock  Margin="0,0,-30,0"  x:Name="txbLastTime" HorizontalAlignment="Right" VerticalAlignment="Top" Foreground="#909399"/>
             </Grid>

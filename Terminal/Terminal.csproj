@@ -68,6 +68,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Common\ConverterLibrary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Common\StyleLibrary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -152,6 +156,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Component\Pages\VideoTalk.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Component\Pages\VoiceTalk.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Component\Windows\Config.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -230,6 +242,12 @@
     <Compile Include="Component\Pages\TerminalDevice.xaml.cs">
       <DependentUpon>TerminalDevice.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Component\Pages\VideoTalk.xaml.cs">
+      <DependentUpon>VideoTalk.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Component\Pages\VoiceTalk.xaml.cs">
+      <DependentUpon>VoiceTalk.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Component\Windows\Config.xaml.cs">
       <DependentUpon>Config.xaml</DependentUpon>
     </Compile>
@@ -240,12 +258,27 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Component\Windows\P2PCall.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Component\Windows\VoiceSend.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Library\Dictionary\DataTemplateSelectorLibrary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Component\Windows\P2PCall.xaml.cs">
+      <DependentUpon>P2PCall.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Component\Windows\VoiceSend.xaml.cs">
+      <DependentUpon>VoiceSend.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Library\Converter\RichTextBoxWidthConvert.cs" />
     <Compile Include="Library\DataTemplateSelectors\ChatTemplateSelectors.cs" />
     <Compile Include="Library\FileModel.cs" />
     <Compile Include="Library\MessageType.cs" />

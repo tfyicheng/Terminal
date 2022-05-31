@@ -9,6 +9,7 @@
                 <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/Common/StyleLibrary.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/Common/ChineseLibrary.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Common/ConverterLibrary.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/Library/Dictionary/DataTemplateSelectorLibrary.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>

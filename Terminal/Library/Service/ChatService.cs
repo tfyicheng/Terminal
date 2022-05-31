@@ -43,9 +43,14 @@ namespace Terminal.Library.Service
             //chatMessages = JsonConvert.DeserializeObject<List<ChatMessageModel>>(resp);\
              chatMessages = new List<ChatMessagesModel>();
                 ChatMessagesModel a = new ChatMessagesModel() { ChatID = "1" ,MessageContent="666",SenderID="3",ReceiverID="0",IsRead=true,MessageType=0,IsVisible=0 };
-                //ChatMessagesModel b = new ChatMessagesModel() { ChatID = "1", MessageContent = "888", SenderID = "0", ReceiverID = "3" };
-              chatMessages.Add(a); 
-                //chatMessages.Add(b);
+                ChatMessagesModel b = new ChatMessagesModel() { ChatID = "1", MessageContent = "888", SenderID = "0", ReceiverID = "3" };
+                ChatMessagesModel c = new ChatMessagesModel() { ChatID = "1", MessageContent = "的苦涩和分离四级分数分类为解放路色剂历史记录蒙娜丽莎呢服了你\t\n力所能及馥蕾诗家乐福建安我放假了案例进屋里你发了发怒", SenderID = "0", ReceiverID = "3" };
+                ChatMessagesModel d = new ChatMessagesModel() { ChatID = "1", MessageContent = "的苦涩和分离四级分数分类为解放路色剂历史记录蒙娜丽莎呢服了你\t\n力所能及馥蕾诗家乐福建安我放假了案例进屋里你发了发怒", SenderID = "3", ReceiverID = "3" };
+                ChatMessagesModel e = new ChatMessagesModel() { ChatID = "2", MessageContent = "的苦涩和分离四级分数分", SenderID = "0", ReceiverID = "4" };
+
+                chatMessages.Add(a);
+                chatMessages.Add(b);
+                chatMessages.Add(c); chatMessages.Add(d); chatMessages.Add(e);
                 return true;
         }
     

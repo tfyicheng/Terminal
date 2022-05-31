@@ -19,7 +19,7 @@
 
         <!--菜单栏-->
         <DockPanel  LastChildFill="False" Grid.Row="0" VerticalAlignment="Center" Margin="25,0,25,0" >
-            <Button   Style="{StaticResource ButtonOut}"   ></Button>
+            <Button   Style="{StaticResource ButtonOut}"  ></Button>
             <Button Margin="20,0,0,0" Style="{StaticResource ButtonDelet}"></Button>
             <Button DockPanel.Dock="Right" Style="{StaticResource ButtonSearch}"></Button>
             <TextBox hc:InfoElement.Placeholder="输入关键字" TextWrapping="NoWrap" 

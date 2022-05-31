@@ -32,7 +32,7 @@
         </Grid.ColumnDefinitions>
 
         <!--聊天框-->
-        <controls:ChatMain Grid.Column="1" Margin="0,0,0,0" Visibility="Collapsed"/>
+        <controls:ChatMain Grid.Column="1" Margin="0,0,0,0" Visibility="Collapsed" />
 
         <!--联系人列表-->
         <Grid Grid.Column="0">
@@ -47,9 +47,9 @@
                 </Border.Effect>
             </Border>
             <!--列表顶部-->
-            <Grid Grid.Row="0" Margin="0,0,0,0" Grid.RowSpan="2">
+            <Grid Grid.Row="0" Margin="0,0,0,0" Grid.RowSpan="2" >
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="15,20,15,0">
-                    <hc:SearchBar Width="200" Height="38" hc:InfoElement.Placeholder="搜索" FontSize="18" ShowClearButton="True" BorderThickness="0" Background="#eee"  Style="{StaticResource SearchBarPlus}"/>
+                    <hc:SearchBar Width="200" Height="38" hc:InfoElement.Placeholder="搜索" FontSize="15" ShowClearButton="True" BorderThickness="0" Background="#eee"  Style="{StaticResource SearchBarPlus}"/>
                     <Button  BorderThickness="0" Background="#eee" Margin="15" Height="38" Width="38" Cursor="Hand" FontSize="18" FontFamily="{StaticResource ElementIcon}">&#xe626;</Button>
                     <Button  BorderThickness="0" ToolTip="{DynamicResource IpTalk}" Background="#eee" Height="38" Width="38" Cursor="Hand" FontSize="18" FontFamily="{StaticResource ElementIcon}">&#xe864;</Button>
                 </StackPanel>

@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:Terminal.Component.Controls"
              mc:Ignorable="d" 
             >
-    <Grid>
+    <Grid >
         <ItemsControl x:Name="itcMasterChat" Style="{StaticResource ItemsControlVirtualization}" ItemTemplateSelector="{StaticResource ChatTemplateSelector}"/>
         <Border x:Name="brdUnread" Height="50" Width="50" HorizontalAlignment="Right" VerticalAlignment="Bottom" Background="Red" CornerRadius="25" Visibility="Collapsed"/>
     </Grid>

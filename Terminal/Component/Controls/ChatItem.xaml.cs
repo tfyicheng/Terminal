@@ -87,7 +87,7 @@ namespace Terminal.Component.Controls
             }
         }
 
-
+        //聊天框滚动事件，滚到底部取消未读框
         private void Scroll_ScrollChanged(object sender, ScrollChangedEventArgs e)
         {
             ScrollViewer scroll = sender as ScrollViewer;

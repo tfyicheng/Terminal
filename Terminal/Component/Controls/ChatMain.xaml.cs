@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Terminal.Component.Windows;
 using Terminal.Library.ViewModel;
 using static Terminal.Common.ClassHelper;
 
@@ -97,6 +98,18 @@ namespace Terminal.Component.Controls
         private void RtbMessage_Pasting(object sender, DataObjectPastingEventArgs e)
         {
 
+        }
+        //语音发送
+        private void VoiceSend(object sender, MouseButtonEventArgs e)
+        {
+            VoiceSend voicoSend = new VoiceSend();
+            voicoSend.Show();
+        }
+
+        private void P2PCall(object sender, MouseButtonEventArgs e)
+        {
+            P2PCall p2pcall = new P2PCall();    
+            p2pcall.Show();
         }
     }
 }

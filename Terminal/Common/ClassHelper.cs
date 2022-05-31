@@ -87,6 +87,10 @@ namespace Terminal.Common
         public static readonly DataCollect dataCollect = new DataCollect();
         //效能评估
         public static readonly EnergyAssess energyAssess = new EnergyAssess();
+        //语音通话
+        public static readonly VoiceTalk voiceTalk = new VoiceTalk();  
+        //视频通话
+        public static readonly VideoTalk videoTalk = new VideoTalk();  
         #endregion
        
 
