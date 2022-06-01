@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Terminal.Library.ViewModel;
 
 namespace Terminal.Component.Pages
 {
@@ -20,9 +21,11 @@ namespace Terminal.Component.Pages
     /// </summary>
     public partial class AddressBook : Page
     {
+        private readonly ContactPersonViewModel mainData;
         public AddressBook()
         {
             InitializeComponent();
+            mainData = Resources["MainData"] as ContactPersonViewModel;
         }
     }
 }

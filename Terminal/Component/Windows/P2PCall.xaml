@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Terminal.Component.Windows"
         mc:Ignorable="d" WindowStyle="None" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon="pack://application:,,,/Resources/drcs.ico" 
         MouseLeftButtonDown="Window_MouseLeftButtonDown_1"   xmlns:hc="https://handyorg.github.io/handycontrol" Loaded="P2PCall_Loaded"
-        Title="通话中" Height="600" Width="360" Background="pink">
+        Title="通话中" Height="600" Width="360" Background="#fff">
     <Grid>
   
         
@@ -20,7 +20,8 @@
         
         <!--主体页面-->
         <Grid Grid.Row="1" Panel.ZIndex="90" >
-            <Frame x:Name="CallRouteMain"   NavigationUIVisibility="Hidden"  BorderThickness="0"/>
+            <TextBlock FontSize="30" Foreground="Gray" HorizontalAlignment="Center" VerticalAlignment="Center">启动中，请稍候……</TextBlock>
+                <Frame x:Name="CallRouteMain"   NavigationUIVisibility="Hidden"  BorderThickness="0"/>
         </Grid>
     </Grid>
 </Window>

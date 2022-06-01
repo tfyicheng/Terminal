@@ -16,8 +16,6 @@ namespace Terminal.Library.Service
 
 
         //获取聊天列表数据
-
-
         public static bool GetChatColumnInfo(out List<ChatColumnInfoModel> chatColumnInfos)
     {
         chatColumnInfos = null;

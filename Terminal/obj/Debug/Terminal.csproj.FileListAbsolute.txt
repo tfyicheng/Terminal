@@ -143,3 +143,5 @@ D:\c-demo\ZD\Terminal\Terminal\obj\Debug\Component\Pages\VideoTalk.g.cs
 D:\c-demo\ZD\Terminal\Terminal\obj\Debug\Component\Pages\VoiceTalk.g.cs
 D:\c-demo\ZD\Terminal\Terminal\obj\Debug\Component\Pages\VideoTalk.baml
 D:\c-demo\ZD\Terminal\Terminal\obj\Debug\Component\Pages\VoiceTalk.baml
+D:\c-demo\ZD\Terminal\Terminal\obj\Debug\Component\Controls\FriendItem.g.cs
+D:\c-demo\ZD\Terminal\Terminal\obj\Debug\Component\Controls\FriendItem.baml

@@ -92,6 +92,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Component\Controls\FriendItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Component\Controls\GeneralCfgView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -194,6 +198,9 @@
     <Compile Include="Component\Controls\ContactsCfgView.xaml.cs">
       <DependentUpon>ContactsCfgView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Component\Controls\FriendItem.xaml.cs">
+      <DependentUpon>FriendItem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Component\Controls\GeneralCfgView.xaml.cs">
       <DependentUpon>GeneralCfgView.xaml</DependentUpon>
     </Compile>
@@ -283,12 +290,15 @@
     <Compile Include="Library\FileModel.cs" />
     <Compile Include="Library\MessageType.cs" />
     <Compile Include="Library\ResultModel\ChatMessagesModel.cs" />
+    <Compile Include="Library\ResultModel\FriendInfoModel.cs" />
+    <Compile Include="Library\ResultModel\FriendSortModel.cs" />
     <Compile Include="Library\ResultModel\RichMessageContentModel.cs" />
     <Compile Include="Library\ResultModel\RichMessageModel.cs" />
     <Compile Include="Library\Service\ChatService.cs" />
     <Compile Include="Library\ViewModel\ChatColumnInfoModel.cs" />
     <Compile Include="Library\ViewModel\ChatImage.cs" />
     <Compile Include="Library\ViewModel\ChatMainViewModel.cs" />
+    <Compile Include="Library\ViewModel\ContactPersonViewModel.cs" />
     <Compile Include="Library\ViewModel\ManualTestView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Terminal.Component.Windows;
+using Terminal.Common;
 
 namespace Terminal.Component.Pages
 {
@@ -20,14 +22,29 @@ namespace Terminal.Component.Pages
     /// </summary>
     public partial class VoiceTalk : Page
     {
+        private bool jyStatue=false;
         public VoiceTalk()
         {
             InitializeComponent();
         }
 
-        private void toVideo(object sender, RoutedEventArgs e)
+        private void toJy(object sender, RoutedEventArgs e)
         {
-
+            if(jyStatue == false)
+            {
+             this.jytb.Text = "取消静音";
+                this.jybt.FontSize = 18;
+                this.jybt.Content = "\ue6a4";
+            jyStatue = true;
+            }
+            else
+            {
+                this.jytb.Text ="静音";
+                this.jybt.FontSize = 25;
+                this.jybt.Content = "\ue641";
+                jyStatue = false;
+            }
+         
         }
     }
 }

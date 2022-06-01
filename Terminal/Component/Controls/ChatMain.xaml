@@ -74,10 +74,10 @@
                                 <TextBlock ToolTip="{DynamicResource FileUp}" Cursor="Hand" FontFamily="{StaticResource ElementIcon }" HorizontalAlignment="Center"  FontSize="20" Text="&#xe61d;"/>
                             </Border>
                             <Border Width="32">
-                                <TextBlock ToolTip="{DynamicResource VoiceTalk}" Cursor="Hand" FontFamily="{StaticResource ElementIcon }" HorizontalAlignment="Center"  FontSize="20" Text="&#xe6d4;" MouseLeftButtonUp="P2PCall"/>
+                                <TextBlock x:Name="VoiceTalk" ToolTip="{DynamicResource VoiceTalk}" Cursor="Hand" FontFamily="{StaticResource ElementIcon }" HorizontalAlignment="Center"  FontSize="20" Text="&#xe6d4;" MouseLeftButtonUp="P2PCall"/>
                             </Border>
                             <Border Width="32">
-                                <TextBlock ToolTip="{DynamicResource VideoTalk}" Cursor="Hand" FontFamily="{StaticResource ElementIcon }" HorizontalAlignment="Center"  FontSize="20" Text="&#xe85f;"/>
+                                <TextBlock x:Name="VideoTalk" ToolTip="{DynamicResource VideoTalk}" Cursor="Hand" FontFamily="{StaticResource ElementIcon }" HorizontalAlignment="Center"  FontSize="20" Text="&#xe85f;" MouseLeftButtonUp="P2PCall"/>
                             </Border>
                             <Border Width="32">
                                 <TextBlock ToolTip="{DynamicResource VoiceSend}" Cursor="Hand" FontFamily="{StaticResource ElementIcon }" HorizontalAlignment="Center"  FontSize="20" Text="&#xe641;" MouseLeftButtonUp="VoiceSend"/>

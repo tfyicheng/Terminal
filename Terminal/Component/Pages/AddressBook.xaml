@@ -3,11 +3,57 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300" Background="White"
+      mc:Ignorable="d"     xmlns:hc ="https://handyorg.github.io/handycontrol"
+      d:DesignHeight="548" d:DesignWidth="962" Background="White"
 	Title="AddressBook">
-
+    <!--<Page.DataContext>
+        <Binding Source="{StaticResource MainData}"/>
+    </Page.DataContext>-->
+    <!--//页面进入动画-->
+    <Page.Triggers>
+        <EventTrigger RoutedEvent="Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.3"/>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Page.Triggers>
     <Grid>
-        <TextBlock FontSize="25">通讯录</TextBlock>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="340"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5.875"/>
+                <RowDefinition Height="84.125"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Border Grid.RowSpan="3" Background="#FFFFFF" CornerRadius="4" >
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="0" BlurRadius="8" Color="#C0C4CC" Opacity="0.2"/>
+                </Border.Effect>
+            </Border>
+            <!--列表顶部-->
+            <Grid Grid.Row="0" Margin="0,0,0,0" Grid.RowSpan="2" >
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="15,20,15,0">
+                    <hc:SearchBar Width="260" Height="38" hc:InfoElement.Placeholder="搜索" FontSize="15" ShowClearButton="True" BorderThickness="0" Background="#eee"  Style="{StaticResource SearchBarPlus}"/>
+                    <Button  BorderThickness="0" Background="#eee" Margin="15" Height="38" Width="38" Cursor="Hand" FontSize="18" FontFamily="{StaticResource ElementIcon}">&#xe626;</Button>
+                  
+                </StackPanel>
+                <Line VerticalAlignment="Bottom" X1="0" Y1="0" X2="2400" Y2="0" Stroke="#C0C4CC"/>
+            </Grid>
+            <!--列表内容-->
+            <ItemsControl x:Name="itcChat" Grid.Row="2"  Margin="0,0,0,0"   ItemsSource="{Binding ChatColumnInfos}" Style="{StaticResource ItemsControlVirtualization}"  Grid.ColumnSpan="2">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <!--<controls:FriendItem DataContext="{Binding}" Visibility="{Binding FriendBriefs,Converter={StaticResource FriendItemVisibilityConvert}}"/>-->
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Grid>
+
     </Grid>
 </Page>

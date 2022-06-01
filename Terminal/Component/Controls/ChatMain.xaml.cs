@@ -23,7 +23,7 @@ namespace Terminal.Component.Controls
     /// </summary>
     public partial class ChatMain : UserControl
     {
-
+        readonly P2PCall p2pcall = new P2PCall();
         private readonly ChatMainViewModel chatMainData;
         private ChatItem chatItem;
         public ChatMain()
@@ -107,9 +107,10 @@ namespace Terminal.Component.Controls
         }
 
         private void P2PCall(object sender, MouseButtonEventArgs e)
-        {
-            P2PCall p2pcall = new P2PCall();    
-            p2pcall.Show();
+        {          
+             TextBlock border = (TextBlock)sender;
+            SwitchCallRoute((CallType)Enum.Parse(typeof(CallType), $"{border.Name}"));
+            p2pcall.Show();            
         }
     }
 }

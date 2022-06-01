@@ -4,11 +4,53 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Terminal.Component.Pages"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="VideoTalk" Background="blue">
-
+      mc:Ignorable="d"      xmlns:hc="https://handyorg.github.io/handycontrol"    
+      Title="视频通话中" >
     <Grid>
-        
+    <Grid.RowDefinitions>
+        <RowDefinition Height="1*"/>
+        <RowDefinition Height="1*"/>
+        <RowDefinition Height="1*"/>
+    </Grid.RowDefinitions>
+    <!--背景 border.child-->
+        <Border>
+            <Grid HorizontalAlignment="Center" Grid.RowSpan="3" Height="1400" Margin="0,0,0,0" VerticalAlignment="Center" Width="1400" ZIndex="0" >
+                <Grid Margin="0,10,10,97">
+                    <Grid.Background>
+                        <ImageBrush ImageSource="pack://application:,,,/Resources/tx.png"></ImageBrush>
+                    </Grid.Background>
+                    <Grid.Effect>
+                        <BlurEffect Radius="8"></BlurEffect>
+                    </Grid.Effect>
+                </Grid>
+            </Grid>
+        </Border>
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+         <!--头像-->
+        <Grid Margin="15" >
+            <Image VerticalAlignment="Top" Source="pack://application:,,,/Resources/tx.png" Width="80" Height="80"  ></Image>
+        </Grid>
+    <!--信息-->
+        <Grid  Margin="0,10,0,0">
+            <StackPanel>
+                <TextBlock FontSize="20" Foreground="#fff" Margin="0,15,0,10" HorizontalAlignment="Left">66666</TextBlock>
+                    <TextBlock FontSize="15" Foreground="#fff" HorizontalAlignment="Left">正在等等对方接受邀请</TextBlock>
+            </StackPanel>
+        </Grid>
+    </StackPanel>
+
+    <!--菜单-->
+    <Grid Grid.Row="2">
+        <DockPanel Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Width="200" Margin="40,0,0,0">
+            <Grid>
+                    <Button Click="toVoice" FontFamily="{StaticResource ElementIcon}" Content="&#xe62f;" FontSize="18" Foreground="#fff" Cursor="Hand" Background="#695652" Width="40" Height="40" Margin="10" DockPanel.Dock="Left" hc:BorderElement.CornerRadius="50" BorderThickness="0"></Button>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="-10" Foreground="#fff">切换语音通话</TextBlock>
+            </Grid>
+            <Grid>
+                    <Button FontFamily="{StaticResource ElementIcon}" Content="&#xe646;"  FontSize="18" Foreground="#fff" Cursor="Hand" Background="#FF6565" Width="40" Height="40" DockPanel.Dock="Right" hc:BorderElement.CornerRadius="50"  BorderThickness="0"></Button>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="-10" Foreground="#fff">取消</TextBlock>
+            </Grid>
+        </DockPanel>
+    </Grid>
     </Grid>
 </Page>

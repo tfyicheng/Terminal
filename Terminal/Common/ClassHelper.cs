@@ -11,6 +11,7 @@ namespace Terminal.Common
     class ClassHelper
     {
         public delegate void RouteEvent(ClassHelper.PageType pageName);
+        public delegate void CallEvent(ClassHelper.CallType typeName);
         public delegate void MessageEvent(int messageType, string message);
         public delegate void DataPassing(ClassHelper.DataPassingType dataType, object data);
 
@@ -36,6 +37,12 @@ namespace Terminal.Common
             EnergyAssess,
         }
 
+        //Call类型
+        public enum CallType
+        {
+            VoiceTalk,
+            VideoTalk,
+        }
         // 类数据传递类型
         public enum DataPassingType
         {
@@ -67,6 +74,9 @@ namespace Terminal.Common
         #region 事件
         // 改变路由
         public static event RouteEvent RoutedChanged;
+
+        // 改变路由
+        public static event CallEvent CallRouted;
 
         // 消息提醒
         public static event MessageEvent MessageHint;
@@ -105,7 +115,14 @@ namespace Terminal.Common
             RoutedChanged.Invoke(pageName);
         }
 
-
+        /// <summary>
+        /// 切换通话路由
+        /// </summary>
+        /// <param name="routeName">页面名称</param>
+        public static void SwitchCallRoute(CallType typeName)
+        {
+            CallRouted.Invoke(typeName);
+        }
 
 
         /// <summary>

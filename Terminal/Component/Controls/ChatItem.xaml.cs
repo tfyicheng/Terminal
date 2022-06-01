@@ -216,7 +216,45 @@ namespace Terminal.Component.Controls
         //异步进程，发送消息
         private  void SendMessage(object data)
         {
-
+            chatColumn.IsUsable = false;
+            RichMessageModel richMessage = new RichMessageModel();//新建消息对象
+            Dispatcher.Invoke(delegate
+            {            
+                foreach (Block item in chatColumn.Flow.Blocks)
+                {
+                    if (item is Paragraph paragraph)
+                    {
+                        foreach (Inline coll in paragraph.Inlines)
+                    {
+                        if (coll is Run run)
+                        {
+                            richMessage.RichMessageContents.Add(new RichMessageContentModel
+                            {
+                                MessageType = RichMessageType.Text,
+                                Content = run.Text,
+                                FileAttribute = null
+                            });
+                        }
+                    }
+                    }
+                    List<RichMessageContentModel> richesText = richMessage.Filter(RichMessageType.Text);
+                  
+                    string message = string.Empty;
+                    foreach (RichMessageContentModel iem in richesText)
+                    {
+                        message += iem.Content;
+                    }
+                    ChatMessagesModel e = new ChatMessagesModel() { ChatID = "2", MessageContent = message, SenderID = "0", ReceiverID = "4" };
+                    chatColumn.ChatContent.Add(e);
+                    scroll.ScrollToEnd();
+                    
+                }
+            });
+            Dispatcher.Invoke(delegate
+            {
+                chatColumn.IsUsable = true;
+                chatColumn.Flow.Blocks.Clear();//清空文本框               
+            });
         }
 
         //读取未读消息
@@ -232,7 +270,6 @@ namespace Terminal.Component.Controls
                         {
                             item.IsRead = true;
                         }
-
                         chatColumn.Unread = 0;
                     }
                 }

@@ -12,19 +12,45 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Terminal.Common;
+using static Terminal.Common.ClassHelper;
 
 namespace Terminal.Component.Windows
 {
+
     /// <summary>
     /// P2PCall.xaml 的交互逻辑
     /// </summary>
+
+
     public partial class P2PCall : Window
     {
+    
+        private void ClassHelper_RoutedChanged(CallType typeName)
+        {
+            //线程调用
+            Dispatcher.Invoke(delegate
+            {
+                switch (typeName)
+                {
+                    case CallType.VoiceTalk:
+                       CallRouteMain.Navigate(ClassHelper.voiceTalk);
+                        break;
+                    case CallType.VideoTalk:
+                        CallRouteMain.Navigate(ClassHelper.videoTalk);                     
+                        break;
+                    default:                     
+                        break;
+                }
+            });
+        }
+
         public P2PCall()
         {
             InitializeComponent();
-            
+            ClassHelper.CallRouted += ClassHelper_RoutedChanged;//注册委托
+
         }
+
 
 
         //窗体状态事件
@@ -38,16 +64,16 @@ namespace Terminal.Component.Windows
         }
         private void BtnClose_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            Hide();
         }
         private void Window_MouseLeftButtonDown_1(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
         }
 
-        private void P2PCall_Loaded(object sender, RoutedEventArgs e)
-        {
-            this.CallRouteMain.Navigate(ClassHelper.voiceTalk);
+        public void P2PCall_Loaded(object sender, RoutedEventArgs e)
+        {            
         }
+    
     }
 }
