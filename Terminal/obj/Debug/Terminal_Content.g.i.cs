@@ -9,6 +9,7 @@
 //------------------------------------------------------------------------------
 
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("references/newtonsoft.json.dll")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("references/system.data.sqlite.dll")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("references/handycontrol.dll")]
 
 

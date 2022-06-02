@@ -1350,7 +1350,7 @@
         </Style.Triggers>
     </Style>
 
-    <!--Border渐变背景-->
+    <!--chat列表Border渐变背景-->
     <Style x:Key="BorderGradualBackground" TargetType="{x:Type Border}">
         <Setter Property="Background" Value="#FFFFFF"/>
         <Style.Triggers>
@@ -1542,7 +1542,7 @@
         </Setter>
     </Style>
 
-    <!--Border白色渐变-->
+    <!--通讯录列表Border白色渐变-->
     <Style x:Key="BorderWhiteGradient" TargetType="{x:Type Border}">
         <Setter Property="Background" Value="#FFFFFF"/>
         <Style.Triggers>

@@ -145,3 +145,6 @@ D:\c-demo\ZD\Terminal\Terminal\obj\Debug\Component\Pages\VideoTalk.baml
 D:\c-demo\ZD\Terminal\Terminal\obj\Debug\Component\Pages\VoiceTalk.baml
 D:\c-demo\ZD\Terminal\Terminal\obj\Debug\Component\Controls\FriendItem.g.cs
 D:\c-demo\ZD\Terminal\Terminal\obj\Debug\Component\Controls\FriendItem.baml
+D:\c-demo\ZD\Terminal\Terminal\bin\Debug\System.Data.SQLite.dll
+D:\c-demo\ZD\Terminal\Terminal\obj\Debug\Component\Controls\InfoPage.g.cs
+D:\c-demo\ZD\Terminal\Terminal\obj\Debug\Component\Controls\InfoPage.baml

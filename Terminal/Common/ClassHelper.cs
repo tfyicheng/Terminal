@@ -24,6 +24,8 @@ namespace Terminal.Common
         // 选中的聊天好友ID
         public static string ChatFriendID { get; set; }
 
+        // 选中的联系人好友ID
+        public static string ContactPersonFriendID { get; set; }
         #endregion
 
         #region 枚举类型

@@ -3,22 +3,14 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+         xmlns:controls="clr-namespace:Terminal.Component.Controls" 
       mc:Ignorable="d"     xmlns:hc ="https://handyorg.github.io/handycontrol"
-      d:DesignHeight="548" d:DesignWidth="962" Background="White"
+      d:DesignHeight="548" d:DesignWidth="962" Background="White" Loaded="AddressBookMain_Loaded"
 	Title="AddressBook">
     <!--<Page.DataContext>
-        <Binding Source="{StaticResource MainData}"/>
+        <Binding Source="{StaticResource mainData}"/>
     </Page.DataContext>-->
-    <!--//页面进入动画-->
-    <Page.Triggers>
-        <EventTrigger RoutedEvent="Loaded">
-            <BeginStoryboard>
-                <Storyboard>
-                    <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.3"/>
-                </Storyboard>
-            </BeginStoryboard>
-        </EventTrigger>
-    </Page.Triggers>
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="340"/>
@@ -46,14 +38,20 @@
                 <Line VerticalAlignment="Bottom" X1="0" Y1="0" X2="2400" Y2="0" Stroke="#C0C4CC"/>
             </Grid>
             <!--列表内容-->
-            <ItemsControl x:Name="itcChat" Grid.Row="2"  Margin="0,0,0,0"   ItemsSource="{Binding ChatColumnInfos}" Style="{StaticResource ItemsControlVirtualization}"  Grid.ColumnSpan="2">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <!--<controls:FriendItem DataContext="{Binding}" Visibility="{Binding FriendBriefs,Converter={StaticResource FriendItemVisibilityConvert}}"/>-->
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
+            <Border BorderBrush="#EBEEF5" BorderThickness="0,1,0,0">
+                <ItemsControl x:Name="itcFriends" Style="{StaticResource ItemsControlVirtualization}" ItemsSource="{Binding Friends}" ManipulationBoundaryFeedback="ItemsControl_ManipulationBoundaryFeedback">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <controls:FriendItem DataContext="{Binding}" Visibility="{Binding FriendInfos,Converter={StaticResource FriendItemVisibilityConvert}}"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </Border>
         </Grid>
-
+        <!--右侧详情页-->
+        <Grid Grid.Column="1" >
+            
+        </Grid>
+        
     </Grid>
 </Page>

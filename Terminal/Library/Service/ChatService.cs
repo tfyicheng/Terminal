@@ -8,6 +8,9 @@ using Terminal.Library.ViewModel;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using Terminal.Library.ResultModel;
+using System.Data.SQLite;
+using System.Windows;
+using Terminal.DB;
 
 namespace Terminal.Library.Service
 {
@@ -36,21 +39,41 @@ namespace Terminal.Library.Service
     public static bool GetChattingRecords(string chatID, out List<ChatMessagesModel> chatMessages)
     {
         chatMessages = null;
-        if (true)
+   chatMessages = new List<ChatMessagesModel>();
+            if (chatID == "1")
         {
             //chatMessages = JsonConvert.DeserializeObject<List<ChatMessageModel>>(resp);\
-             chatMessages = new List<ChatMessagesModel>();
+          
                 ChatMessagesModel a = new ChatMessagesModel() { ChatID = "1" ,MessageContent="666",SenderID="3",ReceiverID="0",IsRead=true,MessageType=0,IsVisible=0 };
                 ChatMessagesModel b = new ChatMessagesModel() { ChatID = "1", MessageContent = "888", SenderID = "0", ReceiverID = "3" };
                 ChatMessagesModel c = new ChatMessagesModel() { ChatID = "1", MessageContent = "的苦涩和分离四级分数分类为解放路色剂历史记录蒙娜丽莎呢服了你\t\n力所能及馥蕾诗家乐福建安我放假了案例进屋里你发了发怒", SenderID = "0", ReceiverID = "3" };
                 ChatMessagesModel d = new ChatMessagesModel() { ChatID = "1", MessageContent = "的苦涩和分离四级分数分类为解放路色剂历史记录蒙娜丽莎呢服了你\t\n力所能及馥蕾诗家乐福建安我放假了案例进屋里你发了发怒", SenderID = "3", ReceiverID = "3" };
-                ChatMessagesModel e = new ChatMessagesModel() { ChatID = "2", MessageContent = "的苦涩和分离四级分数分", SenderID = "0", ReceiverID = "4" };
+                ChatMessagesModel e = new ChatMessagesModel() { ChatID = "1", MessageContent = "的苦涩和分离四级分数分", SenderID = "0", ReceiverID = "3" };
+
+                chatMessages.Add(a);
+                chatMessages.Add(b);
+                chatMessages.Add(c); chatMessages.Add(d); chatMessages.Add(e);
+
+               /// MySqliteHelper.CreateDataBase();
+               //MySqliteHelper.CreateDatabaseConnection();
+                //MySqliteHelper.Open(MySqliteHelper.connection);
+                return true;          
+             
+            }
+            else
+            {
+               
+                ChatMessagesModel a = new ChatMessagesModel() { ChatID = "2", MessageContent = "2666", SenderID = "4", ReceiverID = "0", IsRead = true, MessageType = 0, IsVisible = 0 };
+                ChatMessagesModel b = new ChatMessagesModel() { ChatID = "2", MessageContent = "2888", SenderID = "0", ReceiverID = "4" };
+                ChatMessagesModel c = new ChatMessagesModel() { ChatID = "2", MessageContent = "2的苦涩和分离四级分数分类为解放路色剂历史记录蒙娜丽莎呢服了你\t\n力所能及馥蕾诗家乐福建安我放假了案例进屋里你发了发怒", SenderID = "0", ReceiverID = "4" };
+                ChatMessagesModel d = new ChatMessagesModel() { ChatID = "2", MessageContent = "2的苦涩和分离四级分数分类为解放路色剂历史记录蒙娜丽莎呢服了你\t\n力所能及馥蕾诗家乐福建安我放假了案例进屋里你发了发怒", SenderID = "3", ReceiverID = "4" };
+                ChatMessagesModel e = new ChatMessagesModel() { ChatID = "2", MessageContent = "2的苦涩和分离四级分数分", SenderID = "0", ReceiverID = "4" };
 
                 chatMessages.Add(a);
                 chatMessages.Add(b);
                 chatMessages.Add(c); chatMessages.Add(d); chatMessages.Add(e);
                 return true;
-        }
+            }
     
     }
 
@@ -76,5 +99,7 @@ namespace Terminal.Library.Service
             //return ClassHelper.ServerRequest($"{ClassHelper.servicePath}/api/Chat/ReadMessage", HttpMethod.Post, out _, requestObj: requestObj);
             return true;
         }
+
+
     }
 }

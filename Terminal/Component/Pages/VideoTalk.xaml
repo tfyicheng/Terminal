@@ -12,9 +12,9 @@
         <RowDefinition Height="1*"/>
         <RowDefinition Height="1*"/>
     </Grid.RowDefinitions>
-    <!--背景 border.child-->
-        <Border>
-            <Grid HorizontalAlignment="Center" Grid.RowSpan="3" Height="1400" Margin="0,0,0,0" VerticalAlignment="Center" Width="1400" ZIndex="0" >
+        <!--背景 border.child  ZIndex="0"-->
+        <Border  HorizontalAlignment="Center" Grid.RowSpan="3" Height="1400" Margin="0,0,0,0" VerticalAlignment="Center" Width="1400"  >
+            <Grid >
                 <Grid Margin="0,10,10,97">
                     <Grid.Background>
                         <ImageBrush ImageSource="pack://application:,,,/Resources/tx.png"></ImageBrush>

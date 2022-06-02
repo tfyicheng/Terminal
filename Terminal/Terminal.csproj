@@ -15,7 +15,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,6 +23,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -47,6 +48,10 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.116.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>References\System.Data.SQLite.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -97,6 +102,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Component\Controls\GeneralCfgView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Component\Controls\InfoPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -204,6 +213,9 @@
     <Compile Include="Component\Controls\GeneralCfgView.xaml.cs">
       <DependentUpon>GeneralCfgView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Component\Controls\InfoPage.xaml.cs">
+      <DependentUpon>InfoPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Component\Controls\MasterChat.xaml.cs">
       <DependentUpon>MasterChat.xaml</DependentUpon>
     </Compile>
@@ -285,6 +297,8 @@
     <Compile Include="Component\Windows\VoiceSend.xaml.cs">
       <DependentUpon>VoiceSend.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DB\MySqliteHelper.cs" />
+    <Compile Include="Library\Converter\FriendItemVisibilityConvert.cs" />
     <Compile Include="Library\Converter\RichTextBoxWidthConvert.cs" />
     <Compile Include="Library\DataTemplateSelectors\ChatTemplateSelectors.cs" />
     <Compile Include="Library\FileModel.cs" />
@@ -295,6 +309,7 @@
     <Compile Include="Library\ResultModel\RichMessageContentModel.cs" />
     <Compile Include="Library\ResultModel\RichMessageModel.cs" />
     <Compile Include="Library\Service\ChatService.cs" />
+    <Compile Include="Library\Service\UserManagerService.cs" />
     <Compile Include="Library\ViewModel\ChatColumnInfoModel.cs" />
     <Compile Include="Library\ViewModel\ChatImage.cs" />
     <Compile Include="Library\ViewModel\ChatMainViewModel.cs" />
@@ -338,6 +353,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="References\Newtonsoft.Json.dll" />
+    <Content Include="References\System.Data.SQLite.dll" />
     <Resource Include="icon.ico" />
     <Content Include="References\HandyControl.dll" />
   </ItemGroup>

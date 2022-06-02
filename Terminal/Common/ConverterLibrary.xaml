@@ -3,4 +3,5 @@
                     xmlns:converters="clr-namespace:Terminal.Library.Converter">
 
     <converters:RichTextBoxWidthConvert x:Key="RichTextBoxWidthConvert"/>
+    <converters:FriendItemVisibilityConvert x:Key="FriendItemVisibilityConvert"/>
 </ResourceDictionary>

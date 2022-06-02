@@ -58,7 +58,7 @@ namespace Terminal.Component.Controls
                     rtbMessage.Focus();//输入框获取焦点
                 }
             }
-            else if (dataType == DataPassingType.SelectMessage) //选择列表消息
+            else if (dataType == DataPassingType.SelectMessage) //选择列表消息,切换聊天界面
             {
                 chatItem = data as ChatItem;
                 Visibility = Visibility.Visible;
