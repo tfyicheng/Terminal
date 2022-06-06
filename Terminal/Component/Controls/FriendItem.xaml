@@ -6,10 +6,13 @@
              xmlns:local="clr-namespace:Terminal.Component.Controls"
              mc:Ignorable="d"  DataContextChanged="UserControlMain_DataContextChanged"
             >
+    
     <StackPanel Orientation="Vertical">
+        <!--分割线-->
+        <Line VerticalAlignment="Bottom" X1="0" Y1="0" X2="2400" Y2="0" Stroke="#C0C4CC"/>
         <!--字母标记排序-->
-        <Border Height="20" Width="20" HorizontalAlignment="Left" Margin="0,5,0,5" Background="#CCCCCC" CornerRadius="12">
-            <TextBlock x:Name="txbSort" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="10" Foreground="#FFFFFF"/>
+        <Border Height="30" Width="50" HorizontalAlignment="Left" Margin="8,5,0,5"  CornerRadius="12">
+            <TextBlock x:Name="txbSort" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="#A4A4A4"/>
         </Border>
         <ItemsControl x:Name="itcFriendInfos">
 
@@ -24,10 +27,10 @@
                     <Border Style="{StaticResource BorderWhiteGradient}" Tag="{Binding}" Loaded="BrdDetail_Loaded" MouseLeftButtonUp="BrdDetail_MouseLeftButtonUp" >
                         <Grid Margin="8">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="40"/>
+                                <ColumnDefinition Width="60"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-                            <Grid Grid.Column="0" Height="40" Width="40">
+                            <Grid Grid.Column="0" Height="60" Width="60">
                                 <!--头像-->
                                 <Image  x:Name="imgHead" Grid.Column="0" Height="50" Width="50" Source="pack://application:,,,/Resources/tx.png" ></Image>
 
@@ -47,9 +50,9 @@
                                 <!--<Border Height="8" Width="8" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,3,1" Background="{Binding OnLine, Converter={StaticResource OnLineStatusConvert}}" CornerRadius="4"/>-->
                             </Grid>
                             <Grid Grid.Column="1" Margin="8,0,0,0">
-                                <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top">
-                                    <Run FontSize="15" Foreground="#303133" Text="{Binding NickName}"/>
-                                    <Run FontSize="10" Foreground="#C0C4CC" Text="{Binding RemarkName}"/>
+                                <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center">
+                                    <Run FontSize="18"  Foreground="#303133" Text="{Binding NickName}"/>
+                                    <!--<Run FontSize="10" Foreground="#C0C4CC" Text="{Binding RemarkName}"/>-->
                                 </TextBlock>
                                 <TextBlock HorizontalAlignment="Left" VerticalAlignment="Bottom" Foreground="#909399" TextTrimming="CharacterEllipsis" Text="{Binding Personalized}"/>
                             </Grid>

@@ -5,11 +5,18 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
          xmlns:controls="clr-namespace:Terminal.Component.Controls" 
       mc:Ignorable="d"     xmlns:hc ="https://handyorg.github.io/handycontrol"
+       xmlns:viewmodels="clr-namespace:Terminal.Library.ViewModel" 
       d:DesignHeight="548" d:DesignWidth="962" Background="White" Loaded="AddressBookMain_Loaded"
 	Title="AddressBook">
-    <!--<Page.DataContext>
+    <Page.Resources>
+        <ResourceDictionary>
+            <viewmodels:ContactPersonViewModel x:Key="mainData"/>
+
+        </ResourceDictionary>
+    </Page.Resources>
+    <Page.DataContext>
         <Binding Source="{StaticResource mainData}"/>
-    </Page.DataContext>-->
+    </Page.DataContext>
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -31,18 +38,16 @@
             <!--列表顶部-->
             <Grid Grid.Row="0" Margin="0,0,0,0" Grid.RowSpan="2" >
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="15,20,15,0">
-                    <hc:SearchBar Width="260" Height="38" hc:InfoElement.Placeholder="搜索" FontSize="15" ShowClearButton="True" BorderThickness="0" Background="#eee"  Style="{StaticResource SearchBarPlus}"/>
+                    <hc:SearchBar Width="255" Height="38" hc:InfoElement.Placeholder="搜索" FontSize="15" ShowClearButton="True" BorderThickness="0" Background="#eee"  Style="{StaticResource SearchBarPlus}"/>
                     <Button  BorderThickness="0" Background="#eee" Margin="15" Height="38" Width="38" Cursor="Hand" FontSize="18" FontFamily="{StaticResource ElementIcon}">&#xe626;</Button>
-                  
                 </StackPanel>
-                <Line VerticalAlignment="Bottom" X1="0" Y1="0" X2="2400" Y2="0" Stroke="#C0C4CC"/>
             </Grid>
             <!--列表内容-->
-            <Border BorderBrush="#EBEEF5" BorderThickness="0,1,0,0">
+            <Border Grid.Row="2" BorderBrush="#EBEEF5" BorderThickness="0,0,0,0">
                 <ItemsControl x:Name="itcFriends" Style="{StaticResource ItemsControlVirtualization}" ItemsSource="{Binding Friends}" ManipulationBoundaryFeedback="ItemsControl_ManipulationBoundaryFeedback">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <controls:FriendItem DataContext="{Binding}" Visibility="{Binding FriendInfos,Converter={StaticResource FriendItemVisibilityConvert}}"/>
+                            <controls:FriendItem DataContext="{Binding}" Visibility="{Binding FriendBriefs,Converter={StaticResource FriendItemVisibilityConvert}}" />
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
@@ -50,7 +55,7 @@
         </Grid>
         <!--右侧详情页-->
         <Grid Grid.Column="1" >
-            
+            <controls:InfoPage DataContext="{Binding}" x:Name="conFriendInfoCard"  Visibility="Collapsed" />
         </Grid>
         
     </Grid>

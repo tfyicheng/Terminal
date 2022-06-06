@@ -4,9 +4,96 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Terminal.Component.Controls"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             xmlns:resultmodels="clr-namespace:Terminal.Library.ResultModel"
+             mc:Ignorable="d"   Loaded="UserControlMain_Loaded" Unloaded="UserControlMain_Unloaded"
+            >
+    <UserControl.DataContext>
+        <resultmodels:InfoDetailsModel/>
+    </UserControl.DataContext>
+    <!--<Image  x:Name="imgHead" Grid.Column="0" Height="50" Width="50" Source="pack://application:,,,/Resources/tx.png" ></Image>-->
+
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="91"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="180"/>
+        </Grid.RowDefinitions>
+      
+        
+            <Line VerticalAlignment="Bottom"  X1="0" Y1="0" X2="2400" Y2="0" Stroke="#C0C4CC"/>
+        <!--用户详情布局-->
+        <Grid Grid.Row="1"  Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="150"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <!--头像-->
+            <Grid VerticalAlignment="Center" >
+                <Image  x:Name="imgHead00" Grid.Column="0" Height="90" Width="90" Margin="0" Source="pack://application:,,,/Resources/tx.png" ></Image>
+            </Grid>
+            <!--信息-->
+            <Grid Grid.Row="1"  >
+                <Grid MaxWidth="400" Margin="20,0,20,0">
+                    <Border Background="#FFFFFF" CornerRadius="3">
+                        <Border.Effect>
+                            <DropShadowEffect ShadowDepth="0" BlurRadius="8" Color="#C0C4CC" Opacity="0.2"/>
+                        </Border.Effect>
+                    </Border>
+
+                    <DockPanel  Margin="20">
+                        <DockPanel Margin="5,0,5,0" DockPanel.Dock="Bottom">
+                            <DockPanel Margin="0,5,10,20" DockPanel.Dock="Top">
+                                <TextBlock Width="90" FontSize="20" Foreground="#606266" Text="用户名" DockPanel.Dock="Left"/>
+                                <TextBlock FontSize="20" Foreground="#303133" TextTrimming="CharacterEllipsis" Text="{Binding NickName}" DockPanel.Dock="Left"/>
+                            </DockPanel>
+                            
+                            <DockPanel Margin="0,5,0,20" DockPanel.Dock="Top">
+                                <TextBlock Width="90" FontSize="20" Foreground="#606266" Text="备注" DockPanel.Dock="Left"/>
+                                <DockPanel DockPanel.Dock="Left">
+                                    <TextBlock x:Name="txbRemarkNameAction" Style="{StaticResource TextBlockWait}" FontSize="20" FontFamily="{StaticResource ElementIcon}" Tag="RemarkName" Text="&#xe603;" DockPanel.Dock="Right" MouseLeftButtonUp="TxbRemark_MouseLeftButtonUp" />
+                                    <Grid Margin="0,0,5,0" DockPanel.Dock="Right">
+                                        <TextBlock x:Name="txbRemarkName" FontSize="20" Foreground="#303133" TextTrimming="CharacterEllipsis" Text="{Binding RemarkName}"/>
+                                        <TextBox x:Name="txtRemarkName" Style="{StaticResource TextBoxEmpty}" FontSize="20" MaxLength="30" Tag="RemarkName" Visibility="Collapsed" LostFocus="TxtRemark_LostFocus"/>
+                                    </Grid>
+                                </DockPanel>
+                            </DockPanel>
+                            
+                            <DockPanel Margin="0,5,0,20" DockPanel.Dock="Top">
+                                <TextBlock Width="90" FontSize="20" Foreground="#606266" Text="地址" DockPanel.Dock="Left"/>
+                                <TextBlock FontSize="20" Foreground="#303133" TextTrimming="CharacterEllipsis" Text="{Binding PhoneNumber}" DockPanel.Dock="Left"/>
+                            </DockPanel>
+                            
+                            <DockPanel Margin="0,5,0,20" DockPanel.Dock="Top">
+                                <TextBlock Width="90" FontSize="20" Foreground="#606266" Text="个人" DockPanel.Dock="Left"/>
+                                <TextBlock Width="70" FontSize="20" Foreground="#606266" Text="" DockPanel.Dock="Left"/>
+                            </DockPanel>
+                            
+                            <DockPanel Margin="0,5,0,5" DockPanel.Dock="Top">
+                                <TextBlock Width="90" FontSize="20" Foreground="#606266" Text="备注信息" DockPanel.Dock="Left"/>
+                               <DockPanel DockPanel.Dock="Left">
+                                    <TextBlock x:Name="txbRemarkInformationAction"  VerticalAlignment="Top" FontSize="20" Style="{StaticResource TextBlockWait}" FontFamily="{StaticResource ElementIcon}" Tag="RemarkInformation" Text="&#xe603;" DockPanel.Dock="Right" MouseLeftButtonUp="TxbRemark_MouseLeftButtonUp" />
+                                    <Grid Margin="0,0,5,0" DockPanel.Dock="Right">
+                                        <TextBlock x:Name="txbRemarkInformation" FontSize="13" Foreground="#303133" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" Text="{Binding RemarkInformation}"/>
+                                        <TextBox x:Name="txtRemarkInformation" Style="{StaticResource TextBoxEmpty}" TextWrapping="Wrap" AcceptsReturn="True" FontSize="11" MaxLength="100" Tag="RemarkInformation" Visibility="Collapsed" LostFocus="TxtRemark_LostFocus"/>
+                                    </Grid>
+                                </DockPanel>
+                            </DockPanel>
+                        </DockPanel>
+                    </DockPanel>
+                </Grid>
+            </Grid>
+        </Grid>
+       <!--群聊布局-->
+        <WrapPanel Grid.Row="1" Orientation="Horizontal" Margin="20" VerticalAlignment="Top" Visibility="Hidden" >
+            <Image  x:Name="imgHead" Grid.Column="0" Height="70" Width="70" Margin="20" Source="pack://application:,,,/Resources/tx.png" ></Image>
+            <Image  x:Name="imgHead1" Grid.Column="0" Height="70" Width="70" Margin="20" Source="pack://application:,,,/Resources/tx.png" ></Image>
+            <Image  x:Name="imgHead2" Grid.Column="0" Height="70" Width="70" Margin="20" Source="pack://application:,,,/Resources/tx.png" ></Image>
+            <Image  x:Name="imgHead3" Grid.Column="0" Height="70" Width="70" Margin="20" Source="pack://application:,,,/Resources/tx.png" ></Image>
+            <Image  x:Name="imgHead4" Grid.Column="0" Height="70" Width="70" Margin="20" Source="pack://application:,,,/Resources/tx.png" ></Image>
+            <Image  x:Name="imgHead5" Grid.Column="0" Height="70" Width="70" Margin="20" Source="pack://application:,,,/Resources/tx.png" ></Image>
+        </WrapPanel>
+        <!--发送消息-->
+        <Button Grid.Row="2" Background="#21345C" Foreground="#fff" Width="150" Height="40" FontSize="15" Click="BtnSendMessage_Click" BorderThickness="0">发送消息</Button>
+        
     </Grid>
 </UserControl>

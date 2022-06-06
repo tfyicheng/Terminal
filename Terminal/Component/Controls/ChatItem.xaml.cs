@@ -37,7 +37,7 @@ namespace Terminal.Component.Controls
             InitializeComponent();
             //scroll.ScrollChanged += Scroll_ScrollChanged;
             MasterChat.Loaded += MasterChat_Loaded; 
-            txbNickName.SetBinding(Run.TextProperty, "NickName");//绑定用户名
+            txbNickName.SetBinding(Run.TextProperty, "NickName");//绑定用户名 (绑定的元素，绑定的源（数据上下文）)
             txbRemarkName.SetBinding(Run.TextProperty, "RemarkName");
             //brdBadge.SetBinding(VisibilityProperty, new Binding { Path = new PropertyPath("Unread"), Converter = FindResource<BoolVisibilityConvert>("BoolVisibilityConvert") });
             txbBadgeNumber.SetBinding(TextBlock.TextProperty, "Unread");
@@ -124,7 +124,7 @@ namespace Terminal.Component.Controls
                     {
                         Dispatcher.Invoke(delegate
                         {
-                            foreach (ChatMessagesModel item in chatMessages) //遍历集合添加给chatcontent，这里chatcolu仍归属同一个对象
+                            foreach (ChatMessagesModel item in chatMessages) //遍历集合添加给chatcontent，这里chatcolum仍归属同一个对象
                             {
                                 chatColumn.ChatContent.Add(item);
                             }

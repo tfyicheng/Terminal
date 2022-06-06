@@ -29,7 +29,7 @@ namespace Terminal.Component.Pages
         {
             InitializeComponent();
             mainData = Resources["mainData"] as ContactPersonViewModel;
-            this.DataContext = mainData;    
+           // this.DataContext = mainData;    
         //    SignalRClientHelper.FriendChangedSignalR += SignalRClientHelper_FriendChangedSignalR;
 
         }

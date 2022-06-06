@@ -10,4 +10,5 @@
     <system1:String x:Key="VideoSend">视频发送</system1:String>
     <system1:String x:Key="PicUp">图片发送</system1:String>
     <system1:String x:Key="FileUp">文件发送</system1:String>
+    <system1:String x:Key="Test">发送</system1:String>
 </ResourceDictionary>

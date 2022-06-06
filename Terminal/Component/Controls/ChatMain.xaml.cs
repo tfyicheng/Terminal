@@ -24,7 +24,7 @@ namespace Terminal.Component.Controls
     public partial class ChatMain : UserControl
     {
         readonly P2PCall p2pcall = new P2PCall();
-        private readonly ChatMainViewModel chatMainData;
+        private readonly ChatMainViewModel chatMainData;//数据上下文
         private ChatItem chatItem;
         public ChatMain()
         {
@@ -64,7 +64,7 @@ namespace Terminal.Component.Controls
                 Visibility = Visibility.Visible;
                 ChatColumnInfoModel chatColumnInfo = chatItem.DataContext as ChatColumnInfoModel;
                 chatMainData.ChatID = chatColumnInfo.ChatID;
-                txbFriendNickName.SetBinding(TextBlock.TextProperty, new Binding { Source = chatColumnInfo, Path = new PropertyPath(string.IsNullOrEmpty(chatColumnInfo.RemarkName) ? nameof(chatColumnInfo.NickName) : nameof(chatColumnInfo.RemarkName)) });
+              txbFriendNickName.SetBinding(TextBlock.TextProperty, new Binding { Source = chatColumnInfo, Path = new PropertyPath(string.IsNullOrEmpty(chatColumnInfo.RemarkName) ? nameof(chatColumnInfo.NickName) : nameof(chatColumnInfo.RemarkName)) });
                 rtbMessage.SetBinding(IsEnabledProperty, new Binding { Source = chatColumnInfo, Path = new PropertyPath(nameof(chatColumnInfo.IsUsable)) });
                 btnSend.SetBinding(IsEnabledProperty, new Binding { Source = chatColumnInfo, Path = new PropertyPath(nameof(chatColumnInfo.IsUsable)) });
                 if (chatColumnInfo.Flow == null)
@@ -105,7 +105,7 @@ namespace Terminal.Component.Controls
             VoiceSend voicoSend = new VoiceSend();
             voicoSend.Show();
         }
-
+        //语音，视频通话
         private void P2PCall(object sender, MouseButtonEventArgs e)
         {          
              TextBlock border = (TextBlock)sender;

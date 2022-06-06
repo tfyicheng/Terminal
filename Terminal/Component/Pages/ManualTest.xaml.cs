@@ -63,7 +63,7 @@ namespace Terminal.Component.Pages
                     Dispatcher.Invoke(delegate
                     {
                             //
-                            foreach (ChatColumnInfoModel item in chatColumnInfos)
+                       foreach (ChatColumnInfoModel item in chatColumnInfos)
                         {
                             Dispatcher.Invoke(delegate
                             {

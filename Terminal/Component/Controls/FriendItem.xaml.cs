@@ -23,9 +23,11 @@ namespace Terminal.Component.Controls
     public partial class FriendItem : UserControl
     {
         private static Border borderSelect;
+     
         public FriendItem()
         {
             InitializeComponent();
+          
         }
 
         private void UserControlMain_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
@@ -63,7 +65,7 @@ namespace Terminal.Component.Controls
             {
                 borderSelect.IsEnabled = true;
             }
-            borderSelect = border;
+            borderSelect = border;           
             ClassHelper.TransferringData(typeof(InfoPage), ClassHelper.DataPassingType.SelectFriend, (border.Tag as FriendInfoModel).UserID);
         }
     }

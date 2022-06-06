@@ -1674,6 +1674,7 @@
     <!--TextBlock等待，需要手动设置\xe6cf-->
     <Style x:Key="TextBlockWait" TargetType="{x:Type TextBlock}">
         <Setter Property="Foreground" Value="#606266"/>
+        <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="RenderTransform">
             <Setter.Value>
                 <RotateTransform/>
@@ -1689,7 +1690,7 @@
                 <Trigger.EnterActions>
                     <BeginStoryboard>
                         <Storyboard>
-                            <ColorAnimation Storyboard.TargetProperty="Foreground.(SolidColorBrush.Color)" To="#FF6D00" Duration="0:0:0.2"/>
+                            <ColorAnimation Storyboard.TargetProperty="Foreground.(SolidColorBrush.Color)" To="#000" Duration="0:0:0.2"/>
                         </Storyboard>
                     </BeginStoryboard>
                 </Trigger.EnterActions>
