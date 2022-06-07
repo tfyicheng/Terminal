@@ -31,7 +31,7 @@ namespace Terminal.Library.ResultModel
             set
             {
                 userID = value;
-            //    OnPropertyChanged(nameof(UserID));
+            OnPropertyChanged(nameof(UserID));
             }
         }
         // 昵称
@@ -41,7 +41,7 @@ namespace Terminal.Library.ResultModel
             set
             {
                 nickName = value;
-           //     OnPropertyChanged(nameof(NickName));
+          OnPropertyChanged(nameof(NickName));
             }
         }
         // 备注名
@@ -81,7 +81,7 @@ namespace Terminal.Library.ResultModel
             set
             {
                 email = value;
-              //  OnPropertyChanged(nameof(Email));
+             OnPropertyChanged(nameof(Email));
             }
         }
         // 性别 (0 默认  1 男  2 女)

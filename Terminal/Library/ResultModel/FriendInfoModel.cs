@@ -23,7 +23,7 @@ namespace Terminal.Library.ResultModel
             set
             {
                 userID = value;
-         //       OnPropertyChanged(nameof(UserID));
+         OnPropertyChanged(nameof(UserID));
             }
         }
         // 昵称
@@ -33,7 +33,7 @@ namespace Terminal.Library.ResultModel
             set
             {
                 nickName = value;
-              //  OnPropertyChanged(nameof(NickName));
+               OnPropertyChanged(nameof(NickName));
             }
         }
         // 备注名
@@ -43,7 +43,7 @@ namespace Terminal.Library.ResultModel
             set
             {
                 remarkName = value;
-              //  OnPropertyChanged(nameof(RemarkName));
+               OnPropertyChanged(nameof(RemarkName));
             }
         }
         // 头像

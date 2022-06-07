@@ -47,7 +47,7 @@
                 <ItemsControl x:Name="itcFriends" Style="{StaticResource ItemsControlVirtualization}" ItemsSource="{Binding Friends}" ManipulationBoundaryFeedback="ItemsControl_ManipulationBoundaryFeedback">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <controls:FriendItem DataContext="{Binding}" Visibility="{Binding FriendBriefs,Converter={StaticResource FriendItemVisibilityConvert}}" />
+                            <controls:FriendItem DataContext="{Binding}" Visibility="{Binding FriendInfos,Converter={StaticResource FriendItemVisibilityConvert}}" />
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
@@ -55,7 +55,7 @@
         </Grid>
         <!--右侧详情页-->
         <Grid Grid.Column="1" >
-            <controls:InfoPage DataContext="{Binding}" x:Name="conFriendInfoCard"  Visibility="Collapsed" />
+            <controls:InfoPage    x:Name="conFriendInfoCard"  Visibility="Collapsed" />
         </Grid>
         
     </Grid>

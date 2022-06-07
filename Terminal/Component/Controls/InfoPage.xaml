@@ -7,10 +7,18 @@
              xmlns:resultmodels="clr-namespace:Terminal.Library.ResultModel"
              mc:Ignorable="d"   Loaded="UserControlMain_Loaded" Unloaded="UserControlMain_Unloaded"
             >
+    <!--<UserControl.Resources>
+         <resultmodels:InfoDetailsModel x:Key="InfoDetail"/>
+    </UserControl.Resources> 
+    
+    <UserControl.DataContext>
+        <Binding Source="{StaticResource InfoDetail}"/>
+    </UserControl.DataContext>-->
+
     <UserControl.DataContext>
         <resultmodels:InfoDetailsModel/>
     </UserControl.DataContext>
-    <!--<Image  x:Name="imgHead" Grid.Column="0" Height="50" Width="50" Source="pack://application:,,,/Resources/tx.png" ></Image>-->
+
 
     <Grid>
         <Grid.RowDefinitions>
@@ -31,7 +39,7 @@
             <Grid VerticalAlignment="Center" >
                 <Image  x:Name="imgHead00" Grid.Column="0" Height="90" Width="90" Margin="0" Source="pack://application:,,,/Resources/tx.png" ></Image>
             </Grid>
-            <!--信息-->
+            <!--信息 Text="{Binding NickName}"DataContext="{StaticResource InfoDetail}"-->
             <Grid Grid.Row="1"  >
                 <Grid MaxWidth="400" Margin="20,0,20,0">
                     <Border Background="#FFFFFF" CornerRadius="3">
@@ -43,14 +51,14 @@
                     <DockPanel  Margin="20">
                         <DockPanel Margin="5,0,5,0" DockPanel.Dock="Bottom">
                             <DockPanel Margin="0,5,10,20" DockPanel.Dock="Top">
-                                <TextBlock Width="90" FontSize="20" Foreground="#606266" Text="用户名" DockPanel.Dock="Left"/>
-                                <TextBlock FontSize="20" Foreground="#303133" TextTrimming="CharacterEllipsis" Text="{Binding NickName}" DockPanel.Dock="Left"/>
+                                <TextBlock Width="120" FontSize="20" Foreground="#606266" Text="用户名" DockPanel.Dock="Left"/>
+                                <TextBlock  Text="{Binding NickName}"  FontSize="20" Foreground="#303133" TextTrimming="CharacterEllipsis" x:Name="Nick"  DockPanel.Dock="Left"/>
                             </DockPanel>
                             
                             <DockPanel Margin="0,5,0,20" DockPanel.Dock="Top">
-                                <TextBlock Width="90" FontSize="20" Foreground="#606266" Text="备注" DockPanel.Dock="Left"/>
+                                <TextBlock Width="120" FontSize="20" Foreground="#606266" Text="备注" DockPanel.Dock="Left"/>
                                 <DockPanel DockPanel.Dock="Left">
-                                    <TextBlock x:Name="txbRemarkNameAction" Style="{StaticResource TextBlockWait}" FontSize="20" FontFamily="{StaticResource ElementIcon}" Tag="RemarkName" Text="&#xe603;" DockPanel.Dock="Right" MouseLeftButtonUp="TxbRemark_MouseLeftButtonUp" />
+                                    <TextBlock x:Name="txbRemarkNameAction" Style="{StaticResource TextBlockWait}" FontSize="20" FontFamily="{StaticResource ElementIcon2}" Tag="RemarkName" Text="&#xe78c;" DockPanel.Dock="Right" MouseLeftButtonUp="TxbRemark_MouseLeftButtonUp" />
                                     <Grid Margin="0,0,5,0" DockPanel.Dock="Right">
                                         <TextBlock x:Name="txbRemarkName" FontSize="20" Foreground="#303133" TextTrimming="CharacterEllipsis" Text="{Binding RemarkName}"/>
                                         <TextBox x:Name="txtRemarkName" Style="{StaticResource TextBoxEmpty}" FontSize="20" MaxLength="30" Tag="RemarkName" Visibility="Collapsed" LostFocus="TxtRemark_LostFocus"/>
@@ -59,19 +67,19 @@
                             </DockPanel>
                             
                             <DockPanel Margin="0,5,0,20" DockPanel.Dock="Top">
-                                <TextBlock Width="90" FontSize="20" Foreground="#606266" Text="地址" DockPanel.Dock="Left"/>
-                                <TextBlock FontSize="20" Foreground="#303133" TextTrimming="CharacterEllipsis" Text="{Binding PhoneNumber}" DockPanel.Dock="Left"/>
+                                <TextBlock Width="120" FontSize="20" Foreground="#606266" Text="地址" DockPanel.Dock="Left"/>
+                                <TextBlock FontSize="20" Foreground="#303133" TextTrimming="CharacterEllipsis" Text="{Binding Location}" DockPanel.Dock="Left"/>
                             </DockPanel>
                             
                             <DockPanel Margin="0,5,0,20" DockPanel.Dock="Top">
-                                <TextBlock Width="90" FontSize="20" Foreground="#606266" Text="个人" DockPanel.Dock="Left"/>
-                                <TextBlock Width="70" FontSize="20" Foreground="#606266" Text="" DockPanel.Dock="Left"/>
+                                <TextBlock Width="120" FontSize="20" Foreground="#606266" Text="个人" DockPanel.Dock="Left"/>
+                                <TextBlock  Text="{Binding PhoneNumber}" FontSize="20" Foreground="#606266" DockPanel.Dock="Left"/>
                             </DockPanel>
                             
                             <DockPanel Margin="0,5,0,5" DockPanel.Dock="Top">
-                                <TextBlock Width="90" FontSize="20" Foreground="#606266" Text="备注信息" DockPanel.Dock="Left"/>
+                                <TextBlock Width="120" FontSize="20" Foreground="#606266" Text="备注信息" DockPanel.Dock="Left"/>
                                <DockPanel DockPanel.Dock="Left">
-                                    <TextBlock x:Name="txbRemarkInformationAction"  VerticalAlignment="Top" FontSize="20" Style="{StaticResource TextBlockWait}" FontFamily="{StaticResource ElementIcon}" Tag="RemarkInformation" Text="&#xe603;" DockPanel.Dock="Right" MouseLeftButtonUp="TxbRemark_MouseLeftButtonUp" />
+                                    <TextBlock x:Name="txbRemarkInformationAction"  VerticalAlignment="Top" FontSize="20" Style="{StaticResource TextBlockWait}" FontFamily="{StaticResource ElementIcon2}" Tag="RemarkInformation" Text="&#xe78c;" DockPanel.Dock="Right" MouseLeftButtonUp="TxbRemark_MouseLeftButtonUp" Cursor="Hand" />
                                     <Grid Margin="0,0,5,0" DockPanel.Dock="Right">
                                         <TextBlock x:Name="txbRemarkInformation" FontSize="13" Foreground="#303133" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" Text="{Binding RemarkInformation}"/>
                                         <TextBox x:Name="txtRemarkInformation" Style="{StaticResource TextBoxEmpty}" TextWrapping="Wrap" AcceptsReturn="True" FontSize="11" MaxLength="100" Tag="RemarkInformation" Visibility="Collapsed" LostFocus="TxtRemark_LostFocus"/>
@@ -93,7 +101,7 @@
             <Image  x:Name="imgHead5" Grid.Column="0" Height="70" Width="70" Margin="20" Source="pack://application:,,,/Resources/tx.png" ></Image>
         </WrapPanel>
         <!--发送消息-->
-        <Button Grid.Row="2" Background="#21345C" Foreground="#fff" Width="150" Height="40" FontSize="15" Click="BtnSendMessage_Click" BorderThickness="0">发送消息</Button>
+        <Button Grid.Row="2" Cursor="Hand" Background="#21345C" Foreground="#fff" Width="150" Height="40" FontSize="15" Click="BtnSendMessage_Click" BorderThickness="0">发送消息</Button>
         
     </Grid>
 </UserControl>

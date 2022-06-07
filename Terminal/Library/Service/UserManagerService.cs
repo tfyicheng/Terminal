@@ -18,18 +18,23 @@ namespace Terminal.Library.Service
             {
                 friendSorts = new List<FriendSortModel>();
                 List<FriendInfoModel> lista = new List<FriendInfoModel>();
+                List<FriendInfoModel> listb = new List<FriendInfoModel>();
 
-                FriendInfoModel aa = new FriendInfoModel() { NickName = "123", RemarkName = "888", UserID= "3" };
-                FriendInfoModel bb = new FriendInfoModel() { NickName = "3456", RemarkName = "888", UserID = "4" };
+                FriendInfoModel aa = new FriendInfoModel() { NickName = "测试一", RemarkName = "888", UserID= "3", };
+                FriendInfoModel bb = new FriendInfoModel() { NickName = "测试二", RemarkName = "888", UserID = "4" };
+                FriendInfoModel cc = new FriendInfoModel() { NickName = "测试测试", RemarkName = "888", UserID = "5" };
+                FriendInfoModel dd = new FriendInfoModel() { NickName = "测试33", RemarkName = "888", UserID = "6" };
                 lista.Add(aa);
                 lista.Add(bb);
+                listb.Add(cc);
+                listb.Add(dd);
                 FriendSortModel a = new FriendSortModel() { Sort = "用户" };
                 a.FriendInfos = lista;
                 FriendSortModel b = new FriendSortModel() { Sort = "群组" };
-             //   b.FriendInfos = lista;
-               
+             //   b.FriendInfos = listb;
+               // friendSorts.Add(b);
                 friendSorts.Add(a);
-              //  friendSorts.Add(b);
+              
                 return true;
             }
 
@@ -63,13 +68,13 @@ namespace Terminal.Library.Service
          
                 if (friendID == "3")
                 {
-                    InfoDetailsModel a = new InfoDetailsModel() { NickName="666",Email="6666",UserID="3"};
+                    InfoDetailsModel a = new InfoDetailsModel() { NickName="测试一",Email="6666",UserID="3",PhoneNumber="100000",Location ="北京市"};
                     friendDetails = a;
                     return true;
                 }
                 else
                 {
-                    InfoDetailsModel b = new InfoDetailsModel() { NickName = "777", Email = "77777",UserID="4" };
+                    InfoDetailsModel b = new InfoDetailsModel() { NickName = "测试二", Email = "77777",UserID="4", PhoneNumber = "200000", Location = "广州市" };
                     friendDetails = b;
                     return true;
                 }

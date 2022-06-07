@@ -59,11 +59,11 @@
                     </DataGridTemplateColumn>
                     <DataGridTextColumn Width="*" Header="编号"  Binding="{Binding Id}"/>
                     <DataGridTextColumn  Width="2*" Header="任务名称"  Binding="{Binding Name}"/>
-                    <DataGridTextColumn  Width="2*" Header="所属网络"  Binding="{Binding Birthday}"/>
-                    <DataGridTextColumn  Width="2*" Header="开始时间"  Binding="{Binding Birthday}"/>
-                    <DataGridTextColumn  Width="2*" Header="结束时间"  Binding="{Binding Birthday}"/>
-                    <DataGridTextColumn  Width="2*" Header="业务类型"  Binding="{Binding Birthday}"/>
-                    <DataGridTextColumn  Width="2*" Header="接收端"  Binding="{Binding Birthday}"/>
+                    <DataGridTextColumn  Width="2*" Header="所属网络"  Binding="{Binding Way}"/>
+                    <DataGridTextColumn  Width="2*" Header="开始时间"  Binding="{Binding StartTime}"/>
+                    <DataGridTextColumn  Width="2*" Header="结束时间"  Binding="{Binding EndTime}"/>
+                    <DataGridTextColumn  Width="2*" Header="业务类型"  Binding="{Binding Type}"/>
+                    <DataGridTextColumn  Width="2*" Header="接收端"  Binding="{Binding From}"/>
                     <DataGridTemplateColumn  Width="2*" Header="状态">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>

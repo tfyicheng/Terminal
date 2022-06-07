@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+//using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -15,6 +16,8 @@ using System.Windows.Shapes;
 using Terminal.Component.Windows;
 using Terminal.Library.ViewModel;
 using static Terminal.Common.ClassHelper;
+using HandyControl;
+
 
 namespace Terminal.Component.Controls
 {
@@ -32,10 +35,6 @@ namespace Terminal.Component.Controls
             chatMainData = DataContext as ChatMainViewModel;
         }
 
-        private void TxbScreenCapture_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-
-        }
 
         //聊天页面的主控件加载
         private void UserControlMain_Loaded(object sender, RoutedEventArgs e)
@@ -110,7 +109,82 @@ namespace Terminal.Component.Controls
         {          
              TextBlock border = (TextBlock)sender;
             SwitchCallRoute((CallType)Enum.Parse(typeof(CallType), $"{border.Name}"));
-            p2pcall.Show();            
+            p2pcall.Show();
+          
+        }
+
+        //图片发送
+        private void PicSend(object sender, MouseButtonEventArgs e)
+        {
+            System.Windows.Forms.OpenFileDialog openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            openFileDialog.Title = "选择图片";
+            openFileDialog.FileName = string.Empty;
+            openFileDialog.Filter = "png文件|*.png|jpg文件|*.jpg|所有文件|*.*";
+            openFileDialog.FilterIndex = 1;
+            openFileDialog.RestoreDirectory = true;
+            openFileDialog.DefaultExt = "txt";
+            System.Windows.Forms.DialogResult result = openFileDialog.ShowDialog();
+            if (result == System.Windows.Forms.DialogResult.Cancel)
+            {
+                Console.WriteLine("用户取消");
+                return;
+             
+            }
+            string fileName = openFileDialog.FileName;
+            Console.WriteLine(fileName);
+            //if (openFileDialog.ShowDialog() == true)
+            //{
+            //    return openFileDialog.FileName;
+            //}
+            //else
+            //{
+            //    return "";
+            //}
+        }
+
+        //文件发送
+        private void FileUp(object sender, MouseButtonEventArgs e)
+        {
+            System.Windows.Forms.OpenFileDialog openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            openFileDialog.Title = "选择文件";
+            openFileDialog.FileName = string.Empty;
+           // openFileDialog.Filter = "png文件|*.png|jpg文件|*.jpg|所有文件|*.*";
+            openFileDialog.FilterIndex = 1;
+            openFileDialog.RestoreDirectory = true;
+            openFileDialog.DefaultExt = "txt";
+            System.Windows.Forms.DialogResult result = openFileDialog.ShowDialog();
+            if (result == System.Windows.Forms.DialogResult.Cancel)
+            {
+                Console.WriteLine("用户取消");
+                return;
+            }
+            string fileName = openFileDialog.FileName;
+            Console.WriteLine(fileName);
+        }
+
+        //视频发送
+        private void VideoSend(object sender, MouseButtonEventArgs e)
+        {
+            System.Windows.Forms.OpenFileDialog openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            openFileDialog.Title = "选择视频";
+            openFileDialog.FileName = string.Empty;
+            openFileDialog.Filter = "mp4文件|*.mp4|rmvb文件|*.rmvb|所有文件|*.*";
+            openFileDialog.FilterIndex = 1;
+            openFileDialog.RestoreDirectory = true;
+            openFileDialog.DefaultExt = "txt";
+            System.Windows.Forms.DialogResult result = openFileDialog.ShowDialog();
+            if (result == System.Windows.Forms.DialogResult.Cancel)
+            {
+                Console.WriteLine("用户取消");
+                return;
+            }
+            string fileName = openFileDialog.FileName;
+            Console.WriteLine(fileName);
+        }
+
+        private void MeetingTalk(object sender, MouseButtonEventArgs e)
+        {
+            HandyControl.Controls.Growl.Success("666");
         }
     }
 }

@@ -3,7 +3,7 @@
                     xmlns:controls="clr-namespace:Terminal.Component.Controls">
   
     <FontFamily x:Key="ElementIcon">/References/IconFont/iconfont.ttf#iconfont</FontFamily>
-    <!--<FontFamily x:Key="MessagesIcon">/Library/Font/messages-icons.ttf#iconfont</FontFamily>-->
+    <FontFamily x:Key="ElementIcon2">/References/IconFont/element-icons.ttf#element</FontFamily>
 
     <!-- ScrollViewer 滚动条 -->
     <Style x:Key="ScrollBarThumb" TargetType="{x:Type Thumb}">

@@ -30,48 +30,11 @@
                             <ColumnDefinition Width="50"/>
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Left" Margin="10,10,0,10">
-                            <!--<Grid>
-                            <ToggleButton x:Name="tolSelectEmoji" Width="32" Style="{StaticResource ToggleButtonTemplate}" ToolTip="{DynamicResource SelectEmoji}">
-                                <TextBlock Style="{StaticResource TextBlockElement}" HorizontalAlignment="Center"  FontSize="20" Text="&#xe646;"/>
-                            </ToggleButton>
-                            -->
-                            <!--<Grid Background="Transparent" Visibility="{Binding ElementName=popSelectEmoji,Path=IsOpen,Converter={StaticResource PopupMaskConvert}}"/>-->
-                            <!--
-                            <Popup x:Name="popSelectEmoji" PlacementTarget="{Binding ElementName=tolSelectEmoji}" Placement="Top" PopupAnimation="Slide" AllowsTransparency="True" HorizontalOffset="-180" VerticalOffset="-6" StaysOpen="False" IsOpen="{Binding ElementName=tolSelectEmoji,Path=IsChecked}">
-                                <Border Padding="8">
-                                    <Grid Height="240" Width="376">
-                                        <Border Background="#FFFFFF" CornerRadius="5">
-                                            <Border.Effect>
-                                                <DropShadowEffect ShadowDepth="0" BlurRadius="8" Color="#C0C4CC" Opacity="0.6"/>
-                                            </Border.Effect>
-                                        </Border>
-                                        <Border Padding="0,12,0,12">
-                                            <ScrollViewer Style="{StaticResource for_scrollviewer}" Padding="12,0,12,0">
-                                                <ItemsControl ItemsSource="{Binding Emojis}">
-                                                    <ItemsControl.ItemsPanel>
-                                                        <ItemsPanelTemplate>
-                                                            <WrapPanel Orientation="Horizontal"/>
-                                                        </ItemsPanelTemplate>
-                                                    </ItemsControl.ItemsPanel>
-                                                    <ItemsControl.ItemTemplate>
-                                                        <DataTemplate>
-                                                            <Border Height="40" Width="40" Style="{StaticResource BorderWhiteGradient}" Margin="2" CornerRadius="3">
-                                                                <Image Height="24" Width="24" Source="{Binding ResourceUri}"/>
-                                                            </Border>
-                                                        </DataTemplate>
-                                                    </ItemsControl.ItemTemplate>
-                                                </ItemsControl>
-                                            </ScrollViewer>
-                                        </Border>
-                                    </Grid>
-                                </Border>
-                            </Popup>
-                        </Grid>-->
                             <Border Width="32">
-                                <TextBlock x:Name="txbScreenCapture" ToolTip="{DynamicResource PicUp}" Cursor="Hand" FontFamily="{StaticResource ElementIcon }" HorizontalAlignment="Center" FontSize="20" Text="&#xe63d;" MouseLeftButtonUp="TxbScreenCapture_MouseLeftButtonUp" />
+                                <TextBlock x:Name="txbScreenCapture" ToolTip="{DynamicResource PicUp}" Cursor="Hand" FontFamily="{StaticResource ElementIcon }" HorizontalAlignment="Center" FontSize="20" Text="&#xe63d;" MouseLeftButtonUp="PicSend" />
                             </Border>
                             <Border Width="32">
-                                <TextBlock ToolTip="{DynamicResource FileUp}" Cursor="Hand" FontFamily="{StaticResource ElementIcon }" HorizontalAlignment="Center"  FontSize="20" Text="&#xe61d;"/>
+                                <TextBlock ToolTip="{DynamicResource FileUp}" Cursor="Hand" FontFamily="{StaticResource ElementIcon }" HorizontalAlignment="Center"  FontSize="20" Text="&#xe61d;" MouseLeftButtonUp="FileUp" />
                             </Border>
                             <Border Width="32">
                                 <TextBlock x:Name="VoiceTalk" ToolTip="{DynamicResource VoiceTalk}" Cursor="Hand" FontFamily="{StaticResource ElementIcon }" HorizontalAlignment="Center"  FontSize="20" Text="&#xe6d4;" MouseLeftButtonUp="P2PCall"/>
@@ -83,12 +46,12 @@
                                 <TextBlock ToolTip="{DynamicResource VoiceSend}" Cursor="Hand" FontFamily="{StaticResource ElementIcon }" HorizontalAlignment="Center"  FontSize="20" Text="&#xe641;" MouseLeftButtonUp="VoiceSend"/>
                             </Border>
                             <Border Width="32">
-                                <TextBlock ToolTip="{DynamicResource VideoSend}" Cursor="Hand" FontFamily="{StaticResource ElementIcon }" HorizontalAlignment="Center"  FontSize="20" Text="&#xe637;"/>
+                                <TextBlock ToolTip="{DynamicResource VideoSend}" Cursor="Hand" FontFamily="{StaticResource ElementIcon }" HorizontalAlignment="Center"  FontSize="20" Text="&#xe637;" MouseLeftButtonUp="VideoSend"/>
                             </Border>
                           
                         </StackPanel>
                         <Border Width="32" Grid.Column="1" >
-                            <TextBlock ToolTip="{DynamicResource MeetingTalk}" Cursor="Hand" FontFamily="{StaticResource ElementIcon }" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="20" Text="&#xe82f;"/>
+                            <TextBlock ToolTip="{DynamicResource MeetingTalk}" Cursor="Hand" FontFamily="{StaticResource ElementIcon }" VerticalAlignment="Center" HorizontalAlignment="Center"  FontSize="20" Text="&#xe82f;" MouseLeftButtonUp="MeetingTalk"/>
                         </Border>
                     </Grid>
      

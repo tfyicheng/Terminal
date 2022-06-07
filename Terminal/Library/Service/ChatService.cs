@@ -17,6 +17,17 @@ namespace Terminal.Library.Service
     public static class ChatService
     {
 
+        //新增聊天或者跳转到聊天
+        public static bool AddChat(string friendID)
+        {
+            JObject requestObj = new JObject()
+            {
+                { "FriendID", friendID }
+            };
+            return true;
+         //  return ClassHelper.ServerRequest($"{ClassHelper.servicePath}/api/Chat/AddChat", HttpMethod.Post, out _, requestObj: requestObj);
+        }
+
 
         //获取聊天列表数据
         public static bool GetChatColumnInfo(out List<ChatColumnInfoModel> chatColumnInfos)
@@ -26,8 +37,8 @@ namespace Terminal.Library.Service
         {
             //chatColumnInfos = JsonConvert.DeserializeObject<List<ChatColumnInfoModel>>(res);
             chatColumnInfos = new List<ChatColumnInfoModel>();
-                ChatColumnInfoModel a = new ChatColumnInfoModel() { NickName = "123",ChatID="1",FriendID="3" };
-                ChatColumnInfoModel b = new ChatColumnInfoModel() { NickName = "456",ChatID="2", FriendID = "4" };
+                ChatColumnInfoModel a = new ChatColumnInfoModel() { NickName = "测试用户一",ChatID="1",FriendID="3" };
+                ChatColumnInfoModel b = new ChatColumnInfoModel() { NickName = "测试用户二",ChatID="2", FriendID = "4" };
                 chatColumnInfos.Add(a); 
                 chatColumnInfos.Add(b);
                 return true;
@@ -63,11 +74,11 @@ namespace Terminal.Library.Service
             else
             {
                
-                ChatMessagesModel a = new ChatMessagesModel() { ChatID = "2", MessageContent = "2666", SenderID = "4", ReceiverID = "0", IsRead = true, MessageType = 0, IsVisible = 0 };
-                ChatMessagesModel b = new ChatMessagesModel() { ChatID = "2", MessageContent = "2888", SenderID = "0", ReceiverID = "4" };
-                ChatMessagesModel c = new ChatMessagesModel() { ChatID = "2", MessageContent = "2的苦涩和分离四级分数分类为解放路色剂历史记录蒙娜丽莎呢服了你\t\n力所能及馥蕾诗家乐福建安我放假了案例进屋里你发了发怒", SenderID = "0", ReceiverID = "4" };
+                ChatMessagesModel a = new ChatMessagesModel() { ChatID = "2", MessageContent = "96554", SenderID = "4", ReceiverID = "0", IsRead = true, MessageType = 0, IsVisible = 0 };
+                ChatMessagesModel b = new ChatMessagesModel() { ChatID = "2", MessageContent = "苦涩和分离四级分数分类为解放路色剂历史记", SenderID = "0", ReceiverID = "4" };
+                ChatMessagesModel c = new ChatMessagesModel() { ChatID = "2", MessageContent = "放路色剂历史记录蒙娜丽莎呢服了你\t\n力所能及馥蕾诗家乐福建安我放假了案例进屋里你发了发怒", SenderID = "0", ReceiverID = "4" };
                 ChatMessagesModel d = new ChatMessagesModel() { ChatID = "2", MessageContent = "2的苦涩和分离四级分数分类为解放路色剂历史记录蒙娜丽莎呢服了你\t\n力所能及馥蕾诗家乐福建安我放假了案例进屋里你发了发怒", SenderID = "3", ReceiverID = "4" };
-                ChatMessagesModel e = new ChatMessagesModel() { ChatID = "2", MessageContent = "2的苦涩和分离四级分数分", SenderID = "0", ReceiverID = "4" };
+                ChatMessagesModel e = new ChatMessagesModel() { ChatID = "2", MessageContent = "666666", SenderID = "0", ReceiverID = "4" };
 
                 chatMessages.Add(a);
                 chatMessages.Add(b);

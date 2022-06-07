@@ -24,8 +24,8 @@ namespace Terminal.Component.Pages
         {
             InitializeComponent();
             List<User> users = new List<User>();
-            users.Add(new User() { Id = 1, Name = "John Doe", DevStatus = 1, Birthday = new DateTime(1971, 7, 23) });
-            users.Add(new User() { Id = 1, Name = "John Doe", DevStatus = 2, Birthday = new DateTime(1971, 7, 23) });
+            users.Add(new User() { Id = 1, Name = "John Doe", Status = 1, StartTime = new DateTime(1971, 7, 23), EndTime = new DateTime(1971, 7, 23), Type = "语音", From = "单位一", Way = "发起" });
+            users.Add(new User() { Id = 1, Name = "John Doe", Status = 1, StartTime = new DateTime(1971, 7, 23), EndTime = new DateTime(1971, 7, 23), Type = "语音", From = "单位一", Way = "发起" });
 
             this.DataContext = users;
         }
@@ -35,9 +35,14 @@ namespace Terminal.Component.Pages
 
             public string Name { get; set; }
 
-            public DateTime Birthday { get; set; }
+            public DateTime StartTime { get; set; }
 
-            public int DevStatus { get; set; }
+            public int Status { get; set; }
+
+            public string Way { get; set; }
+            public DateTime EndTime { get; set; }
+            public string Type { get; set; }
+            public string From { get; set; }
         }
     }
 }
