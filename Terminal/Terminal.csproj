@@ -154,6 +154,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Component\Pages\IPCall.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Component\Pages\ManualTest.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -249,6 +253,9 @@
     </Compile>
     <Compile Include="Component\Pages\EnergyAssess.xaml.cs">
       <DependentUpon>EnergyAssess.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Component\Pages\IPCall.xaml.cs">
+      <DependentUpon>IPCall.xaml</DependentUpon>
     </Compile>
     <Compile Include="Component\Pages\ManualTest.xaml.cs">
       <DependentUpon>ManualTest.xaml</DependentUpon>

@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Terminal.Library.Service;
 using Terminal.Library.ViewModel;
+using static Terminal.Common.ClassHelper;
 
 namespace Terminal.Component.Pages
 {
@@ -76,8 +77,22 @@ namespace Terminal.Component.Pages
 
         }
 
+
         #endregion
 
-      
+        private void IpCall(object sender, RoutedEventArgs e)
+        {
+            if (Terminal.Component.Windows.P2PCall.CallStatus == true)
+            {
+                HandyControl.Controls.Growl.Warning("请先结束当前通话");
+            }
+            else
+            {
+                Button border = (Button)sender;
+                SwitchCallRoute((CallType)Enum.Parse(typeof(CallType), $"{border.Name}"));
+                Terminal.Component.Windows.P2PCall.CallStatus = true;
+                Terminal.Component.Controls.ChatMain.p2pcall.Show();
+            }
+        }
     }
 }

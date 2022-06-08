@@ -24,6 +24,7 @@ namespace Terminal.Component.Windows
 
     public partial class P2PCall : Window
     {
+        public static bool CallStatus;
     
         private void ClassHelper_RoutedChanged(CallType typeName)
         {
@@ -37,6 +38,9 @@ namespace Terminal.Component.Windows
                         break;
                     case CallType.VideoTalk:
                         CallRouteMain.Navigate(ClassHelper.videoTalk);                     
+                        break;
+                    case CallType.IPCall:
+                        CallRouteMain.Navigate(ClassHelper.ipCall);
                         break;
                     default:                     
                         break;
@@ -60,11 +64,28 @@ namespace Terminal.Component.Windows
         }
         private void BtnState_Click(object sender, RoutedEventArgs e)
         {
+            double x1 = SystemParameters.PrimaryScreenWidth;//得到屏幕整体宽度
+            double y1 = SystemParameters.PrimaryScreenHeight;//得到屏幕整体高度
+            Thickness margin = new Thickness(0, 0, 0, 0);
+            Thickness margin2 = new Thickness(0, 5, 5, 0);
             WindowState = WindowState == WindowState.Normal ? WindowState.Maximized : WindowState.Normal;
+            if(WindowState == WindowState.Maximized)
+            {
+                this.p2pMain.Height = y1;
+                this.p2pMain.Width = x1;
+                p2pWin.Margin = margin;
+            }
+            else
+            {
+                this.p2pMain.Height = 600;
+                this.p2pMain.Width = 360;
+                p2pWin.Margin = margin2;
+            }
         }
         private void BtnClose_Click(object sender, RoutedEventArgs e)
         {
             Hide();
+            CallStatus = false;
         }
         private void Window_MouseLeftButtonDown_1(object sender, MouseButtonEventArgs e)
         {

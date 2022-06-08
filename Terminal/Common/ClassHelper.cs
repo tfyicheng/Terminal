@@ -44,6 +44,7 @@ namespace Terminal.Common
         {
             VoiceTalk,
             VideoTalk,
+            IPCall,
         }
         // 类数据传递类型
         public enum DataPassingType
@@ -103,6 +104,8 @@ namespace Terminal.Common
         public static readonly VoiceTalk voiceTalk = new VoiceTalk();  
         //视频通话
         public static readonly VideoTalk videoTalk = new VideoTalk();  
+        //ip拨号
+        public static readonly IPCall ipCall = new IPCall(); 
         #endregion
        
 
@@ -162,7 +165,7 @@ namespace Terminal.Common
 
         /// <summary>
         /// 类数据传递
-        /// </summary>
+        /// </summary> 被订阅的事件中转器，接受事件类型，订阅者接受到类型执行事件
         /// <param name="type">类</param>
         /// <param name="dataType">数据类型</param>
         /// <param name="data">数据</param>

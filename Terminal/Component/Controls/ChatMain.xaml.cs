@@ -26,7 +26,7 @@ namespace Terminal.Component.Controls
     /// </summary>
     public partial class ChatMain : UserControl
     {
-        readonly P2PCall p2pcall = new P2PCall();
+        public static readonly P2PCall p2pcall = new P2PCall();
         private readonly ChatMainViewModel chatMainData;//数据上下文
         private ChatItem chatItem;
         public ChatMain()
@@ -106,11 +106,21 @@ namespace Terminal.Component.Controls
         }
         //语音，视频通话
         private void P2PCall(object sender, MouseButtonEventArgs e)
-        {          
-             TextBlock border = (TextBlock)sender;
-            SwitchCallRoute((CallType)Enum.Parse(typeof(CallType), $"{border.Name}"));
-            p2pcall.Show();
-          
+        {
+            if (Terminal.Component.Windows.P2PCall.CallStatus == true)
+            {
+                HandyControl.Controls.Growl.Warning("请先结束当前通话");
+            }
+            else
+            {
+                TextBlock border = (TextBlock)sender;
+                SwitchCallRoute((CallType)Enum.Parse(typeof(CallType), $"{border.Name}"));
+                Terminal.Component.Windows.P2PCall.CallStatus = true;
+                p2pcall.Show();
+            }
+           
+
+
         }
 
         //图片发送
@@ -182,9 +192,10 @@ namespace Terminal.Component.Controls
             Console.WriteLine(fileName);
         }
 
+        //视频会议
         private void MeetingTalk(object sender, MouseButtonEventArgs e)
         {
-            HandyControl.Controls.Growl.Success("666");
-        }
+
+        }  
     }
 }

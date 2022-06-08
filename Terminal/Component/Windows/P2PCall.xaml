@@ -6,12 +6,18 @@
         xmlns:local="clr-namespace:Terminal.Component.Windows"
         mc:Ignorable="d" WindowStyle="None" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon="pack://application:,,,/Resources/drcs.ico" 
         MouseLeftButtonDown="Window_MouseLeftButtonDown_1"   xmlns:hc="https://handyorg.github.io/handycontrol" Loaded="P2PCall_Loaded"
-        Title="通话中" Height="600" Width="360" Background="#fff">
-    <Grid>
+        Title="通话中" Height="610" Width="370" Background="Transparent">
+    <Window.Effect>
+        <DropShadowEffect Color="#888888" ShadowDepth="0" Opacity="0.3" />
+    </Window.Effect>
+    <WindowChrome.WindowChrome>
+        <WindowChrome UseAeroCaptionButtons="False" GlassFrameThickness="-1" CaptionHeight="382" />
+    </WindowChrome.WindowChrome>
+    <Grid   WindowChrome.IsHitTestVisibleInChrome="True">
   
         
         <!--top菜单-->     
-            <StackPanel  Panel.ZIndex="99" Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" WindowChrome.IsHitTestVisibleInChrome="True" SnapsToDevicePixels="True">
+            <StackPanel  x:Name="p2pWin" Margin="0,5,5,0" Panel.ZIndex="99" Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" WindowChrome.IsHitTestVisibleInChrome="True" SnapsToDevicePixels="True">
                 <Button x:Name="btnMin"  Style="{StaticResource ButtonMin}" Height="48" Width="50" Click="BtnMin_Click"/>
                 <Button x:Name="btnState"  Style="{StaticResource ButtonState}" Height="48" Width="50" Click="BtnState_Click"/>
                 <Button x:Name="btnClose" Style="{StaticResource ButtonClose}" Height="48" Width="50" Click="BtnClose_Click"/>
@@ -19,7 +25,7 @@
         
         
         <!--主体页面-->
-        <Grid Grid.Row="1" Panel.ZIndex="90" >
+        <Grid x:Name="p2pMain" Grid.Row="1" Height="600" Width="360"  Background="#FFFFFF" >
             <TextBlock FontSize="30" Foreground="Gray" HorizontalAlignment="Center" VerticalAlignment="Center">启动中，请稍候……</TextBlock>
                 <Frame x:Name="CallRouteMain"   NavigationUIVisibility="Hidden"  BorderThickness="0"/>
         </Grid>

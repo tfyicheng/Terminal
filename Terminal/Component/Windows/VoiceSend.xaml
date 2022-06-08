@@ -5,9 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Terminal.Component.Windows"
           xmlns:hc="https://handyorg.github.io/handycontrol"
-        mc:Ignorable="d" WindowStyle="None"
-         Title="语音发送" Height="340" Width="280"  WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon="pack://application:,,,/Resources/drcs.ico" MouseLeftButtonDown="Window_MouseLeftButtonDown_1">
-    <Grid>
+        mc:Ignorable="d" WindowStyle="None"  Background="Transparent"
+         Title="语音发送" Height="350" Width="290"  WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon="pack://application:,,,/Resources/drcs.ico" MouseLeftButtonDown="Window_MouseLeftButtonDown_1">
+    <Window.Effect>
+        <DropShadowEffect Color="#888888" ShadowDepth="0" Opacity="0.3" />
+    </Window.Effect>
+    <WindowChrome.WindowChrome>
+        <WindowChrome UseAeroCaptionButtons="False" GlassFrameThickness="-1" CaptionHeight="350" />
+    </WindowChrome.WindowChrome>
+
+    <Grid  Height="340" Width="280" Background="#FFFFFF">
+       
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
@@ -24,8 +32,8 @@
             <TextBlock DockPanel.Dock="Top" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="15" Margin="0,0,0,-30">3:33</TextBlock>
         </Grid>
         <!--菜单-->
-        <DockPanel Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Width="200" Margin="40,0,0,0">
-           
+        <DockPanel  WindowChrome.IsHitTestVisibleInChrome="True"  Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Width="200" Margin="40,0,0,0">
+
             <Grid>
                 <Button FontFamily="{StaticResource ElementIcon}" Content="&#xe64e;" FontSize="18" Foreground="#fff" Cursor="Hand" Background="red" Width="40" Height="40" Margin="10" DockPanel.Dock="Left" hc:BorderElement.CornerRadius="50" BorderThickness="0"></Button>
 
@@ -36,6 +44,6 @@
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="-10">发送</TextBlock>
             </Grid>
         </DockPanel>
-       
     </Grid>
+
 </Window>

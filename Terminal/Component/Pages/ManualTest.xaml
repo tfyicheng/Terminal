@@ -51,7 +51,7 @@
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="15,20,15,0">
                     <hc:SearchBar Width="200" Height="38" hc:InfoElement.Placeholder="搜索" FontSize="15" ShowClearButton="True" BorderThickness="0" Background="#eee"  Style="{StaticResource SearchBarPlus}"/>
                     <Button  BorderThickness="0" Background="#eee" Margin="15" Height="38" Width="38" Cursor="Hand" FontSize="18" FontFamily="{StaticResource ElementIcon}">&#xe626;</Button>
-                    <Button  BorderThickness="0" ToolTip="{DynamicResource IpTalk}" Background="#eee" Height="38" Width="38" Cursor="Hand" FontSize="18" FontFamily="{StaticResource ElementIcon}">&#xe864;</Button>
+                    <Button  x:Name="IPCall" BorderThickness="0" ToolTip="{DynamicResource IpTalk}" Background="#eee" Height="38" Width="38" Cursor="Hand" FontSize="18" FontFamily="{StaticResource ElementIcon}" Click="IpCall">&#xe864;</Button>
                 </StackPanel>
                 <Line VerticalAlignment="Bottom" X1="0" Y1="0" X2="2400" Y2="0" Stroke="#C0C4CC"/>
             </Grid>

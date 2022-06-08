@@ -51,7 +51,7 @@ namespace Terminal.Component.Controls
             scroll.ScrollChanged += Scroll_ScrollChanged;
         }
 
-        //列表控件加载事件
+        //列表控件加载事件，根据存储的朋友id选择聊天
         private void UserControlMain_Loaded(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrEmpty(ChatFriendID))

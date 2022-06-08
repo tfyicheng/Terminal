@@ -65,7 +65,12 @@
                             <TextBlock FontSize="12" Text="效能评估" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,-20"/>
                         </Grid>
                     </Border>
-                 
+                    <Border x:Name="AppointmentMeeting"  Style="{StaticResource BorderSelectPage}" MouseLeftButtonUp="BrdSelectPage_MouseLeftButtonUp" Cursor="Hand" Visibility="Hidden">
+                        <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Tag="67">
+                            <TextBlock FontFamily="{StaticResource ElementIcon2}" Text="&#xe78e;" HorizontalAlignment="Center"/>
+                            <TextBlock FontSize="12" Text="预约会议" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,-20"/>
+                        </Grid>
+                    </Border>
                 </StackPanel>          
                 <!--<Border x:Name="brdSlider" Height="24" Width="4" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,-24,0,0" Background="White" CornerRadius="2" IsHitTestVisible="False"/>-->
             </Grid>
