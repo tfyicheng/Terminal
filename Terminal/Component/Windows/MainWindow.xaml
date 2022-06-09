@@ -16,7 +16,7 @@
         </Grid.ColumnDefinitions>
 
         <!--第一列侧边菜单栏-->
-        <Grid Grid.Column="0" Background="#21345c">
+        <Grid Grid.Column="0" Background="#21345c" MouseLeftButtonDown="MeumDown" MouseMove="MeumMove" MouseLeftButtonUp="MeumUp" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="110"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>

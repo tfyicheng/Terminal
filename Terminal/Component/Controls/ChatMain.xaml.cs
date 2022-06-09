@@ -195,7 +195,8 @@ namespace Terminal.Component.Controls
         //视频会议
         private void MeetingTalk(object sender, MouseButtonEventArgs e)
         {
-
+            Memebers memebers = new Memebers(); 
+            memebers.Show();
         }  
     }
 }

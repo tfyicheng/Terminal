@@ -13,7 +13,7 @@ namespace Terminal.Library.Service
         //获取朋友列表
         public static bool GetFriendList(out List<FriendSortModel> friendSorts)
         {
-           // friendSorts = null;
+         
             if (true)
             {
                 friendSorts = new List<FriendSortModel>();
@@ -38,33 +38,13 @@ namespace Terminal.Library.Service
                 return true;
             }
 
-            
-            //if (ClassHelper.ServerRequest($"{ClassHelper.servicePath}/api/UserManager/GetFriendList", HttpMethod.Get, out JObject responseObj))
-            //{
-            //    friendSorts = JsonConvert.DeserializeObject<List<FriendSortModel>>(responseObj["Data"].ToString());
-            //    return true;
-            //}
-            //else
-            //{
-            //    return false;
-            //}
+           
         }
 
 
         //获取朋友信息
         public static bool GetFriendInfo(out InfoDetailsModel friendDetails, string friendID = "", string phoneNumber = "")
         {
-           // friendDetails = null;
-            friendDetails = new InfoDetailsModel();
-            //if (ClassHelper.ServerRequest($"{ClassHelper.servicePath}/api/UserManager/GetFriendInfo?{(!string.IsNullOrEmpty(friendID) ? $"friendID={friendID}" : $"phoneNumber={phoneNumber}")}", HttpMethod.Get, out JObject responseObj))
-            //{
-            //    friendDetails = JsonConvert.DeserializeObject<FriendDetailsModel>(responseObj["Data"].ToString());
-            //    return true;
-            //}
-            //else
-            //{
-            //    return false;
-            //}
          
                 if (friendID == "3")
                 {

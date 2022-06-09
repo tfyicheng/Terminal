@@ -21,6 +21,7 @@ namespace Terminal.Component.Pages
     /// </summary>
     public partial class VideoTalk : Page
     {
+        private bool cameraStatus = false;
         public VideoTalk()
         {
             InitializeComponent();
@@ -30,6 +31,24 @@ namespace Terminal.Component.Pages
         private void toVoice(object sender, RoutedEventArgs e)
         {
             ClassHelper.SwitchCallRoute(ClassHelper.CallType.VoiceTalk);
+        }
+
+        private void CloseCarmera(object sender, RoutedEventArgs e)
+        {
+            if (cameraStatus == false)
+            {
+                this.cameraT.Text = "关闭摄像头";
+                this.cameraB.FontSize = 18;
+                this.cameraB.Content = "\ue61e";
+                cameraStatus = true;
+            }
+            else
+            {
+                this.cameraT.Text = "打开摄像头";
+                this.cameraB.FontSize = 24;
+                this.cameraB.Content = "\ue605";
+                cameraStatus = false;
+            }
         }
     }
 }

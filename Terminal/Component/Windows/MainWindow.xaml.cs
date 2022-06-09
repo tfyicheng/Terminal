@@ -211,8 +211,33 @@ namespace Terminal
         }
 
 
+
         #endregion
 
-       
+        Point _pressedPosition;
+        bool _isDragMoved = false;
+
+        private void MeumDown(object sender, MouseButtonEventArgs e)
+        {
+            _pressedPosition = e.GetPosition(this);
+        }
+
+        private void MeumMove(object sender, MouseEventArgs e)
+        {
+            if (Mouse.LeftButton == MouseButtonState.Pressed && _pressedPosition != e.GetPosition(this))
+            {
+                _isDragMoved = true;
+                DragMove();
+            }
+        }
+
+        private void MeumUp(object sender, MouseButtonEventArgs e)
+        {
+            if (_isDragMoved)
+            {
+                _isDragMoved = false;
+                e.Handled = true;
+            }
+        }
     }
 }

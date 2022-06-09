@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Terminal.Component.Pages"
       mc:Ignorable="d"      xmlns:hc="https://handyorg.github.io/handycontrol"    
-      Title="视频通话中" >
+      Title="视频通话中"  >
     <Grid>
     <Grid.RowDefinitions>
         <RowDefinition Height="1*"/>
@@ -13,7 +13,7 @@
         <RowDefinition Height="1*"/>
     </Grid.RowDefinitions>
         <!--背景 border.child  ZIndex="0"-->
-        <Border  HorizontalAlignment="Center" Grid.RowSpan="3" Height="1400" Margin="0,0,0,0" VerticalAlignment="Center" Width="1400"  >
+        <Border   HorizontalAlignment="Center" Grid.RowSpan="3" Height="1400" Margin="0,0,0,0" VerticalAlignment="Center" Width="1400"  >
             <Grid >
                 <Grid Margin="0,10,10,97">
                     <Grid.Background>
@@ -30,6 +30,7 @@
         <Grid Margin="15" >
             <Image VerticalAlignment="Top" Source="pack://application:,,,/Resources/tx.png" Width="80" Height="80"  ></Image>
         </Grid>
+           
     <!--信息-->
         <Grid  Margin="0,10,0,0">
             <StackPanel>
@@ -41,16 +42,51 @@
 
     <!--菜单-->
     <Grid Grid.Row="2">
-        <DockPanel Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Width="200" Margin="40,0,0,0">
+        <!--呼叫-->
+        <DockPanel  Visibility="Visible"  VerticalAlignment="Center" HorizontalAlignment="Center" Width="200" Margin="40,0,0,0">
             <Grid>
                     <Button Click="toVoice" FontFamily="{StaticResource ElementIcon}" Content="&#xe62f;" FontSize="18" Foreground="#fff" Cursor="Hand" Background="#695652" Width="40" Height="40" Margin="10" DockPanel.Dock="Left" hc:BorderElement.CornerRadius="50" BorderThickness="0"></Button>
                     <TextBlock HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="-10" Foreground="#fff">切换语音通话</TextBlock>
             </Grid>
-            <Grid>
+                <Grid>
                     <Button FontFamily="{StaticResource ElementIcon}" Content="&#xe646;"  FontSize="18" Foreground="#fff" Cursor="Hand" Background="#FF6565" Width="40" Height="40" DockPanel.Dock="Right" hc:BorderElement.CornerRadius="50"  BorderThickness="0"></Button>
                     <TextBlock HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="-10" Foreground="#fff">取消</TextBlock>
+                </Grid>
+            </DockPanel>
+            <!--被叫-->
+            <DockPanel  Visibility="Collapsed" VerticalAlignment="Center" HorizontalAlignment="Center" Width="200" Margin="40,0,0,0">
+                <Grid>
+                    <Button FontFamily="{StaticResource ElementIcon}" Content="&#xe646;"  FontSize="18" Foreground="#fff" Cursor="Hand" Background="#FF6565" Width="40" Height="40" Margin="10" DockPanel.Dock="Right" hc:BorderElement.CornerRadius="50"  BorderThickness="0"></Button>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="-10" Foreground="#FFF">挂断</TextBlock>
+                </Grid>
+                <Grid>
+                    <Button   FontFamily="{StaticResource ElementIcon}" Content="&#xe7b8;" FontSize="18" Foreground="#fff" Cursor="Hand" Background="#07C15F" Width="40" Height="40"  DockPanel.Dock="Left" hc:BorderElement.CornerRadius="50" BorderThickness="0">
+                    </Button>
+                    <TextBlock  HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="-10" Foreground="#FFF">接听</TextBlock>
+                </Grid>
+            </DockPanel>
+        <!--通话中 -->
+            <Grid Visibility="Collapsed" Background="#7F000000" Height="120"  VerticalAlignment="Bottom" >
+                <TextBlock HorizontalAlignment="Center" Margin="5"  Foreground="#fff" FontSize="13">00:00</TextBlock>
+                <WrapPanel   VerticalAlignment="Center" HorizontalAlignment="Center"  Margin="0,0,0,0">
+                    <Grid>
+                        <Button  Click="CloseCarmera" x:Name="cameraB" FontFamily="{StaticResource ElementIcon}" Content="&#xe61e;" FontSize="18" Foreground="#fff" Cursor="Hand" Background="#999" Width="40" Height="40" Margin="15,0,15,10" hc:BorderElement.CornerRadius="50" BorderThickness="0">
+                        </Button>
+                        <TextBlock  x:Name="cameraT" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="-10" Foreground="#FFF">关闭摄像头</TextBlock>
+                    </Grid>
+                    <Grid>
+                    <Button FontFamily="{StaticResource ElementIcon}" Content="&#xe646;"  FontSize="18" Foreground="#fff" Cursor="Hand" Background="#FF6565" Width="40" Height="40"  Margin="50,0,50,10"  hc:BorderElement.CornerRadius="50"  BorderThickness="0"></Button>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="-10" Foreground="#FFF">挂断</TextBlock>
+                </Grid>
+               
+                    <Grid>
+                        <Button  Click="toVoice" FontFamily="{StaticResource ElementIcon}" Content="&#xe62f;" FontSize="18" Foreground="#fff" Cursor="Hand" Background="#999" Width="40" Height="40" Margin="15,0,15,10"  hc:BorderElement.CornerRadius="50" BorderThickness="0">
+                        </Button>
+                        <TextBlock  HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="-10" Foreground="#FFF">切换语音通话</TextBlock>
+                    </Grid>
+                </WrapPanel>
             </Grid>
-        </DockPanel>
-    </Grid>
+           
+        </Grid>
     </Grid>
 </Page>

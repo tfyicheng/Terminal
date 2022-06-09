@@ -150,3 +150,7 @@ D:\c-demo\ZD\Terminal\Terminal\obj\Debug\Component\Controls\InfoPage.g.cs
 D:\c-demo\ZD\Terminal\Terminal\obj\Debug\Component\Controls\InfoPage.baml
 D:\c-demo\ZD\Terminal\Terminal\obj\Debug\Component\Pages\IPCall.g.cs
 D:\c-demo\ZD\Terminal\Terminal\obj\Debug\Component\Pages\IPCall.baml
+D:\c-demo\ZD\Terminal\Terminal\obj\Debug\Component\Windows\Meeting.g.cs
+D:\c-demo\ZD\Terminal\Terminal\obj\Debug\Component\Windows\Memebers.g.cs
+D:\c-demo\ZD\Terminal\Terminal\obj\Debug\Component\Windows\Meeting.baml
+D:\c-demo\ZD\Terminal\Terminal\obj\Debug\Component\Windows\Memebers.baml

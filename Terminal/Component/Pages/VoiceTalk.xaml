@@ -38,18 +38,42 @@
             </StackPanel>
         </Grid>
         <!--菜单-->
-        <Grid Grid.Row="2">
-            <DockPanel Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Width="200" Margin="40,0,0,0">
-                <Grid>
-                    <Button  x:Name="jybt" Click="toJy" FontFamily="{StaticResource ElementIcon}" Content="&#xe641;" FontSize="25" Foreground="#333" Cursor="Hand" Background="#fff" Width="40" Height="40" Margin="10" DockPanel.Dock="Left" hc:BorderElement.CornerRadius="50" BorderThickness="0">
-                    </Button>
-                    <TextBlock x:Name="jytb" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="-10" Foreground="#FFF">静音</TextBlock>
+        <Grid Grid.Row="2" Margin="40,0,0,0">
+            <!--通话中-->
+            <Grid x:Name="Calling" Visibility="Collapsed">
+                <DockPanel  VerticalAlignment="Center" HorizontalAlignment="Center" Width="200" >
+                    <Grid>
+                        <Button  x:Name="jybt" Click="toJy" FontFamily="{StaticResource ElementIcon}" Content="&#xe641;" FontSize="25" Foreground="#333" Cursor="Hand" Background="#fff" Width="40" Height="40" Margin="10" DockPanel.Dock="Left" hc:BorderElement.CornerRadius="50" BorderThickness="0">
+                        </Button>
+                        <TextBlock x:Name="jytb" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="-10" Foreground="#FFF">静音</TextBlock>
+                    </Grid>
+                    <Grid>
+                        <Button FontFamily="{StaticResource ElementIcon}" Content="&#xe646;"  FontSize="18" Foreground="#fff" Cursor="Hand" Background="#FF6565" Width="40" Height="40" DockPanel.Dock="Right" hc:BorderElement.CornerRadius="50"  BorderThickness="0"></Button>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="-10" Foreground="#FFF">挂断</TextBlock>
+                    </Grid>
+                </DockPanel>
+            </Grid>
+            <!--呼叫-->
+            <Grid  x:Name="Call" Margin="-40,0,0,0" Visibility="Visible" >
+                <Grid  VerticalAlignment="Center" HorizontalAlignment="Center" >
+                    <Button FontFamily="{StaticResource ElementIcon}" Content="&#xe646;"  FontSize="18" Foreground="#fff" Cursor="Hand" Background="#FF6565" Width="40" Height="40"  hc:BorderElement.CornerRadius="50"  BorderThickness="0"></Button>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="-20" Foreground="#FFF">取消</TextBlock>
                 </Grid>
-                <Grid>
-                    <Button FontFamily="{StaticResource ElementIcon}" Content="&#xe646;"  FontSize="18" Foreground="#fff" Cursor="Hand" Background="#FF6565" Width="40" Height="40" DockPanel.Dock="Right" hc:BorderElement.CornerRadius="50"  BorderThickness="0"></Button>
-                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="-10" Foreground="#FFF">挂断</TextBlock>
-                </Grid>
-            </DockPanel>
+            </Grid>
+            <!--被叫-->
+            <Grid x:Name="Called" Visibility="Collapsed">
+                <DockPanel  VerticalAlignment="Center" HorizontalAlignment="Center" Width="200">
+                    <Grid>
+                        <Button FontFamily="{StaticResource ElementIcon}" Content="&#xe646;"  FontSize="18" Foreground="#fff" Cursor="Hand" Background="#FF6565" Width="40" Height="40" Margin="10" DockPanel.Dock="Right" hc:BorderElement.CornerRadius="50"  BorderThickness="0"></Button>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="-10" Foreground="#FFF">挂断</TextBlock>
+                    </Grid>
+                    <Grid>
+                        <Button   FontFamily="{StaticResource ElementIcon}" Content="&#xe7b8;" FontSize="18" Foreground="#fff" Cursor="Hand" Background="#07C15F" Width="40" Height="40"  DockPanel.Dock="Left" hc:BorderElement.CornerRadius="50" BorderThickness="0">
+                        </Button>
+                        <TextBlock  HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="-10" Foreground="#FFF">接听</TextBlock>
+                    </Grid>
+                </DockPanel>
+            </Grid>
         </Grid>
     </Grid>
 </Page>

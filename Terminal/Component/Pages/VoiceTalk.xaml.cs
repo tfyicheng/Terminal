@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Terminal.Component.Windows;
 using Terminal.Common;
+using System.Globalization;
 
 namespace Terminal.Component.Pages
 {
@@ -22,7 +23,8 @@ namespace Terminal.Component.Pages
     /// </summary>
     public partial class VoiceTalk : Page
     {
-        private bool jyStatue=false;
+        private bool jyStatue = false;
+        private int voiceCallStatus = 0;
         public VoiceTalk()
         {
             InitializeComponent();
@@ -44,7 +46,12 @@ namespace Terminal.Component.Pages
                 this.jybt.Content = "\ue641";
                 jyStatue = false;
             }
-         
         }
+
+    
+       
+
+
+
     }
 }

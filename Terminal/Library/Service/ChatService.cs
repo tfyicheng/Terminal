@@ -25,14 +25,14 @@ namespace Terminal.Library.Service
                 { "FriendID", friendID }
             };
             return true;
-         //  return ClassHelper.ServerRequest($"{ClassHelper.servicePath}/api/Chat/AddChat", HttpMethod.Post, out _, requestObj: requestObj);
+        
         }
 
 
         //获取聊天列表数据
         public static bool GetChatColumnInfo(out List<ChatColumnInfoModel> chatColumnInfos)
     {
-        chatColumnInfos = null;
+
         if (true)
         {
             //chatColumnInfos = JsonConvert.DeserializeObject<List<ChatColumnInfoModel>>(res);
@@ -49,7 +49,7 @@ namespace Terminal.Library.Service
     //根据id获取聊天信息
     public static bool GetChattingRecords(string chatID, out List<ChatMessagesModel> chatMessages)
     {
-        chatMessages = null;
+
    chatMessages = new List<ChatMessagesModel>();
             if (chatID == "1")
         {
@@ -96,7 +96,7 @@ namespace Terminal.Library.Service
                 { "MessageType", messageType.ToString() },
                 { "MessageContent", messageContent }
             };
-            //return ClassHelper.ServerRequest($"{ClassHelper.servicePath}/api/Chat/SendMessage", HttpMethod.Post, out _, requestObj: requestObj);
+          
             return  true;
         }
 
@@ -107,7 +107,7 @@ namespace Terminal.Library.Service
                 { "ChatID", chatID },
                 { "MessageID", messageID }
             };
-            //return ClassHelper.ServerRequest($"{ClassHelper.servicePath}/api/Chat/ReadMessage", HttpMethod.Post, out _, requestObj: requestObj);
+           
             return true;
         }
 
