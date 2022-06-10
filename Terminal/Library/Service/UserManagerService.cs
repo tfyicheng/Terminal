@@ -20,19 +20,26 @@ namespace Terminal.Library.Service
                 List<FriendInfoModel> lista = new List<FriendInfoModel>();
                 List<FriendInfoModel> listb = new List<FriendInfoModel>();
 
-                FriendInfoModel aa = new FriendInfoModel() { NickName = "测试一", RemarkName = "888", UserID= "3", };
+                FriendInfoModel aa = new FriendInfoModel() { NickName = "测试一", RemarkName = "888", UserID = "3", };
                 FriendInfoModel bb = new FriendInfoModel() { NickName = "测试二", RemarkName = "888", UserID = "4" };
+                FriendInfoModel a1 = new FriendInfoModel() { NickName = "测试cs陈述事实所事实所事实所事实所事实所所所", RemarkName = "888", UserID = "7", };
+                FriendInfoModel b2 = new FriendInfoModel() { NickName = "测试2", RemarkName = "888", UserID = "8" };
+                FriendInfoModel b3 = new FriendInfoModel() { NickName = "测二", RemarkName = "888", UserID = "9" };
+                FriendInfoModel b4 = new FriendInfoModel() { NickName = "二", RemarkName = "888", UserID = "10" };
+                FriendInfoModel b5 = new FriendInfoModel() { NickName = "22试二", RemarkName = "888", UserID = "11" };
+                FriendInfoModel b6 = new FriendInfoModel() { NickName = "额度二", RemarkName = "888", UserID = "12" }; 
+                FriendInfoModel b7 = new FriendInfoModel() { NickName = "测多单", RemarkName = "888", UserID = "13" };
                 FriendInfoModel cc = new FriendInfoModel() { NickName = "测试测试", RemarkName = "888", UserID = "5" };
                 FriendInfoModel dd = new FriendInfoModel() { NickName = "测试33", RemarkName = "888", UserID = "6" };
                 lista.Add(aa);
-                lista.Add(bb);
+                lista.Add(bb); lista.Add(a1); lista.Add(b2); lista.Add(b3); lista.Add(b4); lista.Add(b6); lista.Add(b7);
                 listb.Add(cc);
                 listb.Add(dd);
                 FriendSortModel a = new FriendSortModel() { Sort = "用户" };
                 a.FriendInfos = lista;
                 FriendSortModel b = new FriendSortModel() { Sort = "群组" };
-             //   b.FriendInfos = listb;
-               // friendSorts.Add(b);
+                b.FriendInfos = listb;
+                friendSorts.Add(b);
                 friendSorts.Add(a);
               
                 return true;

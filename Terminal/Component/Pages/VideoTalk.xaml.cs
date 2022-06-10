@@ -33,6 +33,7 @@ namespace Terminal.Component.Pages
             ClassHelper.SwitchCallRoute(ClassHelper.CallType.VoiceTalk);
         }
 
+        //关闭摄像头
         private void CloseCarmera(object sender, RoutedEventArgs e)
         {
             if (cameraStatus == false)

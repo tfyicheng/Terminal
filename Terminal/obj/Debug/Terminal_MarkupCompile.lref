@@ -2,6 +2,7 @@
 
 FD:\c-demo\ZD\Terminal\Terminal\Common\ConverterLibrary.xaml;;
 FD:\c-demo\ZD\Terminal\Terminal\Common\StyleLibrary.xaml;;
+FD:\c-demo\ZD\Terminal\Terminal\Component\Controls\AddItem.xaml;;
 FD:\c-demo\ZD\Terminal\Terminal\Component\Controls\ChatMain.xaml;;
 FD:\c-demo\ZD\Terminal\Terminal\Component\Controls\CodecsCfgView.xaml;;
 FD:\c-demo\ZD\Terminal\Terminal\Component\Controls\ContactsCfgView.xaml;;
@@ -14,6 +15,7 @@ FD:\c-demo\ZD\Terminal\Terminal\Component\Controls\MessageOther.xaml;;
 FD:\c-demo\ZD\Terminal\Terminal\Component\Controls\NetworkCfgView.xaml;;
 FD:\c-demo\ZD\Terminal\Terminal\Component\Controls\QosCfgView.xaml;;
 FD:\c-demo\ZD\Terminal\Terminal\Component\Controls\ReadOnlyRichBox.xaml;;
+FD:\c-demo\ZD\Terminal\Terminal\Component\Controls\SelectedItem.xaml;;
 FD:\c-demo\ZD\Terminal\Terminal\Component\Controls\Table.xaml;;
 FD:\c-demo\ZD\Terminal\Terminal\Component\Pages\AddressBook.xaml;;
 FD:\c-demo\ZD\Terminal\Terminal\Component\Pages\AutoTest.xaml;;

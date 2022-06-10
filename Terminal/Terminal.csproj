@@ -82,6 +82,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Component\Controls\AddItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Component\Controls\ChatItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -131,6 +135,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Component\Controls\ReadOnlyRichBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Component\Controls\SelectedItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -200,6 +208,9 @@
     </Compile>
     <Compile Include="Common\ClassHelper.cs" />
     <Compile Include="Common\ModelBase.cs" />
+    <Compile Include="Component\Controls\AddItem.xaml.cs">
+      <DependentUpon>AddItem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Component\Controls\ChatItem.xaml.cs">
       <DependentUpon>ChatItem.xaml</DependentUpon>
     </Compile>
@@ -238,6 +249,9 @@
     </Compile>
     <Compile Include="Component\Controls\ReadOnlyRichBox.xaml.cs">
       <DependentUpon>ReadOnlyRichBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Component\Controls\SelectedItem.xaml.cs">
+      <DependentUpon>SelectedItem.xaml</DependentUpon>
     </Compile>
     <Compile Include="Component\Controls\Table.xaml.cs">
       <DependentUpon>Table.xaml</DependentUpon>

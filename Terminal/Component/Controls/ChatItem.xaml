@@ -12,6 +12,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="30"/>
             </Grid.ColumnDefinitions>
+        
             <!--头像 Source="{Binding Converter={StaticResource ImageSourceOnlineConvert}, ConverterParameter=80}"-->
             <Image  x:Name="imgHead" Grid.Column="0" Height="50" Width="50" Source="pack://application:,,,/Resources/tx.png" >
                 <!--<Image.Clip>
@@ -20,7 +21,7 @@
             </Image>
             <!--文本内容-->
             <Grid Grid.Column="1" Margin="10,2,0,0">
-                <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top">
+                <TextBlock TextTrimming="CharacterEllipsis"  HorizontalAlignment="Left" VerticalAlignment="Top">
                     <Run  x:Name="txbNickName" FontSize="18"  Foreground="#303133"/>
                     <Run x:Name="txbRemarkName" FontSize="10" Foreground="#C0C4CC"/>
                 </TextBlock>

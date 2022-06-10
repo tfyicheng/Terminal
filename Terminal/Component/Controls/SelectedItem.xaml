@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="Terminal.Component.Controls.SelectedItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Terminal.Component.Controls"   xmlns:hc="https://handyorg.github.io/handycontrol"
+             mc:Ignorable="d"   DataContextChanged="UserControlMain_DataContextChanged"
+           >
+    <WrapPanel  HorizontalAlignment="Center" VerticalAlignment="Center">
+        
+        <ItemsControl x:Name="itcFriendInfos"  >
+
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Border Height="100" Width="90" >
+                        <Grid Margin="10" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="20"/>
+                            </Grid.RowDefinitions>
+
+
+                            <Grid  Height="60" Width="60">
+                                <!--头像-->
+                                <Image  x:Name="imgHead" Grid.Column="0" Height="50" Width="50" Source="pack://application:,,,/Resources/tx.png" ></Image>
+                                <Button Padding="1"  Margin="0,-50,-50,0"  FontFamily="{StaticResource ElementIcon}" Content="&#xe64e;" FontSize="11" Foreground="#fff" Cursor="Hand" Background="#999"  hc:BorderElement.CornerRadius="50" BorderThickness="0" Width="22"  Height="22" ></Button>
+                              
+                            </Grid>
+                            <Grid  Grid.Row="1" Margin="0,0,0,0">
+                                <TextBlock TextTrimming="CharacterEllipsis"  HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <Run FontSize="14"  Foreground="#303133" Text="{Binding NickName}"/>
+                                </TextBlock>
+
+                            </Grid>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </WrapPanel>
+</UserControl>

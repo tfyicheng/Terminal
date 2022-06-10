@@ -4,9 +4,59 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Terminal.Component.Windows"
-        mc:Ignorable="d"
-        Title="Meeting" Height="450" Width="800">
-    <Grid>
+        mc:Ignorable="d" WindowStyle="None" WindowStartupLocation="CenterScreen" 
+         xmlns:hc="https://handyorg.github.io/handycontrol"    
+        Title="视频会议"  MinWidth="880" MinHeight="600" >
+    <WindowChrome.WindowChrome>
+        <WindowChrome UseAeroCaptionButtons="False" NonClientFrameEdges="None" CaptionHeight="40" />
+    </WindowChrome.WindowChrome>
+    <Grid x:Name="Main">
+        <Grid.RowDefinitions >
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="120"/>
+            </Grid.RowDefinitions>
+        <!--top菜单-->
+        <Grid  Background="#333" Margin="0">
+            <TextBlock Foreground="#fff" FontSize="18"  Margin="15,0,0,0"  VerticalAlignment="Center">视频会议</TextBlock>
+            <StackPanel   Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" WindowChrome.IsHitTestVisibleInChrome="True" SnapsToDevicePixels="True">
+                <Button x:Name="btnMin"  Style="{StaticResource ButtonMin}"  Height="48" Width="50" Click="BtnMin_Click"/>
+                <Button x:Name="btnState" Style="{StaticResource ButtonState}" Height="48" Width="50" Click="BtnState_Click"/>
+                <Button x:Name="btnClose" Style="{StaticResource ButtonClose}" Height="48" Width="50" Click="BtnClose_Click"/>
+            </StackPanel>
+        </Grid>
+            <!--视频框-->
         
+        <!--菜单栏-->
+        <Grid  Grid.Row="2"  Background="#333" Margin="0">
+            <Grid HorizontalAlignment="Left" Margin="10">
+                <Button  FontFamily="{StaticResource ElementIcon}" Content="&#xe626;" FontSize="25" Foreground="#fff" Cursor="Hand" Background="#999" Width="40" Height="40" Margin="10"  hc:BorderElement.CornerRadius="50" BorderThickness="0">
+                </Button>
+                <TextBlock  HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10" Foreground="#FFF">添加成员</TextBlock>
+            </Grid>
+            <Grid Visibility="Visible"  Height="120"  VerticalAlignment="Bottom" >
+                <TextBlock HorizontalAlignment="Center" Margin="5"  Foreground="#fff" FontSize="13">00:00</TextBlock>
+                <WrapPanel   VerticalAlignment="Center" HorizontalAlignment="Center"  Margin="10,0,0,0">
+                
+
+                    <Grid>
+                        <Button  x:Name="jybt" Click="CloseVoice" FontFamily="{StaticResource ElementIcon}" Content="&#xe641;" FontSize="25" Foreground="#fff" Cursor="Hand" Background="#999" Width="40" Height="40" Margin="10" DockPanel.Dock="Left" hc:BorderElement.CornerRadius="50" BorderThickness="0">
+                        </Button>
+                        <TextBlock x:Name="jytb" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="-10" Foreground="#FFF">静音</TextBlock>
+                    </Grid>
+                    
+                    <Grid>
+                        <Button FontFamily="{StaticResource ElementIcon}" Content="&#xe646;"  FontSize="18" Foreground="#fff" Cursor="Hand" Background="#FF6565" Width="40" Height="40"  Margin="50,0,50,10"  hc:BorderElement.CornerRadius="50"  BorderThickness="0"></Button>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="-10" Foreground="#FFF">挂断</TextBlock>
+                    </Grid>
+
+                    <Grid>
+                        <Button  Click="CloseCarmera" x:Name="cameraB" FontFamily="{StaticResource ElementIcon}" Content="&#xe61e;" FontSize="18" Foreground="#fff" Cursor="Hand" Background="#999" Width="40" Height="40" Margin="15,0,15,10" hc:BorderElement.CornerRadius="50" BorderThickness="0">
+                        </Button>
+                        <TextBlock  x:Name="cameraT" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="-10" Foreground="#FFF">关闭摄像头</TextBlock>
+                    </Grid>
+                </WrapPanel>
+            </Grid>
+        </Grid>
     </Grid>
 </Window>
