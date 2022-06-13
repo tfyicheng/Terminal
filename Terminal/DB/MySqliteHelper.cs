@@ -53,7 +53,7 @@ namespace Terminal.DB
        public static SQLiteConnection CreateDatabaseConnection(string dbName = null)
         {
             if (!string.IsNullOrEmpty(DbPath) && !Directory.Exists(DbPath))
-                Directory.CreateDirectory(DbPath);
+            Directory.CreateDirectory(DbPath);
             dbName = dbName == null ? "test2.db" : dbName;
             var dbFilePath = Path.Combine(DbPath, dbName);
             return new SQLiteConnection("DataSource = " + dbFilePath);//没有该库会自动创建

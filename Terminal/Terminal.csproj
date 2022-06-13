@@ -118,6 +118,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Component\Controls\MeetingHistoryItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Component\Controls\MeetingItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Component\Controls\MessageMe.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -147,6 +155,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Component\Pages\AddressBook.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Component\Pages\AppointmentMeeting.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -235,6 +247,12 @@
     <Compile Include="Component\Controls\MasterChat.xaml.cs">
       <DependentUpon>MasterChat.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Component\Controls\MeetingHistoryItem.xaml.cs">
+      <DependentUpon>MeetingHistoryItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Component\Controls\MeetingItem.xaml.cs">
+      <DependentUpon>MeetingItem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Component\Controls\MessageMe.xaml.cs">
       <DependentUpon>MessageMe.xaml</DependentUpon>
     </Compile>
@@ -258,6 +276,9 @@
     </Compile>
     <Compile Include="Component\Pages\AddressBook.xaml.cs">
       <DependentUpon>AddressBook.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Component\Pages\AppointmentMeeting.xaml.cs">
+      <DependentUpon>AppointmentMeeting.xaml</DependentUpon>
     </Compile>
     <Compile Include="Component\Pages\AutoTest.xaml.cs">
       <DependentUpon>AutoTest.xaml</DependentUpon>
@@ -343,15 +364,19 @@
     <Compile Include="Library\ResultModel\FriendInfoModel.cs" />
     <Compile Include="Library\ResultModel\FriendSortModel.cs" />
     <Compile Include="Library\ResultModel\InfoDetailsModel.cs" />
+    <Compile Include="Library\ResultModel\MeetingInfoModel.cs" />
+    <Compile Include="Library\ResultModel\MeetingSortModel.cs" />
     <Compile Include="Library\ResultModel\RichMessageContentModel.cs" />
     <Compile Include="Library\ResultModel\RichMessageModel.cs" />
     <Compile Include="Library\Service\ChatService.cs" />
+    <Compile Include="Library\Service\MeetingService.cs" />
     <Compile Include="Library\Service\UserManagerService.cs" />
     <Compile Include="Library\ViewModel\ChatColumnInfoModel.cs" />
     <Compile Include="Library\ViewModel\ChatImage.cs" />
     <Compile Include="Library\ViewModel\ChatMainViewModel.cs" />
     <Compile Include="Library\ViewModel\ContactPersonViewModel.cs" />
     <Compile Include="Library\ViewModel\ManualTestView.cs" />
+    <Compile Include="Library\ViewModel\MeetingModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

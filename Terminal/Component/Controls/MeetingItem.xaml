@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="Terminal.Component.Controls.MeetingItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Terminal.Component.Controls"
+             mc:Ignorable="d"  DataContextChanged="UserControlMain_DataContextChanged"
+            >
+    <StackPanel Orientation="Vertical">
+        <!--分割线-->
+        <Line VerticalAlignment="Bottom" X1="0" Y1="0" X2="2400" Y2="0" Stroke="#C0C4CC"/>
+        <!--时间标记排序-->
+        <StackPanel Orientation="Horizontal" Height="30" HorizontalAlignment="Left" Margin="8,5,0,5" >
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Text="今天" Foreground="#000"/>
+            <TextBlock x:Name="txbSort" Margin="8,5,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"  Foreground="#A4A4A4"/>
+        </StackPanel>
+        <ItemsControl x:Name="itcInfos">
+
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Vertical"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Border Style="{StaticResource BorderWhiteGradient}" Tag="{Binding}" >
+                        <Grid Margin="8">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="30"/>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0" Margin="8,0,0,0">
+                                <TextBlock TextTrimming="CharacterEllipsis"  HorizontalAlignment="Left" VerticalAlignment="Center">
+                                    <Run FontSize="15"  Foreground="#303133" Text="{Binding Date}"/>
+                                    <Run FontSize="15"   Foreground="#303133" Text="{Binding MeetingId}"/>
+                                    <Run FontSize="12"  Foreground="#303133" Text="发起人:"/>
+                                    <Run FontSize="15"  Foreground="#303133" Text="{Binding Originator}"/>
+                                </TextBlock>
+                            </Grid>
+                            <Grid Grid.Row="1" Margin="8,0,0,0">
+                                <TextBlock TextTrimming="CharacterEllipsis"  HorizontalAlignment="Left" VerticalAlignment="Center">
+                                    <Run FontSize="18"  Foreground="#303133" Text="{Binding Theme}"/>
+                                </TextBlock>
+                            </Grid>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </StackPanel>
+</UserControl>

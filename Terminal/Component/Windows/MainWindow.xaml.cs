@@ -97,6 +97,7 @@ namespace Terminal
                     AddressBook.Tag = "0";
                     DataCollect.Tag = "0";
                     EnergyAssess.Tag = "0";
+                    AppointmentMeeting.Tag = "0";
                     Main.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FAFAFA"));
                     grid = AutoTest.Child as Grid;
                     break;
@@ -106,6 +107,7 @@ namespace Terminal
                     AddressBook.Tag = "0";
                     DataCollect.Tag = "0";
                     EnergyAssess.Tag = "0";
+                    AppointmentMeeting.Tag = "0";
                     Main.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFFFF"));
                     grid = ManualTest.Child as Grid;
                     break;
@@ -115,6 +117,7 @@ namespace Terminal
                     AutoTest.Tag = "0";
                     DataCollect.Tag = "0";
                     EnergyAssess.Tag = "0";
+                    AppointmentMeeting.Tag = "0";
                     Main.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000"));
                     grid = AddressBook.Child as Grid;
                     break;
@@ -124,6 +127,7 @@ namespace Terminal
                     AutoTest.Tag = "0";
                     AddressBook.Tag = "0";
                     EnergyAssess.Tag = "0";
+                    AppointmentMeeting.Tag = "0";
                     Main.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000"));
                     grid = DataCollect.Child as Grid;
                     break;
@@ -133,8 +137,19 @@ namespace Terminal
                     AutoTest.Tag = "0";
                     DataCollect.Tag = "0";
                     AddressBook.Tag = "0";
+                    AppointmentMeeting.Tag = "0";
                     Main.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000"));
                     grid = EnergyAssess.Child as Grid;
+                    break;
+                case ClassHelper.PageType.AppointmentMeeting:
+                    AppointmentMeeting.Tag = "1";
+                    EnergyAssess.Tag = "0";
+                    ManualTest.Tag = "0";
+                    AutoTest.Tag = "0";
+                    DataCollect.Tag = "0";
+                    AddressBook.Tag = "0";
+                    Main.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000"));
+                    grid = AppointmentMeeting.Child as Grid;
                     break;
                 default:
                     break;
@@ -166,6 +181,9 @@ namespace Terminal
                         break;
                     case ClassHelper.PageType.EnergyAssess:
                         femRouteMain.Navigate(ClassHelper.energyAssess);
+                        break;
+                    case ClassHelper.PageType.AppointmentMeeting:
+                        femRouteMain.Navigate(ClassHelper.appointmentMeeting);
                         break;
                     default:
                         ClassHelper.MessageAlert(GetType(), 3, ClassHelper.FindResource<string>("PageDoesNotExist"));

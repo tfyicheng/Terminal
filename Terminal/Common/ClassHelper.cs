@@ -37,6 +37,7 @@ namespace Terminal.Common
             AddressBook,
             DataCollect,
             EnergyAssess,
+            AppointmentMeeting,
         }
 
         //Call类型
@@ -100,6 +101,8 @@ namespace Terminal.Common
         public static readonly DataCollect dataCollect = new DataCollect();
         //效能评估
         public static readonly EnergyAssess energyAssess = new EnergyAssess();
+        //预约会议
+        public static readonly AppointmentMeeting appointmentMeeting = new AppointmentMeeting();   
         //语音通话
         public static readonly VoiceTalk voiceTalk = new VoiceTalk();  
         //视频通话

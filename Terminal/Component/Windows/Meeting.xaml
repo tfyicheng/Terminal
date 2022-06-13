@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Terminal.Component.Windows"
         mc:Ignorable="d" WindowStyle="None" WindowStartupLocation="CenterScreen" 
          xmlns:hc="https://handyorg.github.io/handycontrol"    
-        Title="视频会议"  MinWidth="880" MinHeight="600" >
+        Title="视频会议"  MinWidth="860" MinHeight="600" ResizeMode="NoResize" >
     <WindowChrome.WindowChrome>
         <WindowChrome UseAeroCaptionButtons="False" NonClientFrameEdges="None" CaptionHeight="40" />
     </WindowChrome.WindowChrome>
@@ -25,9 +25,20 @@
                 <Button x:Name="btnClose" Style="{StaticResource ButtonClose}" Height="48" Width="50" Click="BtnClose_Click"/>
             </StackPanel>
         </Grid>
-            <!--视频框-->
         
-        <!--菜单栏-->
+       <!--视频框-->
+        <Grid Grid.Row="1" MinWidth="1260" HorizontalAlignment="Stretch" >
+            <WrapPanel>
+
+                <Border Background="pink"  Width="430" Height="430" ></Border>
+                <Border Background="gray" Width="430"  Height="430"></Border>
+                <!--<Border Background="gray" Width="430" Height="430"></Border>-->
+            </WrapPanel>
+            
+        </Grid>
+
+
+            <!--菜单栏-->
         <Grid  Grid.Row="2"  Background="#333" Margin="0">
             <Grid HorizontalAlignment="Left" Margin="10">
                 <Button  FontFamily="{StaticResource ElementIcon}" Content="&#xe626;" FontSize="25" Foreground="#fff" Cursor="Hand" Background="#999" Width="40" Height="40" Margin="10"  hc:BorderElement.CornerRadius="50" BorderThickness="0">
@@ -56,6 +67,11 @@
                         <TextBlock  x:Name="cameraT" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="-10" Foreground="#FFF">关闭摄像头</TextBlock>
                     </Grid>
                 </WrapPanel>
+            </Grid>
+            <Grid HorizontalAlignment="Right" Margin="10">
+                <Button  FontFamily="{StaticResource ElementIcon}" Content="&#xe603;" FontSize="25" Foreground="#fff" Cursor="Hand" Background="#999" Width="40" Height="40" Margin="10"  hc:BorderElement.CornerRadius="50" BorderThickness="0">
+                </Button>
+                <TextBlock  HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10" Foreground="#FFF">成员管理</TextBlock>
             </Grid>
         </Grid>
     </Grid>

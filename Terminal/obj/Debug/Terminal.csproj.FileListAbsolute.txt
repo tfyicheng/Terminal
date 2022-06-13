@@ -158,3 +158,9 @@ D:\c-demo\ZD\Terminal\Terminal\obj\Debug\Component\Controls\AddItem.g.cs
 D:\c-demo\ZD\Terminal\Terminal\obj\Debug\Component\Controls\AddItem.baml
 D:\c-demo\ZD\Terminal\Terminal\obj\Debug\Component\Controls\SelectedItem.g.cs
 D:\c-demo\ZD\Terminal\Terminal\obj\Debug\Component\Controls\SelectedItem.baml
+D:\c-demo\ZD\Terminal\Terminal\obj\Debug\Component\Pages\AppointmentMeeting.g.cs
+D:\c-demo\ZD\Terminal\Terminal\obj\Debug\Component\Pages\AppointmentMeeting.baml
+D:\c-demo\ZD\Terminal\Terminal\obj\Debug\Component\Controls\MeetingItem.g.cs
+D:\c-demo\ZD\Terminal\Terminal\obj\Debug\Component\Controls\MeetingItem.baml
+D:\c-demo\ZD\Terminal\Terminal\obj\Debug\Component\Controls\MeetingHistoryItem.g.cs
+D:\c-demo\ZD\Terminal\Terminal\obj\Debug\Component\Controls\MeetingHistoryItem.baml
