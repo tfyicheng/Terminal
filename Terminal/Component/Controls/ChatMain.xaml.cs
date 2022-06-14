@@ -91,11 +91,13 @@ namespace Terminal.Component.Controls
 
         private void RtbMessage_KeyDown(object sender, KeyEventArgs e)
         {
+            Console.WriteLine("test");
 
         }
 
         private void RtbMessage_Pasting(object sender, DataObjectPastingEventArgs e)
         {
+            Console.WriteLine("test");
 
         }
         //语音发送

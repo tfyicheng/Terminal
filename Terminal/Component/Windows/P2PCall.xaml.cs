@@ -24,7 +24,9 @@ namespace Terminal.Component.Windows
 
     public partial class P2PCall : Window
     {
-        public static bool CallStatus;
+        public  static bool CallStatus { set; get; }
+
+      //  public  CallStatus{ get callStatus;set;};
     
         private void ClassHelper_RoutedChanged(CallType typeName)
         {
@@ -93,8 +95,10 @@ namespace Terminal.Component.Windows
         }
 
         public void P2PCall_Loaded(object sender, RoutedEventArgs e)
-        {            
+        {       
+            Console.WriteLine("test");
+
         }
-    
+
     }
 }

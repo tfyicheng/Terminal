@@ -109,6 +109,7 @@ namespace Terminal.Component.Controls
         //备注失去焦点事件
         private void TxtRemark_LostFocus(object sender, RoutedEventArgs e)
         {
+            Console.WriteLine("test");
 
         }
 
@@ -124,11 +125,12 @@ namespace Terminal.Component.Controls
         //备注更新触发
         private void TxbRemark_PointerUp(object sender)
         {
-        
+            Console.WriteLine("test");
+
         }
 
-       //执行通信，跳转聊天
-       private void SendMessage(object data)
+        //执行通信，跳转聊天
+        private void SendMessage(object data)
         {
             if (ChatService.AddChat(detailData.UserID))
             {

@@ -19,7 +19,7 @@ namespace Terminal.Common
         #region （属性）变量
         // 用户ID
         //public static string UserID { get; set; }
-        public static string UserID = "0";
+        public readonly static string UserID = "0";
 
         // 选中的聊天好友ID
         public static string ChatFriendID { get; set; }

@@ -19,7 +19,7 @@ namespace Terminal.Component.Windows
     /// </summary>
     public partial class Login : Window
     {
-        public static Window config;
+        public readonly static Window config;
         public Login()
         {
             InitializeComponent();

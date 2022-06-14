@@ -42,6 +42,7 @@ namespace Terminal.Component.Pages
         //窗体卸载事件
         private void ManualTestMain_Unloaded(object sender, RoutedEventArgs e)
         {
+            Console.WriteLine("test");
 
         }
 
@@ -50,7 +51,7 @@ namespace Terminal.Component.Pages
 
         #region 执行事件
 
-  //页面加载时获取聊天列表数据
+        //页面加载时获取聊天列表数据
         private void Load(object data)
         {
 

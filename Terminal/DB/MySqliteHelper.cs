@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Terminal.DB
 {
-    public class MySqliteHelper
+    public static class MySqliteHelper
     {
 
 
@@ -29,7 +29,7 @@ namespace Terminal.DB
         {
             try
             {
-                if (!File.Exists(DbPath + databasename))
+                if ( ! File.Exists(DbPath + databasename))
                 {
                     if (!Directory.Exists(DbPath))
                         Directory.CreateDirectory(DbPath);

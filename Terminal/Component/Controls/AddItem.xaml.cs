@@ -42,16 +42,18 @@ namespace Terminal.Component.Controls
 
         private void BrdChat_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-
+            Console.WriteLine("test");
         }
 
         private void BrdDetail_Loaded(object sender, RoutedEventArgs e)
         {
+            Console.WriteLine("test");
 
         }
 
         private void BrdDetail_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            Console.WriteLine("test");
 
         }
     }

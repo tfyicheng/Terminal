@@ -11,9 +11,9 @@
         <DropShadowEffect Color="#888888" ShadowDepth="0" Opacity="0.3" />
     </Window.Effect>
     <WindowChrome.WindowChrome>
-        <WindowChrome UseAeroCaptionButtons="False" GlassFrameThickness="-1" CaptionHeight="382" />
+        <WindowChrome UseAeroCaptionButtons="False" GlassFrameThickness="-1" CaptionHeight="60" />
     </WindowChrome.WindowChrome>
-    <Grid   WindowChrome.IsHitTestVisibleInChrome="True">
+    <Grid  WindowChrome.IsHitTestVisibleInChrome="True" >
   
         
         <!--top菜单-->     

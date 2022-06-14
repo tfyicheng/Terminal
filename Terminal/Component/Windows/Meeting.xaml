@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Terminal.Component.Windows"
         mc:Ignorable="d" WindowStyle="None" WindowStartupLocation="CenterScreen" 
-         xmlns:hc="https://handyorg.github.io/handycontrol"    
-        Title="视频会议"  MinWidth="860" MinHeight="600" ResizeMode="NoResize" >
+         xmlns:hc="https://handyorg.github.io/handycontrol"   ResizeMode="NoResize"
+        Title="视频会议"  MinWidth="860" MinHeight="600"  >
     <WindowChrome.WindowChrome>
         <WindowChrome UseAeroCaptionButtons="False" NonClientFrameEdges="None" CaptionHeight="40" />
     </WindowChrome.WindowChrome>
@@ -27,13 +27,31 @@
         </Grid>
         
        <!--视频框-->
-        <Grid Grid.Row="1" MinWidth="1260" HorizontalAlignment="Stretch" >
-            <WrapPanel>
+        <Grid Grid.Row="1" >
+          
+                <Grid Grid.Row="1">
+                    <!--ItemsSource="{Binding FriendInfos}"-->
+           
+                <ItemsControl x:Name="itc"  Style="{StaticResource ItemsControlVirtualization}" >
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                            <Border x:Name="itcb"  Background="{Binding color}"  Width="430" Height="430"  BorderBrush="White" BorderThickness="5" CornerRadius="15">
+                                <TextBlock Text ="{Binding title}" FontSize="25"></TextBlock>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
 
-                <Border Background="pink"  Width="430" Height="430" ></Border>
-                <Border Background="gray" Width="430"  Height="430"></Border>
+                </Grid>
+                <!--<Border Background="pink"  Width="430" Height="430" ></Border>
+                <Border Background="gray" Width="430"  Height="430"></Border>-->
                 <!--<Border Background="gray" Width="430" Height="430"></Border>-->
-            </WrapPanel>
+           
             
         </Grid>
 

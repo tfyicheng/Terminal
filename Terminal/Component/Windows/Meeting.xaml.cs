@@ -22,9 +22,92 @@ namespace Terminal.Component.Windows
 
         private bool cameraStatus = false;
         private bool jyStatue = false;
+        private int talks=2;
         public Meeting()
         {
             InitializeComponent();
+           List<toItc> list = new List<toItc>();
+            for (int i = 0; i < talks; i++)
+            {
+                list.Add(new toItc() { color = "pink",title= i });
+            }
+            //list.Add(new toItc() { color = "red" });
+            //list.Add(new toItc() { color = "pink" });
+            itc.ItemsSource = list;
+
+            setWH();
+          
+            
+        }
+
+        public void setBwh()
+        {
+          //  Border itcb = this.FindName("itcb") as Border;
+            // var itcb = (Border)FindName(string.Format("itcb", i));
+            //switch (talks)
+            //{
+
+            //    case 2:
+            //        itcb.Width = SystemParameters.PrimaryScreenWidth;
+            //        itcb.Height = SystemParameters.PrimaryScreenWidth;
+            //        break;
+            //    case 3:
+            //    case 4:
+            //        this.Width = 860;
+            //        this.Height = 1030;
+            //        break;
+            //    case 5:
+            //    case 6:
+            //        this.Width = 1290;
+            //        this.Height = 1030;
+            //        break;
+            //    case 7:
+            //    case 8:
+            //        this.Width = 1720;
+            //        this.Height = 1030;
+            //        break;
+            //    default:
+            //        break;
+            //}
+            Console.WriteLine("test");
+        }
+
+        public void setWH()
+        {
+       
+          
+            switch (talks)
+            {
+
+                case 2:
+                    this.Width = 860;
+                    this.Height = 510;
+                   
+                    break;
+                case 3:
+                case 4:
+                    this.Width = 860;
+                    this.Height = 1030;
+                    break ;                 
+                case 5:
+                case 6:
+                    this.Width = 1290;
+                    this.Height = 1030;
+                    break;
+                case 7:
+                case 8:
+                    this.Width = 1720;
+                    this.Height = 1030;
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        public class toItc
+        {
+            public string color { get; set; }
+            public int title { get; set; }  
         }
 
         //窗体状态事件
@@ -35,6 +118,7 @@ namespace Terminal.Component.Windows
         private void BtnState_Click(object sender, RoutedEventArgs e)
         {
             WindowState = WindowState == WindowState.Normal ? WindowState.Maximized : WindowState.Normal;
+            setBwh();
         }
         private void BtnClose_Click(object sender, RoutedEventArgs e)
         {
@@ -61,7 +145,7 @@ namespace Terminal.Component.Windows
                 cameraStatus = false;
             }
         }
-
+        //关闭声音
         private void CloseVoice(object sender, RoutedEventArgs e)
         {
             if (jyStatue == false)

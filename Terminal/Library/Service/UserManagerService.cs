@@ -8,7 +8,7 @@ using Terminal.Library.ResultModel;
 
 namespace Terminal.Library.Service
 {
-    public class UserManagerService
+    public static class UserManagerService
     {
         //获取朋友列表
         public static bool GetFriendList(out List<FriendSortModel> friendSorts)
