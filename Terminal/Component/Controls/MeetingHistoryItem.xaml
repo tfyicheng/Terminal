@@ -33,8 +33,8 @@
                             <Grid Grid.Row="0" Margin="8,0,0,0">
                                 <TextBlock TextTrimming="CharacterEllipsis"  HorizontalAlignment="Left" VerticalAlignment="Center">
                                     <Run FontSize="15"  Foreground="#303133" Text="{Binding Date}"/>
-                                    <Run FontSize="15"  Foreground="#303133" Text="{Binding MeetingId}"/>
-                                    <Run FontSize="12"  Foreground="#303133" Text="发起人:"/>
+                                    <!--<Run FontSize="15"  Foreground="#303133" Text="{Binding MeetingId}"/>-->
+                                    <Run FontSize="12"  Foreground="#A4A4A4" Text=" 发起人: "/>
                                     <Run FontSize="15"  Foreground="#303133" Text="{Binding Originator}"/>
                                 </TextBlock>
                             </Grid>

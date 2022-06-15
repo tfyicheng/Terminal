@@ -24,11 +24,29 @@ namespace Terminal.Component.Pages
     public partial class VoiceTalk : Page
     {
         private bool jyStatue = false;
-        private int voiceCallStatus = 0;
+       
+     
         public VoiceTalk()
         {
             InitializeComponent();
+           
+         
+
         }
+
+
+
+        private void  VoiceTalkloaded_Main(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine("ok");
+        }
+
+
+
+
+
+
+
 
         private void toJy(object sender, RoutedEventArgs e)
         {

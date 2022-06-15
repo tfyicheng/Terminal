@@ -29,7 +29,7 @@ namespace Terminal.Library.ViewModel
             set
             {
                 nickName = value;
-                //OnPropertyChanged(nameof(NickName));
+                OnPropertyChanged(nameof(NickName));
             }
         }
         // 备注名
@@ -65,7 +65,7 @@ namespace Terminal.Library.ViewModel
             set
             {
                 chatContent = value;
-                // OnPropertyChanged(nameof(ChatContent));
+                OnPropertyChanged(nameof(ChatContent));
             }
         }
         // 未读数

@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Terminal.Component.Pages"
           xmlns:hc="https://handyorg.github.io/handycontrol"
-      mc:Ignorable="d" 
+      mc:Ignorable="d"  Loaded="VoiceTalkloaded_Main"
       Title="语音通话中" >
 
     <Grid>
@@ -33,14 +33,15 @@
         <!--信息-->
         <Grid Grid.Row="1" HorizontalAlignment="Center">
             <StackPanel>
-                <TextBlock FontSize="20" Foreground="#fff" Margin="0,15,0,10" HorizontalAlignment="Center">66666</TextBlock>
-                <TextBlock FontSize="15" Foreground="#fff" HorizontalAlignment="Center">66666</TextBlock>
+                <TextBlock FontSize="20" Foreground="#fff" Margin="0,15,0,10" HorizontalAlignment="Center" Text="6666"></TextBlock>
+                <TextBlock FontSize="15" Foreground="#fff" HorizontalAlignment="Center" Text="{DynamicResource Calling}" FontFamily="{StaticResource ElementIcon2}"></TextBlock>
             </StackPanel>
         </Grid>
         <!--菜单-->
         <Grid Grid.Row="2" Margin="40,0,0,0">
             <!--通话中-->
-            <Grid x:Name="Calling" Visibility="Collapsed">
+            <!--Visibility="{Binding voiceStatus,Converter={StaticResource anyTypeConverter},ConverterParameter='2:Visible|other:Collapsed'}"-->
+            <Grid x:Name="Calling" Visibility="Visible" >
                 <DockPanel  VerticalAlignment="Center" HorizontalAlignment="Center" Width="200" >
                     <Grid>
                         <Button  x:Name="jybt" Click="toJy" FontFamily="{StaticResource ElementIcon}" Content="&#xe641;" FontSize="25" Foreground="#333" Cursor="Hand" Background="#fff" Width="40" Height="40" Margin="10" DockPanel.Dock="Left" hc:BorderElement.CornerRadius="50" BorderThickness="0">
@@ -54,14 +55,14 @@
                 </DockPanel>
             </Grid>
             <!--呼叫-->
-            <Grid  x:Name="Call" Margin="-40,0,0,0" Visibility="Visible" >
+            <Grid  x:Name="Call" Margin="-40,0,0,0" Visibility="Collapsed" >
                 <Grid  VerticalAlignment="Center" HorizontalAlignment="Center" >
                     <Button FontFamily="{StaticResource ElementIcon}" Content="&#xe646;"  FontSize="18" Foreground="#fff" Cursor="Hand" Background="#FF6565" Width="40" Height="40"  hc:BorderElement.CornerRadius="50"  BorderThickness="0"></Button>
                     <TextBlock HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="-20" Foreground="#FFF">取消</TextBlock>
                 </Grid>
             </Grid>
             <!--被叫-->
-            <Grid x:Name="Called" Visibility="Collapsed">
+            <Grid x:Name="Called" Visibility="Collapsed" >
                 <DockPanel  VerticalAlignment="Center" HorizontalAlignment="Center" Width="200">
                     <Grid>
                         <Button FontFamily="{StaticResource ElementIcon}" Content="&#xe646;"  FontSize="18" Foreground="#fff" Cursor="Hand" Background="#FF6565" Width="40" Height="40" Margin="10" DockPanel.Dock="Right" hc:BorderElement.CornerRadius="50"  BorderThickness="0"></Button>

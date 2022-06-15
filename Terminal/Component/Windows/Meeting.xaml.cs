@@ -23,91 +23,102 @@ namespace Terminal.Component.Windows
         private bool cameraStatus = false;
         private bool jyStatue = false;
         private int talks=2;
+        private int bl;
+        List<toItc> list = new List<toItc>();
         public Meeting()
         {
             InitializeComponent();
-           List<toItc> list = new List<toItc>();
+            setWH();
             for (int i = 0; i < talks; i++)
             {
-                list.Add(new toItc() { color = "pink",title= i });
+
+                list.Add(new toItc() { color = "pink", title = i, lenght = bl });
             }
-            //list.Add(new toItc() { color = "red" });
-            //list.Add(new toItc() { color = "pink" });
+
             itc.ItemsSource = list;
+          //  can.Width = SystemParameters.PrimaryScreenWidth;
+           // can.Height = SystemParameters.PrimaryScreenHeight;
 
-            setWH();
           
-            
+
         }
 
-        public void setBwh()
-        {
-          //  Border itcb = this.FindName("itcb") as Border;
-            // var itcb = (Border)FindName(string.Format("itcb", i));
-            //switch (talks)
-            //{
-
-            //    case 2:
-            //        itcb.Width = SystemParameters.PrimaryScreenWidth;
-            //        itcb.Height = SystemParameters.PrimaryScreenWidth;
-            //        break;
-            //    case 3:
-            //    case 4:
-            //        this.Width = 860;
-            //        this.Height = 1030;
-            //        break;
-            //    case 5:
-            //    case 6:
-            //        this.Width = 1290;
-            //        this.Height = 1030;
-            //        break;
-            //    case 7:
-            //    case 8:
-            //        this.Width = 1720;
-            //        this.Height = 1030;
-            //        break;
-            //    default:
-            //        break;
-            //}
-            Console.WriteLine("test");
-        }
 
         public void setWH()
         {
-       
-          
             switch (talks)
             {
 
                 case 2:
                     this.Width = 860;
                     this.Height = 510;
-                   
+                    bl = 430;
                     break;
                 case 3:
                 case 4:
                     this.Width = 860;
                     this.Height = 1030;
+                    bl= 430;  
                     break ;                 
                 case 5:
                 case 6:
                     this.Width = 1290;
                     this.Height = 1030;
+                    bl = 430;
                     break;
                 case 7:
                 case 8:
                     this.Width = 1720;
                     this.Height = 1030;
+                    bl = 430;
+                    break;
+                case 9:
+                case 10:
+                    this.Width = SystemParameters.PrimaryScreenWidth;
+                    this.Height = SystemParameters.PrimaryScreenHeight - 100;
+                    bl = (int)SystemParameters.PrimaryScreenWidth/5;
+                    break;
+                case 11:
+                case 12:
+                case 13:
+                case 14:
+                case 15:
+                case 16:
+                case 17:
+                case 18:
+                    this.Width = SystemParameters.PrimaryScreenWidth;
+                    this.Height = SystemParameters.PrimaryScreenHeight-100;
+                    bl = 270;
                     break;
                 default:
+                    this.Width = SystemParameters.PrimaryScreenWidth;
+                    this.Height = SystemParameters.PrimaryScreenHeight - 100;
+                    bl = 200;
                     break;
             }
+        }
+
+        public List<T> GetChildObjects<T>(DependencyObject obj, string name) where T : FrameworkElement
+        {
+            DependencyObject child = null;
+            List<T> childList = new List<T>();
+            for (int i = 0; i <= VisualTreeHelper.GetChildrenCount(obj) - 1; i++)
+            {
+                child = VisualTreeHelper.GetChild(obj, i);
+                if (child is T && (((T)child).Name == name || string.IsNullOrEmpty(name)))
+                {
+                    childList.Add((T)child);
+                }
+                childList.AddRange(GetChildObjects<T>(child, ""));//指定集合的元素添加到List队尾
+            }
+            return childList;
         }
 
         public class toItc
         {
             public string color { get; set; }
             public int title { get; set; }  
+            public int lenght { get; set; }   
         }
 
         //窗体状态事件
@@ -118,7 +129,6 @@ namespace Terminal.Component.Windows
         private void BtnState_Click(object sender, RoutedEventArgs e)
         {
             WindowState = WindowState == WindowState.Normal ? WindowState.Maximized : WindowState.Normal;
-            setBwh();
         }
         private void BtnClose_Click(object sender, RoutedEventArgs e)
         {

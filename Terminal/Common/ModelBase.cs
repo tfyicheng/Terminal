@@ -14,10 +14,10 @@ namespace Terminal.Common
        
         public event PropertyChangedEventHandler PropertyChanged;
 
-        //protected ModelBase()
-        //{
-        //    InitializeVariable();
-        //}
+        protected ModelBase()
+        {
+            InitializeVariable();
+        }
 
         public abstract void InitializeVariable();
 

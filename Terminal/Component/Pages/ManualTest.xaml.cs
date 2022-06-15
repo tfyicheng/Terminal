@@ -23,7 +23,7 @@ namespace Terminal.Component.Pages
     /// </summary>
     public partial class ManualTest : Page
     {
-        private readonly ManualTestView mainData;
+        private  ManualTestView mainData;
         public ManualTest()
         {
             InitializeComponent();

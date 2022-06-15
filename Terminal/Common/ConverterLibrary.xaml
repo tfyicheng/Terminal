@@ -4,4 +4,5 @@
 
     <converters:RichTextBoxWidthConvert x:Key="RichTextBoxWidthConvert"/>
     <converters:FriendItemVisibilityConvert x:Key="FriendItemVisibilityConvert"/>
+    <converters:anyTypeConverter x:Key="anyTypeConverter"/>
 </ResourceDictionary>

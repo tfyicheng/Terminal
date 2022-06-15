@@ -28,30 +28,33 @@
         
        <!--视频框-->
         <Grid Grid.Row="1" >
-          
-                <Grid Grid.Row="1">
-                    <!--ItemsSource="{Binding FriendInfos}"-->
-           
-                <ItemsControl x:Name="itc"  Style="{StaticResource ItemsControlVirtualization}" >
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <WrapPanel />
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                    <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                            <Border x:Name="itcb"  Background="{Binding color}"  Width="430" Height="430"  BorderBrush="White" BorderThickness="5" CornerRadius="15">
-                                <TextBlock Text ="{Binding title}" FontSize="25"></TextBlock>
-                                </Border>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
 
-                </Grid>
-                <!--<Border Background="pink"  Width="430" Height="430" ></Border>
-                <Border Background="gray" Width="430"  Height="430"></Border>-->
-                <!--<Border Background="gray" Width="430" Height="430"></Border>-->
-           
+
+
+            <ItemsControl   x:Name="itc"  Style="{StaticResource ItemsControlVirtualization}" >
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel  />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate >
+                        <Border   x:Name="itcb"  Background="{Binding color}"  Width="{Binding lenght}" Height="{Binding lenght}"  BorderBrush="White" BorderThickness="5" CornerRadius="15">
+                            <TextBlock Text ="{Binding title}" FontSize="25"></TextBlock>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
+
+            <!--<Viewbox Stretch="Fill">
+                <Canvas x:Name="can" >
+                    <Grid  >
+
+
+                    </Grid>
+                    </Canvas>
+                </Viewbox>-->   
             
         </Grid>
 
