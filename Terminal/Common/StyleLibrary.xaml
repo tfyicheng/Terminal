@@ -470,18 +470,18 @@
                                 <Condition Property="IsMouseOver" Value="True"/>
                                 <Condition Property="IsPressed" Value="False"/>
                             </MultiTrigger.Conditions>
-                            <Setter Property="Foreground" Value="#FF6D00"/>
-                            <Setter Property="BorderBrush" Value="#FFD3B3"/>
-                            <Setter Property="Background" Value="#FFF0E6"/>
+                            <Setter Property="Foreground" Value="#FF1717"/>
+                            <Setter Property="BorderBrush" Value="#DCDFE6"/>
+                            <Setter Property="Background" Value="#fff"/>
                         </MultiTrigger>
                         <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Foreground" Value="#E66200"/>
-                            <Setter Property="BorderBrush" Value="#E66200"/>
-                            <Setter Property="Background" Value="#FFF0E6"/>
+                            <Setter Property="Foreground" Value="#FF1717"/>
+                            <Setter Property="BorderBrush" Value="#FF1717"/>
+                            <Setter Property="Background" Value="#FFF"/>
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter TargetName="txbWait" Property="Visibility" Value="Visible"/>
-                            <Setter Property="Background" Value="#FFF0E6"/>
+                            <Setter Property="Background" Value="#FFF"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -740,8 +740,8 @@
     <!--主要按钮(等待)-->
     <Style x:Key="ButtonPrimaryWait" TargetType="{x:Type Button}">
         <Setter Property="Height" Value="40"/>
-        <Setter Property="MinWidth" Value="70"/>
-        <Setter Property="Background" Value="#FF6D00"/>
+        <Setter Property="MinWidth" Value="80"/>
+        <Setter Property="Background" Value="#71B8FC"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Foreground" Value="#FFFFFF"/>
         <Setter Property="FontSize" Value="14"/>
@@ -779,14 +779,14 @@
                                 <Condition Property="IsMouseOver" Value="True"/>
                                 <Condition Property="IsPressed" Value="False"/>
                             </MultiTrigger.Conditions>
-                            <Setter Property="Background" Value="#FF8A33"/>
+                            <Setter Property="Background" Value="#99CCFF"/>
                         </MultiTrigger>
                         <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Background" Value="#E66200"/>
+                            <Setter Property="Background" Value="#71B8FC"/>
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter TargetName="txbWait" Property="Visibility" Value="Visible"/>
-                            <Setter Property="Background" Value="#FFF0E6"/>
+                            <Setter Property="Background" Value="#71B8FC"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -934,7 +934,7 @@
                 <Trigger.EnterActions>
                     <BeginStoryboard>
                         <Storyboard>
-                            <ColorAnimation Storyboard.TargetProperty="Foreground.(SolidColorBrush.Color)" To="#F78989" Duration="0:0:0.2"/>
+                            <ColorAnimation Storyboard.TargetProperty="Foreground.(SolidColorBrush.Color)" To="#FF0000" Duration="0:0:0.2"/>
                         </Storyboard>
                     </BeginStoryboard>
                 </Trigger.EnterActions>

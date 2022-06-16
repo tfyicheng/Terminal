@@ -5,10 +5,13 @@ using System.Text;
 using System.Windows;
 using System.Threading.Tasks;
 using Terminal.Component.Pages;
+using System.Windows.Threading;
+using Terminal.Component.Windows;
+using Terminal.Library;
 
 namespace Terminal.Common
 {
-    class ClassHelper
+   public  class ClassHelper
     {
         public delegate void RouteEvent(ClassHelper.PageType pageName);
         public delegate void CallEvent(ClassHelper.CallType typeName);
@@ -26,6 +29,14 @@ namespace Terminal.Common
 
         // 选中的联系人好友ID
         public static string ContactPersonFriendID { get; set; }
+
+        // 程序主线程
+        public static Dispatcher Dispatcher { get; set; }
+
+        // 登录窗体
+        public static Login Login { get; set; }
+        
+
         #endregion
 
         #region 枚举类型
@@ -72,6 +83,20 @@ namespace Terminal.Common
         {
             Text,
             Image
+        }
+        // MessageBox模式
+        public enum MessageBoxType
+        {
+            Inform,
+            Select
+        }
+
+        // MessageBox关闭方式
+        public enum MessageBoxCloseType
+        {
+            Close,
+            Left,
+            Right
         }
         #endregion
 
@@ -133,26 +158,7 @@ namespace Terminal.Common
         }
 
 
-        /// <summary>
-        /// 窗体消息通知
-        /// </summary>
-        /// <param name="window">显示窗体</param>
-        /// <param name="messageType">0 成功 1 警告 2 默认 3 错误</param>
-        /// <param name="message">提示信息</param>
-        public static void MessageAlert(Type window, int messageType, string message)
-        {
-            if (window != null)
-            {
-                foreach (Delegate item in (MessageHint.GetInvocationList()).Where(item => item.Target.GetType() == window))
-                {
-                    item.DynamicInvoke(messageType, message);
-                }
-            }
-            else
-            {
-                MessageHint.Invoke(messageType, message);
-            }
-        }
+
 
 
         /// <summary>
@@ -182,5 +188,76 @@ namespace Terminal.Common
                 item.DynamicInvoke(dataType, data);//ClassHelper_DataPassingChanged(DataPassingType, System.Object)
             }
         }
+
+        /// <summary>
+        /// 窗体消息通知
+        /// </summary>
+        /// <param name="window">显示窗体</param>
+        /// <param name="messageType">0 成功 1 警告 2 默认 3 错误</param>
+        /// <param name="message">提示信息</param>
+        public static void MessageAlert(Type window, int messageType, string message)
+        {
+            if (window != null)
+            {
+                foreach (Delegate item in (MessageHint.GetInvocationList()).Where(item => item.Target.GetType() == window))
+                {
+                    item.DynamicInvoke(messageType, message);
+                }
+            }
+            else
+            {
+                MessageHint.Invoke(messageType, message);
+            }
+        }
+
+        /// <summary>
+        /// 消息盒子
+        /// </summary>
+        /// <param name="window">父窗体</param>
+        /// <param name="messageBoxType">消息类型</param>
+        /// <param name="message">消息</param>
+        /// <param name="leftButton">左侧按钮(可空)</param>
+        /// <param name="rightButton">右侧按钮(可空)</param>
+        /// <returns></returns>
+        public static MessageBoxCloseType AlertMessageBox(Window window, MessageBoxType messageBoxType, string message, MessageBoxButtonModel leftButton = null, MessageBoxButtonModel rightButton = null)
+        {
+            if (leftButton == null)
+            {
+                leftButton = new MessageBoxButtonModel()
+                {
+                    Hint = FindResource<string>("Cancel")
+                };
+            }
+            else if (string.IsNullOrEmpty(leftButton.Hint))
+            {
+                leftButton.Hint = FindResource<string>("Cancel");
+            }
+            if (rightButton == null)
+            {
+                rightButton = new MessageBoxButtonModel()
+                {
+                    Hint = FindResource<string>("Confirm")
+                };
+            }
+            else if (string.IsNullOrEmpty(rightButton.Hint))
+            {
+                rightButton.Hint = FindResource<string>("Confirm");
+            }
+            MessageBoxCloseType messageBoxCloseType = MessageBoxCloseType.Close;
+            Dispatcher.Invoke(delegate
+            {
+                ClientMessageBox messageBox = new ClientMessageBox(messageBoxType, message, leftButton, rightButton)
+                {
+                    Owner = window.IsActive ? window : null
+                };
+                messageBox.ShowDialog();
+                messageBoxCloseType = messageBox.CloseType;
+            });
+           
+           
+            return messageBoxCloseType;
+        }
+
+
     }
 }

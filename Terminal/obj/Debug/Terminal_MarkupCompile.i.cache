@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\c-demo\ZD\Terminal\Terminal\obj\Debug\
+D:\c-demo\ZD\TerminalDisp\Terminal\obj\Debug\
 Terminal
 none
 false
 DEBUG;TRACE
-D:\c-demo\ZD\Terminal\Terminal\App.xaml
-41331454879
+D:\c-demo\ZD\TerminalDisp\Terminal\App.xaml
+422091622288
 3271346655
-68746170601
-16-244119294
-Common\ChineseLibrary.xaml;Common\ConverterLibrary.xaml;Common\StyleLibrary.xaml;Component\Controls\AddItem.xaml;Component\Controls\ChatItem.xaml;Component\Controls\ChatMain.xaml;Component\Controls\CodecsCfgView.xaml;Component\Controls\ContactsCfgView.xaml;Component\Controls\FriendItem.xaml;Component\Controls\GeneralCfgView.xaml;Component\Controls\InfoPage.xaml;Component\Controls\MasterChat.xaml;Component\Controls\MeetingHistoryItem.xaml;Component\Controls\MeetingItem.xaml;Component\Controls\MessageMe.xaml;Component\Controls\MessageOther.xaml;Component\Controls\NetworkCfgView.xaml;Component\Controls\QosCfgView.xaml;Component\Controls\ReadOnlyRichBox.xaml;Component\Controls\SelectedItem.xaml;Component\Controls\Table.xaml;Component\Pages\AddressBook.xaml;Component\Pages\AppointmentMeeting.xaml;Component\Pages\AutoTest.xaml;Component\Pages\DataCollect.xaml;Component\Pages\EnergyAssess.xaml;Component\Pages\IPCall.xaml;Component\Pages\ManualTest.xaml;Component\Pages\RadioDevice.xaml;Component\Pages\RadioFrequency.xaml;Component\Pages\TerminalDevice.xaml;Component\Pages\VideoTalk.xaml;Component\Pages\VoiceTalk.xaml;Component\Windows\Config.xaml;Component\Windows\Login.xaml;Component\Windows\MainWindow.xaml;Component\Windows\Meeting.xaml;Component\Windows\Memebers.xaml;Component\Windows\P2PCall.xaml;Component\Windows\VoiceSend.xaml;Library\Dictionary\DataTemplateSelectorLibrary.xaml;
+70-841801784
+161880356770
+Common\ChineseLibrary.xaml;Common\ConverterLibrary.xaml;Common\StyleLibrary.xaml;Component\Controls\AddItem.xaml;Component\Controls\ChatItem.xaml;Component\Controls\ChatMain.xaml;Component\Controls\CodecsCfgView.xaml;Component\Controls\ContactsCfgView.xaml;Component\Controls\FriendItem.xaml;Component\Controls\GeneralCfgView.xaml;Component\Controls\InfoPage.xaml;Component\Controls\MasterChat.xaml;Component\Controls\MeetingHistoryItem.xaml;Component\Controls\MeetingItem.xaml;Component\Controls\MessageMe.xaml;Component\Controls\MessageOther.xaml;Component\Controls\NetworkCfgView.xaml;Component\Controls\QosCfgView.xaml;Component\Controls\ReadOnlyRichBox.xaml;Component\Controls\SelectedItem.xaml;Component\Controls\Table.xaml;Component\Pages\AddressBook.xaml;Component\Pages\AppointmentMeeting.xaml;Component\Pages\AutoTest.xaml;Component\Pages\DataCollect.xaml;Component\Pages\EnergyAssess.xaml;Component\Pages\IPCall.xaml;Component\Pages\ManualTest.xaml;Component\Pages\RadioDevice.xaml;Component\Pages\RadioFrequency.xaml;Component\Pages\TerminalDevice.xaml;Component\Pages\VideoTalk.xaml;Component\Pages\VoiceTalk.xaml;Component\Windows\ClientMessageBox.xaml;Component\Windows\Config.xaml;Component\Windows\Login.xaml;Component\Windows\MainWindow.xaml;Component\Windows\Meeting.xaml;Component\Windows\Memebers.xaml;Component\Windows\P2PCall.xaml;Component\Windows\VoiceSend.xaml;Library\Dictionary\DataTemplateSelectorLibrary.xaml;
 
-False
+True
 

@@ -217,6 +217,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Component\Windows\ClientMessageBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Component\Windows\Config.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -325,6 +329,9 @@
     <Compile Include="Component\Pages\VoiceTalk.xaml.cs">
       <DependentUpon>VoiceTalk.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Component\Windows\ClientMessageBox.xaml.cs">
+      <DependentUpon>ClientMessageBox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Component\Windows\Config.xaml.cs">
       <DependentUpon>Config.xaml</DependentUpon>
     </Compile>
@@ -375,6 +382,7 @@
     <Compile Include="Library\Converter\RichTextBoxWidthConvert.cs" />
     <Compile Include="Library\DataTemplateSelectors\ChatTemplateSelectors.cs" />
     <Compile Include="Library\FileModel.cs" />
+    <Compile Include="Library\MessageBoxButtonModel.cs" />
     <Compile Include="Library\MessageType.cs" />
     <Compile Include="Library\ResultModel\ChatMessagesModel.cs" />
     <Compile Include="Library\ResultModel\FriendInfoModel.cs" />

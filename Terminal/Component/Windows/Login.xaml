@@ -2,6 +2,7 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
           xmlns:hc="https://handyorg.github.io/handycontrol" Background="Transparent"
+         Loaded="LoginMain_Loaded" Unloaded="LoginMain_Unloaded"
           Title="登陆" Height="382" Width="310" WindowStyle="None" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon="pack://application:,,,/Resources/icon.ico" MouseLeftButtonDown="Window_MouseLeftButtonDown_1">
     <Window.Effect>
         <DropShadowEffect Color="#888888" ShadowDepth="0" Opacity="0.3" />
@@ -42,12 +43,12 @@
         <!--头像-->
         <Image Grid.Row="1" Source="pack://application:,,,/Resources/tx.png" Width="100" Height="100" Margin="0,25,0,47" ></Image>
         <!--输入框-->
-        <TextBox x:Name="account" Margin="40,161,40,0" Grid.Row="1" TextWrapping="NoWrap" 
+        <TextBox x:Name="LoginName" Margin="40,161,40,0" Grid.Row="1" TextWrapping="NoWrap" 
                    Style="{StaticResource TextBoxExtend}" hc:InfoElement.Placeholder="输入账号"
                   hc:BorderElement.CornerRadius="0"
                   FontSize="15"
                  VerticalAlignment="Top" Width="220" BorderThickness="0,0,0,1" TextAlignment="Left" Height="28" Grid.RowSpan="2"/>
-        <PasswordBox x:Name="password"  
+        <PasswordBox x:Name="Password"  
                     hc:BorderElement.CornerRadius="0"
                      BorderThickness="0,0,0,1"
                  Style="{DynamicResource PasswordBoxExtend}" PasswordChar="●" 
@@ -58,10 +59,10 @@
                   
                      Margin="40,43,40,0" Grid.Row="2" VerticalAlignment="Top" Width="220"  Height="28" Cursor="IBeam"/>
         <!--按钮-->
-        <Button Width="160"           
-                   FontSize="18"
+        <Button Width="160"  x:Name="Loginbtn"         
+                   FontSize="18" Cursor="Hand"
                    BorderThickness="0"
-                Height="37" Content="登录" Cursor="Hand" TextBlock.FontSize="19" TextBlock.Foreground="White" Margin="70,102,70,0" Grid.Row="2" VerticalAlignment="Top"  Click="SignIn_Click">
+                Height="37" Content="登录"  TextBlock.FontSize="19" TextBlock.Foreground="White" Margin="70,102,70,0" Grid.Row="2" VerticalAlignment="Top"  Click="SignIn_Click">
             <Button.Background>
                 <LinearGradientBrush StartPoint="0,4" EndPoint="1,0">
                     <GradientStop Color="#a4ebff" Offset="0.5"/>

@@ -2,6 +2,9 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                      xmlns:system="clr-namespace:System;assembly=System.Runtime"
                     xmlns:system1="clr-namespace:System;assembly=mscorlib">
+    <system1:String x:Key="Hint">提示</system1:String>
+    <system1:String x:Key="Confirm">确定</system1:String>
+    <system1:String x:Key="Cancel">取消</system1:String>
     <system1:String x:Key="VoiceTalk">语音通话</system1:String>
     <system1:String x:Key="VideoTalk">视频通话</system1:String>
     <system1:String x:Key="MeetingTalk">视频会议</system1:String>
